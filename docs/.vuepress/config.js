@@ -3,7 +3,7 @@ module.exports = {
   title: '个人文档',
   description: '练习文档',
   head: [
-    ['link', { rel: 'shortcut icon', type: "image/x-icon", href: `/favicon.ico` }]
+    ['link', { rel: 'shortcut icon', type: "image/x-icon", href: 'favicon.ico' }]
   ],
   themeConfig: {
     nav: [
