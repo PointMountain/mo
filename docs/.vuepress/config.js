@@ -10,6 +10,12 @@ module.exports = {
       {text: 'Home', link: '/'},
       {text: 'Guide', link: '/guide/'},
       {text: 'GayHub', link: 'https://github.com/PointMountain/mo'}
-    ]
+		],
+		sidebar: {
+			'/guide/':[
+				'',
+				'vue'
+			]
+		}
   }
 }
