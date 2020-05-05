@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>JS预习 | Ming</title>
+    <meta name="generator" content="VuePress 1.4.1">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <meta name="description" content="学习文档">
+    <link rel="preload" href="/mo/assets/css/0.styles.4ab656b6.css" as="style"><link rel="preload" href="/mo/assets/js/app.f264d2b1.js" as="script"><link rel="preload" href="/mo/assets/js/2.652e467a.js" as="script"><link rel="preload" href="/mo/assets/js/6.cf0eee1b.js" as="script"><link rel="prefetch" href="/mo/assets/js/10.ff4135a6.js"><link rel="prefetch" href="/mo/assets/js/11.9cb3e30f.js"><link rel="prefetch" href="/mo/assets/js/12.d7fba6b0.js"><link rel="prefetch" href="/mo/assets/js/13.66e129c2.js"><link rel="prefetch" href="/mo/assets/js/14.b43080a0.js"><link rel="prefetch" href="/mo/assets/js/3.492c5a51.js"><link rel="prefetch" href="/mo/assets/js/4.0ef502cb.js"><link rel="prefetch" href="/mo/assets/js/5.97703052.js"><link rel="prefetch" href="/mo/assets/js/7.2583d9e5.js"><link rel="prefetch" href="/mo/assets/js/8.ec5639ec.js"><link rel="prefetch" href="/mo/assets/js/9.c0beee60.js">
+    <link rel="stylesheet" href="/mo/assets/css/0.styles.4ab656b6.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/mo/" class="home-link router-link-active"><!----> <span class="site-name">Ming</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/mo/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/mo/Javascript/base.html" class="nav-link router-link-exact-active router-link-active">
+  Javascript基础
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Vue" class="dropdown-title"><span class="title">Vue</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-base.html" class="nav-link">
+  Vue基础使用
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-advanced.html" class="nav-link">
+  Vue高级特性
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vuex.html" class="nav-link">
+  Vuex
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-router.html" class="nav-link">
+  Vue-router
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-principle.html" class="nav-link">
+  Vue原理
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-code.html" class="nav-link">
+  Vue源码解析
+</a></li></ul></div></div><div class="nav-item"><a href="https://github.com/PointMountain/mo" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GayHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/mo/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/mo/Javascript/base.html" class="nav-link router-link-exact-active router-link-active">
+  Javascript基础
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Vue" class="dropdown-title"><span class="title">Vue</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-base.html" class="nav-link">
+  Vue基础使用
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-advanced.html" class="nav-link">
+  Vue高级特性
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vuex.html" class="nav-link">
+  Vuex
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-router.html" class="nav-link">
+  Vue-router
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-principle.html" class="nav-link">
+  Vue原理
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-code.html" class="nav-link">
+  Vue源码解析
+</a></li></ul></div></div><div class="nav-item"><a href="https://github.com/PointMountain/mo" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GayHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/mo/Javascript/base.html" class="active sidebar-link">Javascript基础</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/mo/Javascript/base.html#变量提升" class="sidebar-link">变量提升</a></li><li class="sidebar-sub-header"><a href="/mo/Javascript/base.html#重复声明" class="sidebar-link">重复声明</a></li><li class="sidebar-sub-header"><a href="/mo/Javascript/base.html#关于条件判断的处理" class="sidebar-link">关于条件判断的处理</a></li><li class="sidebar-sub-header"><a href="/mo/Javascript/base.html#暂时性死区" class="sidebar-link">暂时性死区</a></li><li class="sidebar-sub-header"><a href="/mo/Javascript/base.html#私有栈内存中的变量处理" class="sidebar-link">私有栈内存中的变量处理</a></li><li class="sidebar-sub-header"><a href="/mo/Javascript/base.html#闭包作用域" class="sidebar-link">闭包作用域</a></li><li class="sidebar-sub-header"><a href="/mo/Javascript/base.html#闭包练习题" class="sidebar-link">闭包练习题</a></li><li class="sidebar-sub-header"><a href="/mo/Javascript/base.html#闭包的两个作用" class="sidebar-link">闭包的两个作用</a></li></ul></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="js预习"><a href="#js预习" class="header-anchor">#</a> JS预习</h1> <h2 id="变量提升"><a href="#变量提升" class="header-anchor">#</a> 变量提升</h2> <h3 id="第一题"><a href="#第一题" class="header-anchor">#</a> 第一题</h3> <div class="language-javascript extra-class"><pre class="language-javascript"><code>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//undefined</span>
+<span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">12</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> b <span class="token operator">=</span> a<span class="token punctuation">;</span>
+b <span class="token operator">=</span> <span class="token number">13</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 12</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 13</span>
+</code></pre></div><h4 id="第一题解析"><a href="#第一题解析" class="header-anchor">#</a> 第一题解析</h4> <p>浏览器为了能够让代码自上而下执行，首先会开辟一块内存（栈内存）=&gt; 作用域 或 执行上下文(context)
+1. 执行代码  =&gt; 全局作用域
+2. 存储变量以及基本数据类型的值</p> <p>变量提升阶段:</p> <p><code>var a; var b;</code></p> <table><thead><tr><th>变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>a</td> <td></td></tr> <tr><td>b</td> <td></td></tr></tbody></table> <p>代码执行(步骤):</p> <ol><li><p>进栈执行</p></li> <li><p><code>console.log(a);</code> // undefined 因为在变量提升阶段，<code>a</code>被变量提升了，声明了。</p></li> <li><p><code>var a = 12;</code> // =&gt; 其实只是 <code>a = 12;</code> 并将变量<code>a</code> 指向值<code>12</code>   不用声明是因为在变量提升阶段已经把<code>a</code>声明了</p> <table><thead><tr><th>变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>a  →</td> <td>12</td></tr> <tr><td>b</td> <td></td></tr></tbody></table></li> <li><p><code>var b = a;</code> // =&gt; 其实只是 <code>a = b;</code> 并将变量<code>b</code> 指向 变量<code>a</code>所指向的值<code>12</code>;</p> <table><thead><tr><th>变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>a</td> <td>12</td></tr> <tr><td>b  ↗</td> <td></td></tr></tbody></table></li> <li><p><code>b = 13;</code> // =&gt;  将变量<code>b</code> 取消 指向值<code>12</code> 改 指向 值<code>13</code>;</p> <table><thead><tr><th>变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>a →</td> <td>12</td></tr> <tr><td>b  →</td> <td>13</td></tr></tbody></table></li></ol> <blockquote><p>当浏览器开辟出供代码执行的栈内存后，代码并没有自上而下立即执行，而是继续做了一些事情：
+<strong>把当前作用域中所有带 var/function 关键字的进行提前的声明和定义  =&gt; 变量提升机制</strong></p></blockquote> <ul><li>带<code>var</code>的只是提前声明(declare) =&gt; 什么是声明呢？ <code>var a</code>； 如果只声明没有赋值，默认值是undefined</li> <li>带<code>function</code>的不仅声明，而且还定义了(defined)  <code>a = 13</code> 定义其实就是赋值，准确来说就是让变量和某个值进行关联</li></ul> <h3 id="第二题"><a href="#第二题" class="header-anchor">#</a> 第二题</h3> <div class="language-javascript extra-class"><pre class="language-javascript"><code>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">sum</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 30</span>
+<span class="token keyword">function</span> <span class="token function">sum</span><span class="token punctuation">(</span><span class="token parameter">n<span class="token punctuation">,</span>m</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> n <span class="token operator">+</span> m<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="第二题解析"><a href="#第二题解析" class="header-anchor">#</a> 第二题解析</h4> <p>遇到引用类型值（对象和函数）</p> <ol><li>开辟一个新的内存（堆内存 16进制的内存地址）</li> <li>把内存存储在堆内存中（对象存储的是键值对，函数存储的是函数体中的代码字符串）</li> <li>让变量和地址关联在一起</li></ol> <p>变量提升阶段:</p> <p><code>function sum(n,m){ return n + m; }</code>
+开辟一个堆内存空间，存储函数的内容
+16进制地址:<code>AAFFOO</code>
+值: <code>return n + m;</code> 代码字符串</p> <table><thead><tr><th>变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>sum</td> <td>AAFFOO</td></tr></tbody></table> <p>代码执行(步骤):<br>
+1.进栈执行
+2.<code>console.log(sum(10,20))</code>// 此时函数已经存在了，可以执行
+3.<code>function sum(n,m){ return n + m; }</code>         // 已经变量提升过了。已经声明与定义</p> <h3 id="第三题"><a href="#第三题" class="header-anchor">#</a> 第三题</h3> <div class="language-javascript extra-class"><pre class="language-javascript"><code>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">sum</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 30</span>
+<span class="token keyword">var</span> <span class="token function-variable function">sum</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">n<span class="token punctuation">,</span>m</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> n <span class="token operator">+</span> m<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="第三题解析"><a href="#第三题解析" class="header-anchor">#</a> 第三题解析</h4> <p>遇到函数表达式,由于使用<code>VAR</code>来创建<code>sum</code>，变量提升阶段只会声明变量，不会赋值，所以此时函数在前面执行，函数是没有值，不能执行(真实项目中这种方式最常见，因为它操作严谨)</p> <p>变量提升阶段:</p> <p><code>var sum</code></p> <table><thead><tr><th>变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>sum</td> <td></td></tr></tbody></table> <p>代码执行(步骤):<br>
+1.进栈执行
+2.<code>console.log(sum(10,20))</code>// 此时<code>sum</code>值为undefined 会抛出错误 <code>sum is not function</code> 不会继续执行</p> <h3 id="第四题"><a href="#第四题" class="header-anchor">#</a> 第四题</h3> <div class="language-javascript extra-class"><pre class="language-javascript"><code>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Uncaught ReferenceError: Cannot access 'a' before initialization(文件运行写在&lt;script&gt;) 或者 Uncaught ReferenceError: a is not defined(运行在v8引擎下)</span>
+<span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token number">12</span><span class="token punctuation">;</span>
+a <span class="token operator">=</span> <span class="token number">13</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h4 id="第四题解析"><a href="#第四题解析" class="header-anchor">#</a> 第四题解析</h4> <blockquote><p>重要:运行文件时,代码写在文件，然后在浏览器运行。不在V8引擎下.</p></blockquote> <p>引擎在处理变量时，它们的生命周期由以下阶段组成:</p> <table><thead><tr><th>阶段</th> <th>作用</th></tr></thead> <tbody><tr><td>声明阶段(Declaration phase)</td> <td>在作用域中注册一个变量</td></tr> <tr><td>初始化阶段(Initialization phase)</td> <td>分配内存并为作用域中的变量创建绑定，变量将使用undefined自动初始化</td></tr> <tr><td>赋值阶段(Assignment phase)</td> <td>分配内存并为作用域中的变量创建绑定，变量将使用undefined自动初始化</td></tr></tbody></table> <p>此题，引擎遇到<code>let a</code>  时，会在声明阶段注册了变量<code>a</code>，但是没有进入初始化阶段。（暂时性死区）
+代码执行(步骤)
+1.进栈执行
+2.<code>console.log(a);</code>// 在暂时性死区中找到a，a没有被初始化，抛出异常.<code>Uncaught ReferenceError: Cannot access 'a' before initialization</code> ，代码终止运行.</p> <blockquote><p>在V8引擎环境下</p></blockquote> <p>ECMAScript标准规定的，浏览器也是按照标准来实现的，使用let定义的变量不会发生变量提升。并没有声明阶段的提升。</p> <p>代码执行(步骤)</p> <ol><li>进栈执行</li> <li><code>console.log(a);</code>// 变量<code>a</code>未定义 抛出异常 <code>Uncaught ReferenceError: a is not defined</code> 代码终止运行</li></ol> <h3 id="let-const和var的区别"><a href="#let-const和var的区别" class="header-anchor">#</a> let/const和var的区别</h3> <ol><li><p><code>let</code>和<code>const</code>不存在变量提升机制(只存在声明阶段提升，没有初始化阶段)</p> <blockquote><p>创建变量的六种方式中:<code>var</code>和<code>function</code>有变量提升，而<code>let</code>/<code>const</code>/<code>class</code>/<code>import</code>都不存在这个机制</p></blockquote></li> <li><p>var允许重复声明，而let不允许</p> <blockquote><ul><li><p>在相同的作用域中（或执行上下文中），如果使用var/function关键词声明变量并且重复声明，是不会有影响的（声明第一次之后，之后再遇到就不在重复声明了）</p></li> <li><p>但是使用let/const就不行，浏览器会教研当前作用域中是否已经存在这个变量了，如果已经存在了，则再次基于let等重新声明就会报错</p></li></ul></blockquote></li></ol> <h4 id="带var和不带var的区别"><a href="#带var和不带var的区别" class="header-anchor">#</a> 带VAR和不带VAR的区别</h4> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// =&gt; 在全局作用域下的区别</span>
+<span class="token comment">/*
+不带var的 相当于给全局对象window设置了一个属性a
+   window.a = 13;
+*/</span>
+a <span class="token operator">=</span> <span class="token number">13</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//=&gt; window.a</span>
+
+<span class="token comment">/* 
+栈内存变量存储空间
+带var的，是在全局作用域下声明了一个变量b(全局变量)，但是在全局下声明的变量也同样相当于给window增加了一个对应的属性（只有全局作用域具备这个特点)
+*/</span>
+<span class="token keyword">var</span> b <span class="token operator">=</span> <span class="token number">14</span><span class="token punctuation">;</span> <span class="token comment">// 创建变量b 并且 给window设置了属性b</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 14</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 14</span>
+
+</code></pre></div><h2 id="重复声明"><a href="#重复声明" class="header-anchor">#</a> 重复声明</h2> <h3 id="第一题-2"><a href="#第一题-2" class="header-anchor">#</a> 第一题</h3> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">12</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">13</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 13</span>
+</code></pre></div><h5 id="第一题解析-2"><a href="#第一题解析-2" class="header-anchor">#</a> 第一题解析</h5> <p>变量提升阶段:</p> <table><thead><tr><th>变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>a</td> <td></td></tr></tbody></table> <p>引擎遇到声明相同变量，只声明第一次，后面不再声明。</p> <p>代码执行（步骤）</p> <ol><li>进栈执行</li> <li><code>var a = 12;</code>// 已经声明过了，<code>a=12</code>
+| 变量存储 | 值存储 |
+| -------- | ------ |
+| a        | 12     |</li> <li><code>var a = 13;</code>// 已经声明过了,不再重复声明, <code>a=13</code></li></ol> <table><thead><tr><th>变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>a</td> <td>13</td></tr></tbody></table> <ol start="4"><li><code>console.log(a);</code> // 13</li></ol> <h3 id="第二题-2"><a href="#第二题-2" class="header-anchor">#</a> 第二题</h3> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token number">12</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token number">13</span><span class="token punctuation">;</span> <span class="token comment">// Identifier 'a' has already been declared</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+</code></pre></div><h5 id="第二题解析-2"><a href="#第二题解析-2" class="header-anchor">#</a> 第二题解析</h5> <p>词法解析阶段已经报错了.</p> <h3 id="第三题-2"><a href="#第三题-2" class="header-anchor">#</a> 第三题</h3> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// 在浏览器开辟栈内存供代码自上而下执行之前，不仅有变量提升的操作，还有很多其它的操作=&gt;“词法解析”或者“词法检测”；就是检测当前即将要执行的代码是否会出现语法错误，如果出现错误，代码将不会再执行（第一行都不会执行）</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 直接报错 这行不执行</span>
+<span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token number">12</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token number">13</span><span class="token punctuation">;</span><span class="token comment">// Uncaught SyntaxError: Identifier 'a' has already been declared</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h5 id="第三题解析-2"><a href="#第三题解析-2" class="header-anchor">#</a> 第三题解析</h5> <p>词法解析阶段已经报错了.</p> <h3 id="第四题-2"><a href="#第四题-2" class="header-anchor">#</a> 第四题</h3> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+<span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+<span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> <span class="token function-variable function">fn</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+<span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+<span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+<span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h4 id="第四题解析-2"><a href="#第四题解析-2" class="header-anchor">#</a> 第四题解析</h4> <p>变量提升阶段:</p> <p>词法解析或者变量提升:</p> <p><code>function fn() {console.log(1)}</code></p> <p>创建一个堆内存</p> <p>堆内存地址:AFO</p> <p><code>&quot;console.log(1)&quot;</code></p> <table><thead><tr><th>变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>fn</td> <td>AF0</td></tr></tbody></table> <p><code>function fn() {console.log(2)}</code></p> <p>堆内存地址:AFO</p> <p><code>&quot;console.log(1)&quot;</code></p> <p>堆内存地址:AF1</p> <p><code>&quot;console.log(2)&quot;</code></p> <table><thead><tr><th>变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>fn</td> <td>AF1</td></tr></tbody></table> <p><code>var fn = function () {console.log(3)}</code>
+只声明不赋值，但是变量fn已经声明了，所以不管。</p> <p><code>function fn() {console.log(4)}</code></p> <p>堆内存地址:AFO</p> <p><code>&quot;console.log(1)&quot;</code></p> <p>堆内存地址:AF1</p> <p><code>&quot;console.log(2)&quot;</code></p> <p>堆内存地址:AF2</p> <p><code>&quot;console.log(4)&quot;</code></p> <table><thead><tr><th>变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>fn</td> <td>AF2</td></tr></tbody></table> <p><code>function fn() {console.log(5)}</code></p> <p>堆内存地址:AFO</p> <p><code>&quot;console.log(1)&quot;</code></p> <p>堆内存地址:AF1</p> <p><code>&quot;console.log(2)&quot;</code></p> <p>堆内存地址:AF2</p> <p><code>&quot;console.log(4)&quot;</code></p> <p>堆内存地址:AF3</p> <p><code>&quot;console.log(5)&quot;</code></p> <table><thead><tr><th>变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>fn</td> <td>AF3</td></tr></tbody></table> <p>代码执行：
+<code>fn()</code> // 5
+<code>function fn() {console.log(1)}</code> // 变量提升阶段完成了，跳过
+<code>fn();</code> // 5
+<code>function fn() {console.log(2)}</code>  // 变量提升阶段完成了，跳过
+<code>fn();</code> // 5
+<code>var fn = function() {console.log(3)}</code> // 赋值操作 fn = AF4</p> <p>堆内存地址:AF4</p> <p><code>&quot;console.log(3)&quot;</code></p> <table><thead><tr><th>变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>fn</td> <td>AF4</td></tr></tbody></table> <p><code>fn();</code> // 3
+<code>function fn() {console.log(4)}</code>// 变量提升阶段完成了，跳过
+<code>fn();</code> // 3
+<code>function fn() {console.log(5)}</code>// 变量提升阶段完成了，跳过
+<code>fn();</code> // 3</p> <h2 id="关于条件判断的处理"><a href="#关于条件判断的处理" class="header-anchor">#</a> 关于条件判断的处理</h2> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+    name<span class="token operator">:</span> <span class="token string">'tail'</span><span class="token punctuation">,</span>
+    age<span class="token operator">:</span><span class="token number">24</span><span class="token punctuation">,</span>
+    <span class="token constant">GF</span><span class="token operator">:</span><span class="token keyword">null</span>
+<span class="token punctuation">}</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'name'</span> <span class="token keyword">in</span> obj<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'age'</span> <span class="token keyword">in</span> obj<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'GF'</span> <span class="token keyword">in</span> obj<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+</code></pre></div><div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">/*
+	全局作用域
+	1. 变量提升
+		但是做函数的有特殊性，在老版本浏览器总，确实不论条件是否成立，函数也是提前声明或者定义的，但是新版本浏览器中，为了兼容es6严谨的语法规则，条件中的函数在变量提升阶段只能提前声明，不能提前定义
+		function fn;
+	2. 代码执行
+*/</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>fn<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// undefined</span>
+<span class="token comment">// fn(); // =&gt; Uncaught TypeError: fn is not a function</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token string">'fn'</span> <span class="token keyword">in</span> window<span class="token punctuation">)</span><span class="token punctuation">{</span>
+   <span class="token comment">// 条件成立，进来后的第一件事是给FN赋值，然后在代码执行</span>
+   <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// hahh</span>
+	<span class="token keyword">function</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'hahh'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// hahh</span>
+</code></pre></div><h3 id="第一题-3"><a href="#第一题-3" class="header-anchor">#</a> 第一题</h3> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token function-variable function">f</span> <span class="token operator">=</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
+<span class="token function-variable function">g</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
+<span class="token operator">~</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">g</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&amp;&amp;</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">==</span><span class="token operator">!</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token comment">// Uncaught TypeError: g is not a function</span>
+        <span class="token function-variable function">f</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
+        <span class="token keyword">function</span> <span class="token function">g</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">g</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h4 id="第一题解析-3"><a href="#第一题解析-3" class="header-anchor">#</a> 第一题解析</h4> <p>全局作用域</p> <ol><li>变量提升</li> <li>代码执行</li></ol> <p><code>~function(){ if(g()&amp;&amp; []==![]){ f = function(){return false;} function g(){return true;} } }();</code></p> <p>自执行函数执行，形成一个私有作用域</p> <ol><li><p>变量提升</p> <p><code>function g;</code></p></li> <li><p>代码执行</p> <p><code>g()</code> // =&gt; <code>Uncaught TypeError: g is not a function</code></p></li></ol> <h2 id="暂时性死区"><a href="#暂时性死区" class="header-anchor">#</a> 暂时性死区</h2> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// 1.</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//  a is not defined</span>
+
+<span class="token comment">// 2.</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &quot;undefined&quot; 这是浏览器的bug，本应该是报错的，因为没有a（暂时性死区）</span>
+
+<span class="token comment">// 3.</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// V8 Uncaught ReferenceError: a is not defined   V8之前或在script标签 Uncaught SyntaxError: Identifier 'a' hasalready been declared</span>
+<span class="token keyword">let</span> a<span class="token punctuation">;</span>
+</code></pre></div><p>let 能解决typeof检测时出现的暂时性死区问题</p> <h2 id="私有栈内存中的变量处理"><a href="#私有栈内存中的变量处理" class="header-anchor">#</a> 私有栈内存中的变量处理</h2> <h3 id="第一题-4"><a href="#第一题-4" class="header-anchor">#</a> 第一题</h3> <div class="language-javascript extra-class"><pre class="language-javascript"><code>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// undefined undefined</span>
+<span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">12</span><span class="token punctuation">,</span>
+    b <span class="token operator">=</span> <span class="token number">12</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// undefined 12</span>
+    <span class="token keyword">var</span> a <span class="token operator">=</span> b <span class="token operator">=</span> <span class="token number">13</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 13 13</span>
+<span class="token punctuation">}</span>
+<span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 12 13</span>
+</code></pre></div><h4 id="第一题解析-4"><a href="#第一题解析-4" class="header-anchor">#</a> 第一题解析</h4> <blockquote><p>知识点:  var a = 12,b = 12; 等价于 var a = 12;var b = 12;</p> <p>var a = b = 13;   等价于 var a = 13; b = 13;</p></blockquote> <p>全局作用域下</p> <p>变量提升:</p> <p><code>function fn(){...}</code>开辟堆内存</p> <p>地址:AF0</p> <p>代码字符串:</p> <p><code>console.log(a,b); var a = b = 13; console.log(a,b);</code></p> <table><thead><tr><th>变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>a</td> <td></td></tr> <tr><td>b</td> <td></td></tr> <tr><td>fn</td> <td>AF0</td></tr></tbody></table> <p>代码执行:</p> <ol><li><p>进栈执行</p></li> <li><p><code>console.log(a,b);</code> // undefined undefined</p></li> <li><p><code>var a = 12, b = 12;</code></p></li></ol> <table><thead><tr><th>变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>a</td> <td>12</td></tr> <tr><td>b</td> <td>12</td></tr> <tr><td>fn</td> <td>AF0</td></tr></tbody></table> <ol start="4"><li><p><code>function fn(){ console.log(a,b); var a = b = 13; console.log(a,b); }</code> // 变量提升阶段已经声明定义了，跳过</p></li> <li><p><code>fn();</code> // 函数开始执行 形成私有作用域、私有栈内存、私有执行上下文</p> <blockquote><p>私有栈内存中代码执行的时候，如果遇到一个变量：</p> <p>首先看当前作用域下是否有该变量，如果有则使用该变量，如果没有，则沿着作用域链向上级查找，直到找到全局作用域为止。找到就用，找不到就报错。=&gt; 作用域链查找机制</p></blockquote></li></ol> <p>私有作用域下的变量提升</p> <table><thead><tr><th>私有变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>a</td> <td></td></tr></tbody></table> <p>私有作用域下的代码执行</p> <ol><li>进栈执行</li> <li><code>console.log(a,b);</code> // undefined 12   =&gt; b在私有作用域下没有找到 向上级作用域查找。在全局作用域下找到b,输出b  12</li> <li><code>var a = b = 13;</code> // 赋值私有作用域下的a = 13，把全局作用域下的b改为13;
+| 私有变量存储 | 值存储 |
+| -------- | ------ |
+| a        |    13    |</li></ol> <p>全局作用域下</p> <table><thead><tr><th>变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>a</td> <td>12</td></tr> <tr><td>b</td> <td>13</td></tr> <tr><td>fn</td> <td>AF0</td></tr></tbody></table> <div class="language- extra-class"><pre><code>4. `console.log(a,b);` // 13 13  // 私有作用域的a 和全局作用域下的b
+</code></pre></div><ol start="6"><li><code>console.log(a,b);</code> //  12 13  // 全局作用域下的a 和 b</li></ol> <h3 id="第二题-3"><a href="#第二题-3" class="header-anchor">#</a> 第二题</h3> <div class="language-javascript extra-class"><pre class="language-javascript"><code>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// undefined*3</span>
+<span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">12</span><span class="token punctuation">,</span>
+    b <span class="token operator">=</span> <span class="token number">13</span><span class="token punctuation">,</span>
+    c <span class="token operator">=</span> <span class="token number">14</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token parameter">a</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 10 13 14 </span>
+    a <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+    c <span class="token operator">=</span> <span class="token number">200</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 100 13 200</span>
+<span class="token punctuation">}</span>
+b <span class="token operator">=</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 12 undefined 200</span>
+</code></pre></div><h4 id="第二题解析-3"><a href="#第二题解析-3" class="header-anchor">#</a> 第二题解析</h4> <p>全局作用域</p> <p>变量提升</p> <p>全局遇到function</p> <p>开辟堆内存
+地址 AF0
+代码字符串:
+<code>console.log(a,b,c); a = 100; c = 200; console.log(a,b,c);</code></p> <table><thead><tr><th>全局变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>a</td> <td></td></tr> <tr><td>b</td> <td></td></tr> <tr><td>c</td> <td></td></tr> <tr><td>fn</td> <td>AF0</td></tr></tbody></table> <p>代码执行</p> <ol><li><p>进栈执行</p></li> <li><p><code>console.log(a,b,c);</code> // undefined*3</p></li> <li><p><code>var a = 12, b = 13, c = 14;</code></p></li></ol> <table><thead><tr><th>全局变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>a</td> <td>12</td></tr> <tr><td>b</td> <td>13</td></tr> <tr><td>c</td> <td>14</td></tr> <tr><td>fn</td> <td>AF0</td></tr></tbody></table> <ol start="4"><li><code>function fn(a) { console.log(a,b,c); // 10 13 14 a = 100; c = 200; console.log(a,b,c); // 100 13 200 }</code> // 不管</li> <li><code>b = fn(10);</code> // 先把fn函数执行传递实参10，把fn执行后的返回结果赋值给b
+函数执行 形成私有执行上下文
+私有作用域下的变量提升&amp;形参赋值
+| 私有变量存储 | 值存储 |
+| -------- | ------ |
+| a        |   10     |</li></ol> <p><code>console.log(a,b,c); a = 100; c = 200; console.log(a,b,c);</code></p> <blockquote><p>知识点: 私有变量：在私有作用域中变量存储区存储的变量</p> <ol><li>函数中带var/let/function/const...的变量</li> <li>形参变量也是私有变量</li></ol></blockquote> <p>私有作用域下的代码执行</p> <ol><li>进栈执行</li> <li><code>console.log(a,b,c);</code>10 13 14   // 私有作用域下的a  全局作用域下的b和c</li> <li><code>a = 100;</code> // 私有作用域下的a 赋值为 100
+| 私有变量存储 | 值存储 |
+| -------- | ------ |
+| a        |   100     |</li> <li><code>c = 200;</code> // 全局作用域下的c 赋值为200
+| 全局变量存储 | 值存储 |
+| -------- | ------ |
+| a        |   12     |
+| b        |   13     |
+| c        |   200     |
+| fn        |  AF0  |</li> <li><code>console.log(a,b,c);</code> //  100 13 200       私有作用域下的a，全局作用域下的b和c</li> <li><code>b = fn(10);</code> //   （函数的返回值只看return，有它，它后面是啥只返回值就是啥，没有默认返回的是undefined）fn(10)的返回结果为undefined  b赋值为undefined</li></ol> <table><thead><tr><th>全局变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>a</td> <td>12</td></tr> <tr><td>b</td> <td>undefined</td></tr> <tr><td>c</td> <td>200</td></tr> <tr><td>fn</td> <td>AF0</td></tr></tbody></table> <ol start="7"><li><code>console.log(a,b,c);</code> // 12 undefined 200</li></ol> <h3 id="第三题-3"><a href="#第三题-3" class="header-anchor">#</a> 第三题</h3> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">var</span> ary <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">23</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token parameter">ary</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>ary<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+	ary<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span> 
+	ary <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">100</span><span class="token punctuation">]</span><span class="token punctuation">;</span> 
+	ary<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>ary<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token function">fn</span><span class="token punctuation">(</span>ary<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>ary<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h4 id="第三题解析-3"><a href="#第三题解析-3" class="header-anchor">#</a> 第三题解析</h4> <p>全局作用域
+变量提升
+开辟堆内存
+地址:AF0
+代码字符串:
+<code>console.log(ary); 	ary[0] = 100; 	ary = [100]; 	ary[0] = 0; 	console.log(ary);</code></p> <table><thead><tr><th>全局变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>ary</td> <td></td></tr> <tr><td>fn</td> <td>AF0</td></tr></tbody></table> <p>代码执行:</p> <ol><li><p>进栈执行</p></li> <li><p><code>var ary = [12,23];</code>  //  数组是引用类型，开个堆内存
+开辟堆内存
+地址:AF1
+键值对:
+<code>0:12 1:23 length:2</code>
+| 全局变量存储 | 值存储 |
+| -------- | ------ |
+| ary        |   AF1     |
+| fn        |    AF0    |</p></li> <li><p><code>function fn(ary) { console.log(ary); ary[0] = 100; ary = [100]; ary[0] = 0; console.log(ary); }</code> // 不管</p></li> <li><p><code>fn(ary)</code> //  把fn执行  实参：具体的值（把全局变量ary存储的值当做实参传递进来）
+=&gt; fn(AF1)
+创建一个全新的私有作用域</p> <p>变量提升 &amp;&amp; 实参赋值</p> <table><thead><tr><th>私有变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>ary</td> <td>AF1</td></tr></tbody></table> <p>代码执行</p> <ol><li><p>进栈执行</p></li> <li><p><code>console.log(ary);</code> // 打印私有变量ary  [12,23]</p></li> <li><p><code>ary[0]=100</code><br>
+键值对:
+<code>0:100 1:23 length:2</code></p></li> <li><p><code>ary = [100]</code>
+创建一个堆内存
+地址:BF0
+键值对:
+<code>0:100 length:1</code></p> <table><thead><tr><th>私有变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>ary</td> <td>BF0</td></tr></tbody></table></li> <li><p><code>ary[0] = 0</code></p> <p>​	键值对:
+​	<code>0:0 ​	length:1</code></p></li> <li><p><code>console.log(ary)</code> // =&gt; [0]</p></li></ol></li> <li><p><code>console.log(ary);</code> // =&gt; 全局变量ary [100,23]</p></li></ol> <h3 id="第四题-3"><a href="#第四题-3" class="header-anchor">#</a> 第四题</h3> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">var</span> n <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">var</span> n <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        n<span class="token operator">--</span><span class="token punctuation">;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> f<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">var</span> x <span class="token operator">=</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">x</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h4 id="第四题解析-3"><a href="#第四题解析-3" class="header-anchor">#</a> 第四题解析</h4> <p>全局作用域</p> <p>变量提升</p> <p>开辟堆内存
+地址:AF0
+代码字符串
+<code>var n = 2; function f(){ n--; console.log(n); } f(); return f;</code></p> <table><thead><tr><th>全局变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>n</td> <td></td></tr> <tr><td>fn</td> <td>AF0</td></tr> <tr><td>x</td> <td></td></tr></tbody></table> <p>代码执行:&quot;</p> <ol><li><p>进栈执行</p></li> <li><p><code>var n = 1;</code></p> <table><thead><tr><th>全局变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>n</td> <td>1</td></tr> <tr><td>fn</td> <td>AF0</td></tr> <tr><td>x</td> <td></td></tr></tbody></table></li> <li><p><code>function fn(){ var n = 2; function f(){ n--; console.log(n); } f(); return f; }</code> // 不管</p></li> <li><p><code>var x = fn();</code> // x BF0</p> <table><thead><tr><th>全局变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>n</td> <td>1</td></tr> <tr><td>fn</td> <td>AF0</td></tr> <tr><td>x</td> <td>BF0</td></tr></tbody></table> <p>创建一个全新的私有作用域
+私有作用域
+变量提升</p> <p>开辟堆内存
+地址:BF0
+代码字符串</p> <div class="language- extra-class"><pre class="language-text"><code> `n--;
+ console.log(n);
+ `
+</code></pre></div><table><thead><tr><th>私有变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>n</td> <td></td></tr> <tr><td>f</td> <td>BF0</td></tr></tbody></table> <p>代码执行</p> <ol><li><p>进栈执行</p></li> <li><p><code>var n = 2;</code></p> <table><thead><tr><th>私有变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>n</td> <td>2</td></tr> <tr><td>f</td> <td>BF0</td></tr></tbody></table></li> <li><p><code>f();</code></p> <p>创建一个全新的私有作用域
+私有作用域
+变量提升</p> <p>代码执行:</p> <ol><li><p>进栈执行</p></li> <li><p><code>n--;</code> // 当前作用域没有n 向上级作用域查找  找到n (2)  减1
+| 私有变量存储 | 值存储 |
+| -------- | ------ |
+| n        |    1    |
+| f        |  BF0   |</p></li> <li><p><code>console.log(n)</code> // 打印上级作用域 n  // 1</p></li> <li><p>销毁当前私有作用域</p></li></ol></li></ol> <table><thead><tr><th>私有变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>n</td> <td>1</td></tr> <tr><td>f</td> <td>BF0</td></tr></tbody></table> <ol start="4"><li><p><code>return f;</code> // BF0</p></li> <li><p><code>x();</code>  // 执行BF0  =&gt; 0</p> <p>创建一个私有作用域</p> <p>变量提升</p> <p>代码执行</p> <ol><li><p>进栈执行</p></li> <li><p><code>n--</code>; 向上级作用域查找   n减一</p> <table><thead><tr><th>上级的私有变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>n</td> <td>0</td></tr></tbody></table></li></ol> <p>| f                  | BF0    |
+3. <code>console.log(n)</code> // 打印上级的私有变量 0</p></li> <li><p><code>console.log(n)</code> // 打印全局作用域下的n  1</p></li></ol> <table><thead><tr><th>全局变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>n</td> <td>1</td></tr> <tr><td>fn</td> <td>AF0</td></tr> <tr><td>x</td> <td>BF0</td></tr></tbody></table></li></ol> <h3 id="第五题"><a href="#第五题" class="header-anchor">#</a> 第五题</h3> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">var</span> i <span class="token operator">=</span><span class="token number">0</span> <span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token constant">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+    <span class="token comment">// 在函数x在A的私有作用域中创建</span>
+    <span class="token keyword">function</span> <span class="token function">x</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> x<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">var</span> y <span class="token operator">=</span> <span class="token constant">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// =&gt; y = x </span>
+<span class="token function">y</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//  x() console.log(i);不看函数在哪里执行,只看在哪里创建 i是A()函数里面的 声明的i  =&gt; 10</span>
+<span class="token keyword">function</span> <span class="token constant">B</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+    <span class="token function">y</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 同上 // =&gt;10</span>
+<span class="token punctuation">}</span>
+<span class="token constant">B</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="闭包作用域"><a href="#闭包作用域" class="header-anchor">#</a> 闭包作用域</h2> <ol><li><p>创建函数</p> <ol><li><p>开辟一个堆内存</p></li> <li><p>把函数体中的代码当做字符串存储进去</p></li> <li><p>把堆内存的地址赋值给函数名</p></li> <li><p><strong>函数在哪里创建，那么它执行时候所需要查找的上级作用域就是谁</strong></p></li></ol></li> <li><p>函数执行</p> <ol><li>形成一个全新的私有作用域、执行上下文、私有栈内存（执行一次形成一个，多个之间也不会产生影响）</li> <li>形参赋值 &amp; 变量提升</li> <li>代码执行（把所属堆内存中的代码字符串拿出来一行行执行）</li> <li><strong>遇到一个变量，首先看它是否为私有变量（形参和在私有作用域中声明的变量是私有变量),是私有的就操作自己的变量，不是私有的则向上上级作用域中查找。。一直找到全局作用域为止=&gt; 作用域链查找机制</strong></li> <li>私有变量和外界的变量没有必然关系，可以理解为被私有栈内存保护起来了，这种机制就是 <strong>闭包的保护机制</strong></li></ol></li> <li><p>关于堆栈内存释放问题</p> <blockquote><p>函数执行就会形成栈内存 (从内存中分配的一块空间) 如果内存都不销毁释放，很容易就会导致内存溢出（内存爆满，电脑卡死了），堆栈内存的释放问题是学习JS的核心知识之一</p></blockquote> <div class="language- extra-class"><pre><code> 堆内存释放问题
+</code></pre></div><div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// =&gt; 创建一个引用类型值，就会产生一个堆内存</span>
+<span class="token comment">// 如果当前创建的堆内存不被其它东西所占用了（浏览器会在空闲的时候，查找				每一个内存的引用状况，不被占用的都会给回收释放掉），则会释放</span>
+<span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+   name<span class="token operator">:</span> <span class="token string">'zhufeng'</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> oop <span class="token operator">=</span> obj<span class="token punctuation">;</span>
+<span class="token comment">// 此时obj和oop都占用着对象的堆内存,想要释放堆内存，需要手动解除变量和值的关联(null,空对象指针)</span>
+obj <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+oop <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+</code></pre></div><p>​       栈内存释放</p> <div class="language-ja extra-class"><pre class="language-text"><code>
+</code></pre></div><h3 id="第一题-5"><a href="#第一题-5" class="header-anchor">#</a> 第一题</h3></li></ol> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token parameter">i</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>n<span class="token operator">+</span><span class="token punctuation">(</span><span class="token operator">++</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">var</span> f <span class="token operator">=</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">f</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token function">fn</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span>
+<span class="token function">fn</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span>
+<span class="token function">f</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+</code></pre></div><h4 id="第一题解析-5"><a href="#第一题解析-5" class="header-anchor">#</a> 第一题解析</h4> <p>全局作用域下</p> <p>变量提升</p> <p><code>function fn(){...}</code>开辟堆内存</p> <p>地址:AF0</p> <p>代码字符串:</p> <p><code>return function(n){ console.log(n+(++i)); }</code></p> <table><thead><tr><th>全局变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>i</td> <td></td></tr> <tr><td>fn</td> <td>AF0</td></tr> <tr><td>f</td> <td></td></tr></tbody></table> <p>代码执行:</p> <ol><li><p>进栈执行</p></li> <li><p><code>var i = 5</code></p> <table><thead><tr><th>全局变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>i</td> <td>5</td></tr> <tr><td>fn</td> <td>AF0</td></tr> <tr><td>f</td> <td></td></tr></tbody></table></li> <li><p><code>function fn(i){ return function(n){ console.log(n+(++i)); } }</code> // 不管</p></li> <li><p><code>var f = fn(1);</code>// 执行fn(1) BF0返回值给f  //</p> <p>创建私有作用域FN-A（不销毁）</p> <p>变量提升&amp;&amp;形参赋值</p> <table><thead><tr><th>私有变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>i</td> <td>5</td></tr></tbody></table> <p>代码执行:</p> <ol><li><p>进栈执行</p></li> <li><p><code>return function(n){ // =&gt; return BF0 console.log(n+(++i)); }</code></p> <div class="language- extra-class"><pre><code>        `function fn(){...}`开辟堆内存
+
+  地址:BF0
+
+  代码字符串: 
+</code></pre></div><p><code>console.log(n+(++i))</code>
+| 全局变量存储 | 值存储 |
+| ------------ | ------ |
+| i            | 5      |
+| fn           | AF0    |
+| f            | BF0    |</p></li></ol></li> <li><p><code>f(2)</code> // 执行BF0,传2</p> <p>创建私有作用域F-X  上级作用域 FN-A</p> <p>变量提升&amp;&amp;形参赋值</p> <table><thead><tr><th>私有变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>n</td> <td>2</td></tr></tbody></table> <p>代码执行:</p> <ol><li><p>进栈执行</p></li> <li><p><code>n+(++i)</code>  // n是2, i是上一级作用域FN-A中的i (1) ,++i ，上级作用域FN-A中的i 变成2     2+2=4</p> <table><thead><tr><th>上一级FN-A私有变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>i</td> <td>2</td></tr></tbody></table></li></ol> <p>// =&gt; 4  销毁</p> <p>// =&gt; 4</p></li> <li><p><code>fn(3)(4)</code>// 先把fn执行（传3），执行的返回值是一个小函数，然后再执行（传4）
+fn(3)私有作用域FN-B</p> <p>变量提升&amp;&amp;形参赋值</p> <table><thead><tr><th>私有变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>i</td> <td>3</td></tr></tbody></table> <p>代码执行:</p> <ol><li><p>进栈执行</p></li> <li><p><code>return function(n){ // =&gt; return BF1 console.log(n+(++i)); }</code></p> <div class="language- extra-class"><pre><code>       `function fn(){...}`开辟堆内存
+
+ 地址:BF1
+
+ 代码字符串: 
+</code></pre></div><p><code>console.log(n+(++i))</code></p></li></ol> <p>// FN-B 不立即销毁 等BF1(4)执行完销毁</p> <p><code>BF1(4)</code>=&gt;上级私有作用域FN-B</p> <div class="language- extra-class"><pre><code>变量提升&amp;&amp;形参赋值
+</code></pre></div><table><thead><tr><th>私有变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>n</td> <td>4</td></tr></tbody></table> <p>代码执行:</p> <ol><li><p>进栈执行</p></li> <li><p><code>n+(++i)</code>  // n是4, i是上一级作用域FN-A中的i (3) ,++i ，上级作用域FN-A中的i 变成4     4+4=8</p> <table><thead><tr><th>上一级FN-A私有变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>i</td> <td>4</td></tr></tbody></table></li></ol> <p>​	// =&gt; 8 当前栈内存销毁</p></li> <li><p><code>fn(5)(6)</code>// 先把fn执行（传5），执行的返回值是一个小函数，然后再执行（传6）
+fn(5)私有作用域FN-C</p> <p>变量提升&amp;&amp;形参赋值</p> <table><thead><tr><th>私有变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>i</td> <td>5</td></tr></tbody></table> <p>代码执行:</p> <ol><li><p>进栈执行</p></li> <li><p><code>return function(n){ // =&gt; return BF2 console.log(n+(++i)); }</code></p> <div class="language- extra-class"><pre><code>       `function fn(){...}`开辟堆内存
+
+ 地址:BF2
+
+ 代码字符串: 
+</code></pre></div><p><code>console.log(n+(++i))</code></p></li></ol> <p>// FN-C 不立即销毁 等BF2(6)执行完销毁</p> <p><code>BF2(6)</code>=&gt;上级私有作用域FN-C</p> <div class="language- extra-class"><pre><code>变量提升&amp;&amp;形参赋值
+</code></pre></div><table><thead><tr><th>私有变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>n</td> <td>6</td></tr></tbody></table> <p>代码执行:</p> <ol><li><p>进栈执行</p></li> <li><p><code>n+(++i)</code>  // n是6, i是上一级作用域FN-A中的i (5) ,++i ，上级作用域FN-C中的i 变成6     6+6=12</p> <table><thead><tr><th>上一级FN-A私有变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>i</td> <td>6</td></tr></tbody></table></li></ol> <p>​	// =&gt; 12 当前栈内存销毁</p></li> <li><p><code>f(7)</code> // 执行BF0,传7</p> <p>创建私有作用域F-Y  上级作用域 FN-A</p> <p>变量提升&amp;&amp;形参赋值</p> <table><thead><tr><th>私有变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>n</td> <td>7</td></tr></tbody></table> <p>代码执行:</p> <ol><li><p>进栈执行</p></li> <li><p><code>n+(++i)</code>  // n是7, i是上一级作用域FN-A中的i (2) ,++i ，上级作用域FN-A中的i 变成3     7+3=10</p> <table><thead><tr><th>上一级FN-A私有变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>i</td> <td>3</td></tr></tbody></table></li></ol> <p>// =&gt; 10  销毁</p></li> <li><p><code>console.log(i)</code> // 查找全局作用域的i  =&gt; 5</p> <table><thead><tr><th>全局变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>i</td> <td>5</td></tr> <tr><td>fn</td> <td>AF0</td></tr> <tr><td>f</td> <td>BF0</td></tr></tbody></table></li></ol> <blockquote><p>闭包的两大作用</p> <ol><li>保护（私有变量和外界没有必然联系）</li> <li>保存（形成不销毁的栈内存，里面的私有变量等信息保存下来）</li></ol></blockquote> <h2 id="闭包练习题"><a href="#闭包练习题" class="header-anchor">#</a> 闭包练习题</h2> <h3 id="第一题-6"><a href="#第一题-6" class="header-anchor">#</a> 第一题</h3> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    i<span class="token operator">-=</span><span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token operator">++</span>i<span class="token punctuation">)</span><span class="token operator">-</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">var</span> f <span class="token operator">=</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">f</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">f</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">f</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h4 id="第一题解析-6"><a href="#第一题解析-6" class="header-anchor">#</a> 第一题解析</h4> <p>全局作用域下</p> <p>变量提升</p> <p><code>function fn(){...}</code>开辟堆内存</p> <p>地址:AF0</p> <p>代码字符串:</p> <p><code>i-=2; return function (n){ console.log((++i)-n); }</code></p> <table><thead><tr><th>全局变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>i</td> <td></td></tr> <tr><td>fn</td> <td>AF0</td></tr> <tr><td>f</td> <td></td></tr></tbody></table> <p>代码执行:</p> <ol><li><p>进栈执行</p></li> <li><p><code>var i = 20</code></p> <table><thead><tr><th>全局变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>i</td> <td>20</td></tr> <tr><td>fn</td> <td>AF0</td></tr> <tr><td>f</td> <td></td></tr></tbody></table></li> <li><p><code>function fn(){ i-=2; return function (n){ console.log((++i)-n); } }</code> // 不管</p></li> <li><p><code>var f = fn();</code>// 执行fn() BF0返回值给f</p> <p>创建私有作用域FN-A（不销毁）</p> <p>变量提升&amp;&amp;形参赋值</p> <table><thead><tr><th>私有变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td></td> <td></td></tr></tbody></table> <p>代码执行:</p> <ol><li><p>进栈执行</p></li> <li><p><code>i-=2</code> // 20-2 =&gt; 18</p> <table><thead><tr><th>全局变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>i</td> <td>18</td></tr> <tr><td>fn</td> <td>AF0</td></tr> <tr><td>f</td> <td></td></tr></tbody></table></li> <li><p><code>return function (n){ console.log((++i)-n); }</code></p> <div class="language- extra-class"><pre><code>        `function fn(n){...}`开辟堆内存
+
+  地址:BF0
+
+  代码字符串: 
+</code></pre></div><p><code>console.log((++i)-n);</code></p></li></ol></li></ol> <table><thead><tr><th>全局变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>i</td> <td>5</td></tr> <tr><td>fn</td> <td>AF0</td></tr> <tr><td>f</td> <td>BF0</td></tr></tbody></table> <ol start="5"><li><p><code>f(1)</code> // 执行BF0,传1</p> <p>创建私有作用域F-X  上级作用域 FN-A</p> <p>变量提升&amp;&amp;形参赋值</p> <table><thead><tr><th>私有变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>n</td> <td>2</td></tr></tbody></table> <p>代码执行:</p> <ol><li><p>进栈执行</p></li> <li><p><code>(++i)-n</code>  // n是1, i是上一级作用域FN-A中的i (18) ,++i ，全局作用域中的i 变成19     19-1=18</p> <table><thead><tr><th>全局变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>i</td> <td>19</td></tr></tbody></table></li></ol> <p>// =&gt; 18  销毁</p> <p>// =&gt; 18</p></li> <li><p><code>f(2);</code>// 执行BF0,传2</p></li></ol> <p>创建私有作用域F-X  上级作用域 FN-A</p> <p>变量提升&amp;&amp;形参赋值</p> <table><thead><tr><th>私有变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>n</td> <td>2</td></tr></tbody></table> <p>代码执行:</p> <ol><li><p>进栈执行</p> <ol start="2"><li><code>(++i)-n</code>  // n是2, i是上一级作用域FN-A中的i (19) ,++i ，全局作用域中的i 变成20     20-2=18</li></ol> <table><thead><tr><th>全局变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>i</td> <td>20</td></tr></tbody></table></li></ol> <p>// =&gt; 18  销毁</p> <p>// =&gt; 18</p> <ol start="7"><li><p><code>fn()(3);</code>// 先把fn执行，执行的返回值是一个小函数，然后再执行（传3）
+fn()私有作用域FN-B</p> <p>变量提升&amp;&amp;形参赋值</p> <table><thead><tr><th>私有变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td></td> <td></td></tr></tbody></table> <p>代码执行:</p> <ol><li><p>进栈执行</p></li> <li><p><code>i-=2;</code>  // 20-2 = 18 =&gt; 18</p> <table><thead><tr><th>全局变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>i</td> <td>18</td></tr></tbody></table></li> <li><p><code>return function (n){ console.log((++i)-n); }</code></p> <div class="language- extra-class"><pre><code>        `function fn(n){...}`开辟堆内存
+
+  地址:BF1
+
+  代码字符串: 
+</code></pre></div><p><code>console.log((++i)-n);</code></p></li></ol> <p>// FN-B 不立即销毁 等BF1(3)执行完销毁</p> <p><code>BF1(3)</code>=&gt;上级私有作用域FN-B</p> <p>变量提升&amp;&amp;形参赋值</p> <table><thead><tr><th>私有变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>n</td> <td>4</td></tr></tbody></table> <p>代码执行:</p> <ol><li><p>进栈执行</p></li> <li><p><code>(++i)-n</code>  // n是3, i是上一级作用域FN-A中的i (18) ,++i ，上级作用域FN-A中的i 变成19     19-3=16</p> <table><thead><tr><th>全局变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>i</td> <td>19</td></tr></tbody></table></li></ol> <p>// =&gt; 16 当前栈内存销毁</p></li> <li><p><code>fn()(4);</code>// 先把fn执行，执行的返回值是一个小函数，然后再执行（传4）
+fn()私有作用域FN-C</p> <p>变量提升&amp;&amp;形参赋值</p> <table><thead><tr><th>私有变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td></td> <td></td></tr></tbody></table> <p>代码执行:</p> <ol><li><p>进栈执行</p></li> <li><p><code>i-=2;</code>  // 19-2 = 17=&gt; 17</p> <p>| 全局变量存储 | 值存储 |
+| ------------ | ------ |
+| i            | 17     |</p></li> <li><p><code>return function (n){ console.log((++i)-n); }</code></p> <div class="language- extra-class"><pre><code>        `function fn(n){...}`开辟堆内存
+
+  地址:BF2
+
+  代码字符串: 
+</code></pre></div><p><code>console.log((++i)-n);</code></p></li></ol> <p>// FN-C 不立即销毁 等BF2(4)执行完销毁</p> <p><code>BF1(4)</code>=&gt;上级私有作用域FN-C</p> <p>变量提升&amp;&amp;形参赋值</p> <p>| 私有变量存储 | 值存储 |
+| ------------ | ------ |
+| n            | 4      |</p> <p>代码执行:</p> <ol><li><p>进栈执行</p></li> <li><p><code>(++i)-n</code>  // n是4, i是上一级作用域FN-A中的i (17) ,++i ，上级作用域FN-A中的i 变成18     18-4=14</p> <table><thead><tr><th>全局变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>i</td> <td>18</td></tr></tbody></table></li></ol> <p>// =&gt; 14 当前栈内存销毁</p></li> <li><p><code>f(5)</code> // 执行BF0,传5</p> <p>创建私有作用域F-Y  上级作用域 FN-A</p> <p>变量提升&amp;&amp;形参赋值</p> <table><thead><tr><th>私有变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>n</td> <td>7</td></tr></tbody></table> <p>代码执行:</p> <ol><li><p>进栈执行</p></li> <li><p><code>n+(++i)</code>  // n是5, i是上一级作用域FN-A中的i (18) ,++i ，上级作用域FN-A中的i 变成19     19-5=14</p> <table><thead><tr><th>全局变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>i</td> <td>19</td></tr></tbody></table></li></ol> <p>// =&gt; 14  销毁</p></li> <li><p><code>console.log(i)</code> // 查找全局作用域的i  =&gt; 19</p></li></ol> <table><thead><tr><th>全局变量存储</th> <th>值存储</th></tr></thead> <tbody><tr><td>i</td> <td>19</td></tr> <tr><td>fn</td> <td>AF0</td></tr> <tr><td>f</td> <td>BF0</td></tr></tbody></table> <h2 id="闭包的两个作用"><a href="#闭包的两个作用" class="header-anchor">#</a> 闭包的两个作用</h2> <h3 id="保护"><a href="#保护" class="header-anchor">#</a> 保护</h3> <ol><li><p>jQuery(JQ) 前端非常经典的类库：提供了大量的方法供开发人员使用</p> <p>=&gt; 为了防止全局变量污染（导入JQ后，它里面有大量方法，如果这些方法不保护起来，用户编写的方法很容易和JQ方法名字相同产生冲突，产生冲突可以理解为全局变量污染）JQ中的方法和变量需要用闭包保护起来。</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">global<span class="token punctuation">,</span>factory</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+    <span class="token comment">// typeof window!==&quot;undefined&quot;?window:this 验证当前所处环境的全局对象是window还是global等</span>
+    <span class="token comment">// factory=&gt; function(window,noGlobal){}</span>
+    <span class="token function">factory</span><span class="token punctuation">(</span>global<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//=&gt;zhufeng(window)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> window<span class="token operator">!==</span><span class="token string">&quot;undefined&quot;</span><span class="token operator">?</span>window<span class="token operator">:</span><span class="token keyword">this</span><span class="token punctuation">,</span><span class="token keyword">function</span> <span class="token function">zhufeng</span><span class="token punctuation">(</span><span class="token parameter">window<span class="token punctuation">,</span>noGlobal</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+    <span class="token keyword">var</span> <span class="token function-variable function">jQuery</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">selector<span class="token punctuation">,</span> context</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment">// ...</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// =&gt; 通过给全局对象增加属性：jQuery和$，把私有的jQuery方法暴露到全局作用域下，供外面使用（等价于return jQuery）（外界需要使用函数中的私有内容，我们可以基于window.xx和return xxx两种方式实现这个需求）</span>
+    window<span class="token punctuation">.</span>jQuery <span class="token operator">=</span> window<span class="token punctuation">.</span>$ <span class="token operator">=</span> jQuery<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//=&gt; 开始使用JQ</span>
+<span class="token function">jQuery</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// =&gt; window.jQuery();</span>
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre></div><p>在真实项目中，我们一般都要把自己写的内容放到一个闭包中，这样可以有效防止自己的代码和别人代码产生冲突（全局变量污染 真实项目中要尽可能减少对全局变量的使用） 如果需要把自己的东西给别人用，基于return和window.xxx等方式暴露给别人即可。</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// =&gt; 原生js</span>
+<span class="token keyword">var</span> xxx <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> xxx<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div></li></ol> <h3 id="保存"><a href="#保存" class="header-anchor">#</a> 保存</h3></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/mo/assets/js/app.f264d2b1.js" defer></script><script src="/mo/assets/js/2.652e467a.js" defer></script><script src="/mo/assets/js/6.cf0eee1b.js" defer></script>
+  </body>
+</html>
