@@ -1,4 +1,4 @@
-# vue面试
+# Vue基础使用
 
 ## 指令 插值
 - 插值 表达式 `{ msg }`
@@ -41,14 +41,6 @@
   - 挂载阶段 `beforeCreate, created, beforeMount, mounted`
   - 更新阶段 `beforeUpdate, updated`
   - 销毁阶段 `beforeDestroy, destroyed`
-  
+  <br />
 	组件的调用顺序都是先父后子,渲染完成的顺序肯定是先子后父<br />
   组件的销毁操作是先父后子，销毁完成的顺序是先子后父
-
-## vue高级特性
-- 自定义v-model
-- $nextTick
-- slot
-- 动态、异步组件
-- keep-alive
-- mixin
