@@ -19,6 +19,12 @@ module.exports = {
 					{ text: 'Vue源码解析', link: '/Vue/Vue-code' }
 				]
 			},
+			{text: 'React',
+				items: [
+					{text: 'React基础',link: '/React/'}
+				]
+			},
+			{text: 'webpack', link: '/webpack/'},
       {text: 'GayHub', link: 'https://github.com/PointMountain/mo'}
 		],
 		sidebar: {
@@ -33,6 +39,12 @@ module.exports = {
 			],
 			'/Javascript/':[
 				['base', 'Javascript基础']
+			],
+			'/React/':[
+				['', 'React基础']
+			],
+			'/webpack/':[
+				['', 'webpack']
 			]
 		}
 	}
