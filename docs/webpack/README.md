@@ -139,7 +139,7 @@
     ```
 
 - babel-runtime
-  - babel-polyfill会污染全局环境，如果是做一个独立的wen系统，则没什么问题，但是做一个第三方lib，就会有问题
+  - babel-polyfill会污染全局环境，如果是做一个独立的web系统，则没什么问题，但是做一个第三方lib，就会有问题
   - 通过babel-runtime就可以避免副作用
     ```javascript
     //.babelrc
