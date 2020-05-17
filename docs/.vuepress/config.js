@@ -25,6 +25,13 @@ module.exports = {
 				]
 			},
 			{text: 'webpack', link: '/webpack/'},
+			{text: '面试', 
+				items: [
+					{text: '面试整理', link: '/Interview/'},
+					{text: '部分JS代码', link: '/Interview/someJs'},
+					{text: '简单Promise', link: '/Interview/myPromise'}
+				]
+			},
       {text: 'GayHub', link: 'https://github.com/PointMountain/mo'}
 		],
 		sidebar: {
@@ -45,6 +52,11 @@ module.exports = {
 			],
 			'/webpack/':[
 				['', 'webpack']
+			],
+			'/Interview/':[
+				['', '面试整理'],
+				['someJs', '部分JS代码'],
+				['myPromise', '简单Promise']
 			]
 		}
 	}
