@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>JS的数据类型 | Ming</title>
+    <meta name="generator" content="VuePress 1.4.1">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <meta name="description" content="学习文档">
+    <link rel="preload" href="/mo/assets/css/0.styles.4ab656b6.css" as="style"><link rel="preload" href="/mo/assets/js/app.bfad36c4.js" as="script"><link rel="preload" href="/mo/assets/js/2.87c2ee94.js" as="script"><link rel="preload" href="/mo/assets/js/6.63a8e88f.js" as="script"><link rel="prefetch" href="/mo/assets/js/10.eeec5b02.js"><link rel="prefetch" href="/mo/assets/js/11.5d8a32c0.js"><link rel="prefetch" href="/mo/assets/js/12.1a2c355c.js"><link rel="prefetch" href="/mo/assets/js/13.59b542db.js"><link rel="prefetch" href="/mo/assets/js/14.f63c7b00.js"><link rel="prefetch" href="/mo/assets/js/15.0fe71380.js"><link rel="prefetch" href="/mo/assets/js/16.80bf7e50.js"><link rel="prefetch" href="/mo/assets/js/17.422e911d.js"><link rel="prefetch" href="/mo/assets/js/18.9634a634.js"><link rel="prefetch" href="/mo/assets/js/19.41ae6d4f.js"><link rel="prefetch" href="/mo/assets/js/3.6c0c78dc.js"><link rel="prefetch" href="/mo/assets/js/4.5e5ddaba.js"><link rel="prefetch" href="/mo/assets/js/5.97703052.js"><link rel="prefetch" href="/mo/assets/js/7.a9460eac.js"><link rel="prefetch" href="/mo/assets/js/8.66254329.js"><link rel="prefetch" href="/mo/assets/js/9.22c918bb.js">
+    <link rel="stylesheet" href="/mo/assets/css/0.styles.4ab656b6.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/mo/" class="home-link router-link-active"><!----> <span class="site-name">Ming</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/mo/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/mo/Javascript/base.html" class="nav-link">
+  Javascript基础
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Vue" class="dropdown-title"><span class="title">Vue</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-base.html" class="nav-link">
+  Vue基础使用
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-advanced.html" class="nav-link">
+  Vue高级特性
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vuex.html" class="nav-link">
+  Vuex
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-router.html" class="nav-link">
+  Vue-router
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-principle.html" class="nav-link">
+  Vue原理
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-code.html" class="nav-link">
+  Vue源码解析
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="React" class="dropdown-title"><span class="title">React</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/mo/React/" class="nav-link">
+  React基础
+</a></li></ul></div></div><div class="nav-item"><a href="/mo/webpack/" class="nav-link">
+  webpack
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="面试" class="dropdown-title"><span class="title">面试</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/mo/Interview/" class="nav-link router-link-exact-active router-link-active">
+  面试整理
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Interview/someJs.html" class="nav-link">
+  部分JS代码
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Interview/myPromise.html" class="nav-link">
+  简单Promise
+</a></li></ul></div></div><div class="nav-item"><a href="https://github.com/PointMountain/mo" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GayHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/mo/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/mo/Javascript/base.html" class="nav-link">
+  Javascript基础
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Vue" class="dropdown-title"><span class="title">Vue</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-base.html" class="nav-link">
+  Vue基础使用
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-advanced.html" class="nav-link">
+  Vue高级特性
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vuex.html" class="nav-link">
+  Vuex
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-router.html" class="nav-link">
+  Vue-router
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-principle.html" class="nav-link">
+  Vue原理
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-code.html" class="nav-link">
+  Vue源码解析
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="React" class="dropdown-title"><span class="title">React</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/mo/React/" class="nav-link">
+  React基础
+</a></li></ul></div></div><div class="nav-item"><a href="/mo/webpack/" class="nav-link">
+  webpack
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="面试" class="dropdown-title"><span class="title">面试</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/mo/Interview/" class="nav-link router-link-exact-active router-link-active">
+  面试整理
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Interview/someJs.html" class="nav-link">
+  部分JS代码
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Interview/myPromise.html" class="nav-link">
+  简单Promise
+</a></li></ul></div></div><div class="nav-item"><a href="https://github.com/PointMountain/mo" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GayHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/mo/Interview/" class="active sidebar-link">面试整理</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/mo/Interview/#js的数据类型" class="sidebar-link">JS的数据类型</a></li><li class="sidebar-sub-header"><a href="/mo/Interview/#for-循环和-foreach循环的区别在于？" class="sidebar-link">for 循环和 forEach循环的区别在于？</a></li><li class="sidebar-sub-header"><a href="/mo/Interview/#this指向" class="sidebar-link">this指向</a></li><li class="sidebar-sub-header"><a href="/mo/Interview/#闭包" class="sidebar-link">闭包</a></li><li class="sidebar-sub-header"><a href="/mo/Interview/#浅拷贝-拷贝第一层所有的属性到新的对象中，如果属性值是对象，还是拷贝的地址" class="sidebar-link">浅拷贝 拷贝第一层所有的属性到新的对象中，如果属性值是对象，还是拷贝的地址</a></li><li class="sidebar-sub-header"><a href="/mo/Interview/#深拷贝" class="sidebar-link">深拷贝</a></li><li class="sidebar-sub-header"><a href="/mo/Interview/#原型" class="sidebar-link">原型</a></li><li class="sidebar-sub-header"><a href="/mo/Interview/#var-let-const" class="sidebar-link">var let const</a></li><li class="sidebar-sub-header"><a href="/mo/Interview/#模块化好处" class="sidebar-link">模块化好处</a></li><li class="sidebar-sub-header"><a href="/mo/Interview/#线程-进程" class="sidebar-link">线程 进程</a></li><li class="sidebar-sub-header"><a href="/mo/Interview/#执行栈" class="sidebar-link">执行栈</a></li><li class="sidebar-sub-header"><a href="/mo/Interview/#event-loop" class="sidebar-link">Event Loop</a></li><li class="sidebar-sub-header"><a href="/mo/Interview/#垃圾回收机制" class="sidebar-link">垃圾回收机制</a></li><li class="sidebar-sub-header"><a href="/mo/Interview/#事件触发三个阶段" class="sidebar-link">事件触发三个阶段</a></li><li class="sidebar-sub-header"><a href="/mo/Interview/#跨域" class="sidebar-link">跨域</a></li><li class="sidebar-sub-header"><a href="/mo/Interview/#存储" class="sidebar-link">存储</a></li><li class="sidebar-sub-header"><a href="/mo/Interview/#浏览器缓存" class="sidebar-link">浏览器缓存</a></li><li class="sidebar-sub-header"><a href="/mo/Interview/#缓存策略" class="sidebar-link">缓存策略</a></li><li class="sidebar-sub-header"><a href="/mo/Interview/#浏览器渲染原理" class="sidebar-link">浏览器渲染原理</a></li><li class="sidebar-sub-header"><a href="/mo/Interview/#阻塞渲染" class="sidebar-link">阻塞渲染</a></li><li class="sidebar-sub-header"><a href="/mo/Interview/#重绘和回流" class="sidebar-link">重绘和回流</a></li><li class="sidebar-sub-header"><a href="/mo/Interview/#性能优化" class="sidebar-link">性能优化</a></li><li class="sidebar-sub-header"><a href="/mo/Interview/#计算机网络" class="sidebar-link">计算机网络</a></li><li class="sidebar-sub-header"><a href="/mo/Interview/#udp-tcp" class="sidebar-link">UDP TCP</a></li><li class="sidebar-sub-header"><a href="/mo/Interview/#arq协议" class="sidebar-link">ARQ协议</a></li><li class="sidebar-sub-header"><a href="/mo/Interview/#拥塞处理" class="sidebar-link">拥塞处理</a></li><li class="sidebar-sub-header"><a href="/mo/Interview/#http请求" class="sidebar-link">HTTP请求</a></li><li class="sidebar-sub-header"><a href="/mo/Interview/#常见状态码" class="sidebar-link">常见状态码</a></li><li class="sidebar-sub-header"><a href="/mo/Interview/#tls" class="sidebar-link">TLS</a></li><li class="sidebar-sub-header"><a href="/mo/Interview/#http-2-http-3" class="sidebar-link">HTTP/2 HTTP/3</a></li><li class="sidebar-sub-header"><a href="/mo/Interview/#输入url到页面渲染的整个流程" class="sidebar-link">输入URL到页面渲染的整个流程</a></li><li class="sidebar-sub-header"><a href="/mo/Interview/#doctype作用" class="sidebar-link">doctype作用</a></li><li class="sidebar-sub-header"><a href="/mo/Interview/#标签语义化的作用" class="sidebar-link">标签语义化的作用</a></li><li class="sidebar-sub-header"><a href="/mo/Interview/#css选择器优先级" class="sidebar-link">CSS选择器优先级</a></li><li class="sidebar-sub-header"><a href="/mo/Interview/#浏览器同源策略" class="sidebar-link">浏览器同源策略</a></li><li class="sidebar-sub-header"><a href="/mo/Interview/#flex" class="sidebar-link">flex</a></li><li class="sidebar-sub-header"><a href="/mo/Interview/#git" class="sidebar-link">git</a></li></ul></li><li><a href="/mo/Interview/someJs.html" class="sidebar-link">部分JS代码</a></li><li><a href="/mo/Interview/myPromise.html" class="sidebar-link">简单Promise</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="js的数据类型"><a href="#js的数据类型" class="header-anchor">#</a> JS的数据类型</h2> <p>原始类型
+Number Boolean String Symbol undefined null
+引用类型
+Object Array Function</p> <ul><li>typeof 只能判断原始类型和Function</li> <li>instanceof 原理是判断是否有同一个原型链</li> <li>Object.prototype.toString.call() 通过对象内置的toString方法</li></ul> <h2 id="for-循环和-foreach循环的区别在于？"><a href="#for-循环和-foreach循环的区别在于？" class="header-anchor">#</a> for 循环和 forEach循环的区别在于？</h2> <p>for是原生的 forEach是array中的一个方法</p> <div class="language- extra-class"><pre class="language-text"><code>function flat(arr){
+	const result = []
+
+	arr.forEach(i =&gt; {
+		if(Array.isArray(i)){
+			result.push(...flat(i))
+		}else{
+			result.push(i)
+		}
+	})
+	return result
+}
+</code></pre></div><h2 id="this指向"><a href="#this指向" class="header-anchor">#</a> this指向</h2> <ul><li>new出来的就是绑定到新的对象上
+<code>let son = new Parent()</code>此时this就是绑定到son上的无法更改</li> <li>箭头函数本身没有this，只取决于离他最近的普通函数的this，无法通过bind更改</li> <li>对象调用的普通函数，this是对象</li> <li>另外多bind链式绑定this只会根据第一个bind的内容进行绑定<div class="language-javascript extra-class"><pre class="language-javascript"><code>  <span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token keyword">let</span> <span class="token function-variable function">fn</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  	console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">fn</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token comment">//等价于</span>
+<span class="token keyword">let</span> <span class="token function-variable function">fn2</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token function">fn1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  	<span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  		<span class="token keyword">return</span> <span class="token function">fn</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  	<span class="token punctuation">}</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">fn2</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div></li></ul> <div class="language- extra-class"><pre class="language-text"><code>[] == ![] =&gt; [] == false =&gt; [] == 0 =&gt; '' == 0 =&gt; 0 == 0
+</code></pre></div><h2 id="闭包"><a href="#闭包" class="header-anchor">#</a> 闭包</h2> <p>函数A内有一个函数B，函数B可以访问的函数A中的变量，函数B就是闭包</p> <h2 id="浅拷贝-拷贝第一层所有的属性到新的对象中，如果属性值是对象，还是拷贝的地址"><a href="#浅拷贝-拷贝第一层所有的属性到新的对象中，如果属性值是对象，还是拷贝的地址" class="header-anchor">#</a> 浅拷贝 拷贝第一层所有的属性到新的对象中，如果属性值是对象，还是拷贝的地址</h2> <div class="language- extra-class"><pre class="language-text"><code>Object.assign
+Array.prototype.concat
+...运算符
+</code></pre></div><h2 id="深拷贝"><a href="#深拷贝" class="header-anchor">#</a> 深拷贝</h2> <div class="language- extra-class"><pre class="language-text"><code>//最简单的方法 但有很多问题
+JSON.parse(JSON.stringify(object))
+//会忽略undefined 会忽略symbol 不能序列化函数，不能解决循环引用问题
+
+</code></pre></div><h2 id="原型"><a href="#原型" class="header-anchor">#</a> 原型</h2> <p>原型的constructor指向构造函数
+构造函数的prototype指回原型
+<code>obj.__proto__ === obj.__proto__.constructor.prototype</code>
+eg:</p> <div class="language- extra-class"><pre class="language-text"><code>let son = new Parent()
+son的构造函数就是Parent
+所以 son.__proto__ === Parent.prototype
+</code></pre></div><h2 id="var-let-const"><a href="#var-let-const" class="header-anchor">#</a> var let const</h2> <p>var会在解析的时候导致变量提升
+var a = 1语法解析的时候会在最上面先声明var a
+之后进行赋值操作a=1
+let const不会发生变量提升 但是会存在一个暂时性死区</p> <h2 id="模块化好处"><a href="#模块化好处" class="header-anchor">#</a> 模块化好处</h2> <ul><li>解决命名冲突</li> <li>提高代码可重用性</li> <li>提高代码的可维护性</li></ul> <h2 id="线程-进程"><a href="#线程-进程" class="header-anchor">#</a> 线程 进程</h2> <p>进程由多个线程组成，一个线程描述了执行一段指令所需的时间
+进程描述了CPU在运行指令及加载和保存上下文所需的时间</p> <p>类比 一个浏览器的tab页就是一个进程，里面包含了js引擎线程，渲染线程，http请求线程等</p> <p>单线程的好处：节省内存，节省上下文切换时间，没有锁的问题</p> <h2 id="执行栈"><a href="#执行栈" class="header-anchor">#</a> 执行栈</h2> <p>存储函数调用的栈结构 先进后出
+爆栈 -&gt; 执行栈存放是有限制的，存放过多就会导致爆栈一般出现在递归中</p> <h2 id="event-loop"><a href="#event-loop" class="header-anchor">#</a> Event Loop</h2> <p>宏任务 script、setTimeout、setImmediate、setInterval、I/O、UI rendering
+微任务 promise、process.nextTick、MutationObserve</p> <ul><li><p>浏览器中
+当遇到异步函数时，会将函数挂起然后放到不同的task队列中
+浏览器中的Event Loop先执行同步函数，当执行栈为空时，就会从task中拿出异步代码执行，
+首先会将挂起的微任务队列中的微任务执行完，然后继续从宏任务队列中拿一个宏任务 执行完后再从微任务队列中执行微任务，依次执行</p></li> <li><p>Node中</p> <ul><li>timers 执行setTimeout setInterval回调</li> <li>I/O 执行上一轮少数未执行的I/O回调</li> <li>idle prepare</li> <li>poll
+<ul><li>回到timer执行回调 执行I/O回调</li> <li>如果没有timer的话 如果poll不为空 会遍历执行回调队列同步执行直至队列为空或者达到系统限制；如果poll为空 如果有setImmediate会跳到check执行，如果没有的话会一直等待新的回调 然后执行（有超时设置）</li></ul></li> <li>check 执行setImmediate</li> <li>close callbacks  执行close事件的callback</li></ul></li></ul> <h2 id="垃圾回收机制"><a href="#垃圾回收机制" class="header-anchor">#</a> 垃圾回收机制</h2> <p>新生代算法和老生代算法</p> <ul><li>新生代算法
+对象一般存活时间较短 From To两个空间一个是使用的一个是空闲的，新的变量放到From中 当From中的对象满了就会开启新生代垃圾回收，将失活的清除，将存活的放到To中，之后将两个空间互换</li> <li>老生代算法
+对象存活时间较长切数量较多 使用标记清除算法和标记压缩算法</li></ul> <h2 id="事件触发三个阶段"><a href="#事件触发三个阶段" class="header-anchor">#</a> 事件触发三个阶段</h2> <p>先从window往事件触发处捕获，遇到注册的捕获事件会触发
+传播到事件触发处触发注册事件
+从事件触发处往window传播，遇到注册的冒泡事件会触发</p> <h2 id="跨域"><a href="#跨域" class="header-anchor">#</a> 跨域</h2> <p>浏览器出于安全考虑，有同源策略。端口号、域名、协议有一个不同就是跨域
+ajax请求就会失败
+目的：防止CSRF攻击 实际还是会发送请求，只是会被拦截，所以还是存在CSRF风险</p> <h3 id="解决跨域办法："><a href="#解决跨域办法：" class="header-anchor">#</a> 解决跨域办法：</h3> <ul><li>JSONP 通过script标签的src传参并提供一个回调函数进行后续操作</li> <li>CORS 设置 <code>Access-Control-Allow-Origin</code></li> <li>document.domain <code>document.domain = 'xxx.com'</code> 但是只能用于二级域名都相同的情况</li> <li>postMessage<div class="language- extra-class"><pre class="language-text"><code>  window.parent.postMessage('message','http://test.com')
+
+  var mc = new MessageChannel()
+  mc.addEventListener('message', event =&gt; {
+  	var origin = event.origin || event.originalEvent.origin
+	if (origin === 'http://test.com') {
+	  console.log('验证通过')
+	}
+  })
+</code></pre></div></li></ul> <h2 id="存储"><a href="#存储" class="header-anchor">#</a> 存储</h2> <p>cookie localStorage sessionStorage indexDB</p> <h2 id="浏览器缓存"><a href="#浏览器缓存" class="header-anchor">#</a> 浏览器缓存</h2> <p>优先级
+Service Worker
+Memory Cache
+Disk Cache
+Push Cache
+网络请求</p> <ul><li>Service Worker
+它是运行在浏览器背后的独立线程，可以用来实现缓存功能，但是传输协议必须是HTTPS，因为其中涉及到请求拦截
+实现缓存分三步，首先注册Service Worker，然后监听到install事件之后就缓存需要的文件，之后用户就会从缓存中去获取</li></ul> <blockquote><p>无论从Memory Cache获取还是从网络请求中获取数据，浏览器都会显示从Service Worker中获取</p></blockquote> <ul><li><p>Memory Cache
+内存中的缓存 读取高效 但是持续性很短，会随着进程释放而释放，即关闭tab就会被清除
+一般大文件大概率不会放到内存中
+当内存中使用率过高时，文件会优先存入硬盘</p></li> <li><p>Disk Cache
+可以根据HTTP Header上的字段判断哪些资源可以缓存，哪些资源可以不请求直接使用，哪些资源过期需要重新请求</p></li> <li><p>Push Cache
+HTTP/2中的内容 只有以上三种都未命中时才会被使用，缓存时间很短，只在Session中存在，会话结束后就被释放</p></li></ul> <h2 id="缓存策略"><a href="#缓存策略" class="header-anchor">#</a> 缓存策略</h2> <ul><li>强缓存 缓存期间不需要请求 state code为200
+<ul><li>Expires HTTP/1的产物 后面加时间表示会在该时间后失效，但是受限于本地时间，如果修改本地时间可能会导致缓存失效</li> <li>Cache-Control HTTP/1.1优先级高于Expires，可以在请求头或者响应头中设置，且有多种指令
+no-store no-cache public private max-age等</li></ul></li> <li>协商缓存
+如果缓存过期了需要验证资源是否更新，如果资源没有发生改变，state code为304，然后更新浏览器缓存有效期
+<ul><li>Last-Modified If-Modified-Since
+If-Modified-Since将Last-Modified发送给服务端，有弊端，Last-Modified表示文件最后修改日期，如果只是打开不更改，也会造成其被修改，且只能以秒计时，如果在无法感知的时间内完成，也会造成命中而不会更新</li> <li>ETag If-None-Match 优先级高 If-None-Match将当前ETag发送给服务器，根据ETag是否变化来决定是否需要重新请求</li></ul></li></ul> <h2 id="浏览器渲染原理"><a href="#浏览器渲染原理" class="header-anchor">#</a> 浏览器渲染原理</h2> <p>JS引擎 渲染引擎
+浏览器接收字节数据转化为字符串，字符串会被标记化打上token，token会转化为node节点，然后再根据node节点转化为DOM树
+CSS渲染类似
+字节数据=》字符串=》token=》node=》CSSOM
+所以html要避免无意义的标签css要避免过于具体多层的css选择器，最好可以层级扁平</p> <p>DOM树和CSSOM树会组合为渲染树 render tree
+然后浏览器会根据渲染树进行布局（回流） 然后调用GPU绘制</p> <p>JS操作DOM慢是因为JS是在JS线程上 而DOM是在渲染线程上，JS操作的话会进行线程间的通信，损耗性能，且操作DOM还可能发生重绘回流</p> <h2 id="阻塞渲染"><a href="#阻塞渲染" class="header-anchor">#</a> 阻塞渲染</h2> <p>HTML和CSS会阻塞渲染，因为就是二者生成渲染树
+JS加载也会阻塞渲染
+script上加defer属性，会让js并行下载，会在HTML解析完执行后再执行
+script上加async属性，会让js并行下载，下载完完后就会执行</p> <h2 id="重绘和回流"><a href="#重绘和回流" class="header-anchor">#</a> 重绘和回流</h2> <p>重绘是当节点需要改变的外观不影响布局
+回流是布局或者几何属性需要改变
+回流一定发生了重绘，重绘不一定发生回流</p> <p>重绘与回流和Event Loop有关
+减少重绘回流</p> <ul><li>transform 代替 top</li> <li>visibility 代替 display: none</li> <li>不把节点的属性值放在一个循环里当变量</li> <li>不使用table布局</li> <li>动画实现速度越快 回流次数越多</li> <li>css选择符从右往左匹配，减少层级</li> <li>will-change等</li></ul> <h2 id="性能优化"><a href="#性能优化" class="header-anchor">#</a> 性能优化</h2> <ul><li>通过减少代码文件的大小或减少书写嵌套函数减少编译时间</li> <li>尽量保证传入参数类型一致，方便V8优化代码</li> <li>图片方面优化，懒加载，雪碧图，小图片用base64，图标用svg，照片JPEG等</li> <li>DNS预解析 dns-prefetch</li> <li>节流 throttle</li> <li>防抖 debounce</li> <li>预加载 preload 不会阻塞onload事件</li> <li>预渲染 prerender</li> <li>懒执行</li> <li>CDN加速</li></ul> <h2 id="计算机网络"><a href="#计算机网络" class="header-anchor">#</a> 计算机网络</h2> <ul><li>应用层 HTTP FTP</li> <li>传输层 TCP UDP</li> <li>网络层</li> <li>数据链路层</li> <li>物理层</li></ul> <h2 id="udp-tcp"><a href="#udp-tcp" class="header-anchor">#</a> UDP TCP</h2> <ul><li>UDP
+<ul><li>面向无连接</li> <li>不可靠性</li> <li>高效<br>
+UDP协议是面向无连接的，不需要在正式传输前建立连接，UDP只是数据报文的搬运工，不保证数据有序不丢失，UDP也没有任何控制流量的算法，所以相较TCP来说比较轻便</li></ul></li></ul> <p>发送过程也很简单 无需进行任何拆分可拼接</p> <p>发送端应用层传递给传输层UDP协议 UDP加一个UDP头标识自己是UDP协议就继续传递给网络层
+接收端网络层传递给传输层，UDP只需要去掉UDP标识头就直接传递给应用层，不进行其他任何操作
+UDP不会备份任何数据，而且也不在乎对方是否收到数据
+UDP没有拥塞控制，会以一个恒定速度发送数据，当网络不好的时候就会造成丢包，但是对实时性要求高的场景却是优点
+UDP支持一对一、一对多、多对多、多对一的方式，支持单播，广播，多播的功能</p> <ul><li>TCP
+TCP需要先通过三次握手来建立连接，在传输过程中也通过各种算法保证数据的可靠性，所以导致并没有UDP那么高效
+标识符
+ACK=1 该字段为一时表示字段有效，TCP规定连接建立后传送的所有报文段都必须把ACK置一
+SYN=1 当SYN=1 ACK=0时 表示当前报文段是一个连接请求报文。当SYN=1 ACK=1的时候，表示当前报文段是一个同意建立连接的应答报文</li></ul> <p>三次握手
+第一次握手：客户端发送一个连接请求报文ACK=0 SYN=1 seq = x
+第二次握手：服务端收到连接请求报文，返回一个同意进行连接的报文ACK=1 SYN=1 ack=x+1 seq = y
+第三次握手：客户端收到同意进行连接报文，发送确认报文ACK=1 SYN=1 seq=x+1 ack=y+1
+第三次握手的原因防止出现实现的连接请求报文被服务端接收</p> <p>四次挥手
+第一次挥手：客户端发送一个连接释放报文FIN=1 seq=u 进入FIN-WAIT-1阶段
+第二次挥手：服务端收到客户端的释放报文返回一个确认报文ACK=1 seq=v ack=u+1 进入CLOSE-WAIT阶段 这时客户端到服务端的连接关闭了，但是客户端还可以接受服务端传递的数据
+第三次挥手：服务端向客户端发送连接释放报文FIN=1 seq=w ack=u+1（和二次发送的确认报文序号一样）进入LAST-ACK阶段
+第四次挥手：客户端收到服务端的释放报文返回确认报文ACK=1 seq=u+1 ack=w+1进入TIME-WAIT阶段要等待2MSL才会彻底关掉。目的是为了确认服务端收到了确认报文，如果丢失还可以重新发送，还为了防止已实现的连接报文出现在本连接中</p> <h2 id="arq协议"><a href="#arq协议" class="header-anchor">#</a> ARQ协议</h2> <p>超时重传机制 通过确认和超时机制保证数据正确送达</p> <ul><li>停止等待ARQ
+每次发送报文都会停止继续发送，并设置一个定时器，直到收到确认报文才会取消定时器，继续发送下一段报文。如果超过定时器时间就会重新发送丢失的数据，因此每次发送都会备份发送的数据，如果对端收到错误报文也会抛弃报文等待重传；如果对端的ACK超时会丢失，此时A端也会重传报文，对端收到后会丢弃该报文然后重传应答</li> <li>连续ARQ
+通过发送窗口，把窗口内的分组发送给服务端，服务端返回确认后会继续往后发送，接收方一般是才用累计确认，在收到几个分组后将按序到达的最后一个分组发送确认，弊端是如果中间有分组丢失，接收方只能返回前面得分组，导致发送方进行回退，重新发送一些已发送的数据。</li></ul> <h2 id="拥塞处理"><a href="#拥塞处理" class="header-anchor">#</a> 拥塞处理</h2> <ul><li>慢开始 指数级增长直到设置的慢开始门限</li> <li>拥塞避免 线性增长使网络不容易出现拥塞</li> <li>快速重传 如果个别报文段丢失，接收方会立即发送3次重复确认，发送方会确认丢失该报文，重新传送
+<ul><li>TCP Taho 将慢开始门限设为拥塞窗口一半，将拥塞窗口设为1MSS，重新开始慢开始算法</li> <li>TCP Reno 拥塞窗口减半，将门限设为拥塞窗口一半，进入快恢复阶段，开始拥塞避免算法</li></ul></li> <li>快恢复 如果只是个别报文段丢失而不是超时，会将门限值变为当前拥塞窗口的1/2，并且拥塞窗口也来到1/2开始拥塞避免算法</li></ul> <h2 id="http请求"><a href="#http请求" class="header-anchor">#</a> HTTP请求</h2> <p>HTTP分为请求报文和响应报文，都由三部分组成</p> <ol><li>开始行（请求行/状态行）</li> <li>首部行 用来说明浏览器服务器或报文主体的一些信息，结束后还有一行空格与实体隔开</li> <li>实体主体</li></ol> <p>get请求多用于无副作用，幂等的场景，例如搜索关键字；post多用于有副作用，不幂等的情况，例如注册
+get请求能缓存，post不能
+get请求放到url中会被浏览器保存记录，post不会，url长度有限制，post支持更多编码类型且不对数据类型限制</p> <h2 id="常见状态码"><a href="#常见状态码" class="header-anchor">#</a> 常见状态码</h2> <ul><li>1xx表示通知信息</li> <li>2xx表示成功</li> <li>3xx表示重定向</li> <li>4xx表示客户差错</li> <li>5xx表示服务器差错</li></ul> <h2 id="tls"><a href="#tls" class="header-anchor">#</a> TLS</h2> <p>HTTPS通过HTTP来传输信息，但是信息通过TLS协议进行加密
+TLS位于传输层之上应用层之下</p> <ul><li>对称加密 两边都拥有相同的秘钥进行加密解密，但是如果直接通过网络方式传播秘钥，被拦截后加密就失去意义</li> <li>非对称加密 有公钥私钥之分，公钥所有人都知道，但是数据解密需要私钥，私钥只有分发公钥的人知道。公钥加密，私钥解密</li></ul> <p>TLS握手
+第一次 ClientHello 客户端发放一个随机值以及需要的协议和加密方法
+第二次 ServerHello 服务端收到随机值，自己也产生一个随机值，并根据客户端需要的协议和加密方法使用对应方式，发送自己的证书
+第三次 客户端收到后验证是否有效，有效的话会生成第三个随机值通过公钥加密，然后把自己的证书还有随机值发送给服务端，服务端收到之后通过私钥解密随机值，至此，两端将三个随机值组合成秘钥开始进行对称加密</p> <h2 id="http-2-http-3"><a href="#http-2-http-3" class="header-anchor">#</a> HTTP/2 HTTP/3</h2> <p>HTTP/2使用多路复用
+HTTP/1 中同一个域名下请求数量是有限制的，当请求很多资源时，队头阻塞会导致到达最大请求数量时，剩余资源需要等待其他资源请求完才可以再请求
+HTTP/2 使用了多路复用，通过一个TCP连接可以传输所有的请求数据
+HTTP/2中有帧（frame）和流（stream）帧代表最小的数据单位，每个帧都会标识出该帧属于哪个流，流由多个帧组成。多路复用就是在一个TCP连接中可以存在多个流，对端通过帧中的标识确定属于哪个请求，这样就可以避免之前HTTP版本中的队头堵塞，提高传输性能。</p> <p>HTTP/2使用二进制传输
+在之前的HTTP版本中都是通过文本的方式传输数据，在HTTP/2中引入新的编码机制，所有传输的数据被分割，采用二进制格式编码</p> <p>HTTP/2使用Header压缩
+在HTTP/1中 使用文本的形式传输Header，如果header中存在cookie的情况下，可能每次都需要重复传输很多字节
+在HTTP/2中 使用了HPACK压缩格式对header进行编码，减少了header大小。而且在两端维护了索引表，会记录已出现的header，这样出现过的header、就可以通过传键名，在对端根据键名进行获取</p> <p>HTTP/2使用服务端Push
+在HTTP/2中，服务端可以根据客户端某个请求后，主动推送其他资源，减少一点延迟时间，当然浏览器兼容的情况下也可以使用prefetch</p> <p>HTTP/3
+HTTP/2由于TCP协议的关系，在实现多路复用的情况下，如果出现丢包，性能的消耗反而会比HTTP/1还大，因为多路复用只有一个TCP连接。所以HTTP/3使用了新的协议QUIC</p> <p>QUIC基于UDP，又取了TCP中的精华，实现既快又可靠的协议</p> <ul><li>多路复用：不同于HTTP/2在一个TCP连接中的多路复用，QUIC本身就支持多路复用，并且传输的单个数据流可以保证有序交付且不会影响其他数据流，解决了TCP中的问题。而且TCP是基于IP和端口去识别连接的，但是QUIC是基于ID的方式去识别，只要ID不变，就能迅速重连</li> <li>0-RTT 通过使用类似TCP快速打开技术，缓存当前会话上下文，在下次恢复会话时，将上下文传递给服务端验证通过就可以进行传输了</li> <li>纠错机制 假如要发三个包，那么协议会根据三个包异或值单独发一个校验包，如果三个包有一个丢失，可以根据校验包计算出丢失包的内容，但是如果多个包丢失就无法使用纠错机制了，只能使用重传</li></ul> <h2 id="输入url到页面渲染的整个流程"><a href="#输入url到页面渲染的整个流程" class="header-anchor">#</a> 输入URL到页面渲染的整个流程</h2> <p>DNS解析 DNS基于UDP协议对域名进行解析，获取到IP，之后跳转到IP
+之后客户端会和服务端建立连接 TCP三次握手
+建立TCP连接后会进行TLS握手
+完成后进行HTTP请求 服务端响应请求返回HTML文件
+HTML渲染，HTML获取的时候是二进制码，先转化为字符串，之后标记化，然后组成node，最后变成DOM树 ，CSS同理，如果有不属于async或defer的js会先阻塞DOM和CSSOM过程，先执行js，加载外部资源等操作，js执行完后会继续生成DOM树和CSSOM树，最终两个树会生成渲染树，此时浏览器就开始调用GUI进行绘制</p> <h2 id="doctype作用"><a href="#doctype作用" class="header-anchor">#</a> doctype作用</h2> <p>DOCTYPE声明位于文档最前面，处于标签之前，作用是告诉浏览器的解析器，要用什么文档类型规范来解析，同时也用来区分严格模式与混杂模式</p> <h2 id="标签语义化的作用"><a href="#标签语义化的作用" class="header-anchor">#</a> 标签语义化的作用</h2> <ol><li>HTML机构清晰</li> <li>代码可读性好</li> <li>无障碍阅读</li> <li>搜索引擎可以根据标签的语言确定上下文和权重</li> <li>移动设备更完美展现页面</li> <li>便于团队开发和维护</li></ol> <h2 id="css选择器优先级"><a href="#css选择器优先级" class="header-anchor">#</a> CSS选择器优先级</h2> <p>内联 &gt; id选择器 &gt; 类选择器，属性选择器，伪类选择器 &gt; 标签选择器，伪元素选择器</p> <h2 id="浏览器同源策略"><a href="#浏览器同源策略" class="header-anchor">#</a> 浏览器同源策略</h2> <p>同源策略是一个重要的安全策略，它用于限制一个源的文档或者它加载的脚本如何能与另一个源进行交互。它可以帮助阻隔恶意文档，减少被攻击的媒介。
+跨域
+JSONP
+document.domain
+CORS -》 Access-Control-Allow-Orign</p> <h2 id="flex"><a href="#flex" class="header-anchor">#</a> flex</h2> <p>flex-direction 主轴方向 row column
+flex-wrap 是否换行
+flex-flow flex-direction和flex-wrap的组合属性
+justify-content 主轴方向上的对齐方式 center space-between等
+align-items 交叉轴的对齐方式 center baseline等 默认stretch是沾满容器高度
+align-content 多根轴线的定义方式（设置了wrap且分行后才会生效）
+order项目的顺序 数值越小越靠前 默认为0
+flex-grow 项目放大的比例 默认为0 即空间即使变大项目也不变
+flex-shrink 项目缩小比例 默认为1 即空间缩小的话项目将缩小
+flex-basis 定义项目在分配多余空间之前占据主轴的空间，默认是auto即项目本来的大小
+flex 是flex-grow flex-shrink flex-basis缩写
+flex: auto =&gt; flex: 1 1 auto
+flex: none =&gt; flex: 0 0 auto</p> <h2 id="git"><a href="#git" class="header-anchor">#</a> git</h2> <p>git merge --abort 放弃merge 使Git仓库回到merge前的状态
+git rebase
+git commit --amend修正上一次commit 将修改后的内容和当前commit里的内容合并起来成为一个新的commit然后替换掉
+修改倒数第二个
+git rebase -i 目标comit
+然后在编辑页面指定需要修改的commit改为edit
+之后使用git commit --amend
+最后git rebase continue
+~x表示后移x位commit
+^数量表示前移多少位</p> <p>撤销提交git reset --hard 目标commit
+另一种撤销提交git revert 这个是提交了一次反转上个commit的commit</p> <p>git stash
+git stash pop</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/mo/Interview/someJs.html">
+        部分JS代码
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/mo/assets/js/app.bfad36c4.js" defer></script><script src="/mo/assets/js/2.87c2ee94.js" defer></script><script src="/mo/assets/js/6.63a8e88f.js" defer></script>
+  </body>
+</html>
