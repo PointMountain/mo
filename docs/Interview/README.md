@@ -143,7 +143,7 @@ ajax请求就会失败
 - document.domain `document.domain = 'xxx.com'` 但是只能用于二级域名都相同的情况
 - postMessage
   ```
-	window.parent.postMessage('message','http://test.com')
+	targetWindow.postMessage('message','http://test.com')
 
 	var mc = new MessageChannel()
 	mc.addEventListener('message', event => {
@@ -225,6 +225,9 @@ script上加async属性，会让js并行下载，下载完完后就会执行
 - 动画实现速度越快 回流次数越多
 - css选择符从右往左匹配，减少层级
 - will-change等
+- 避免频繁操作样式，可汇总后统一一次修改
+- 尽量使用class进行样式修改
+- 减少dom操作，可使用字符串或者documentFragment一次性插入
 
 ## 性能优化
 - 通过减少代码文件的大小或减少书写嵌套函数减少编译时间
@@ -322,6 +325,17 @@ TLS握手
 第三次 客户端收到后验证是否有效，有效的话会生成第三个随机值通过公钥加密，然后把自己的证书还有随机值发送给服务端，服务端收到之后通过私钥解密随机值，至此，两端将三个随机值组合成秘钥开始进行对称加密
 
 ## HTTP/2 HTTP/3
+HTTP/1 无法复用链接，完成即断开，重新慢启动和TCP3次握手
+HTTP/1.1 长连接（keep-alive）复用，host字段指定对应的虚拟站点
+- 断点续存
+- 身份认证
+- 状态管理
+- cache缓存
+  - Cache-Control
+  - Expires
+  - Last-Modified
+  - ETag 
+
 HTTP/2使用多路复用
 HTTP/1 中同一个域名下请求数量是有限制的，当请求很多资源时，队头阻塞会导致到达最大请求数量时，剩余资源需要等待其他资源请求完才可以再请求
 HTTP/2 使用了多路复用，通过一个TCP连接可以传输所有的请求数据

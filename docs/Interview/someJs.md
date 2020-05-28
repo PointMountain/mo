@@ -173,7 +173,7 @@ Function.prototype.myBind = function(target, ...args){
 
 function create(Con, ...args){
 	const obj = {}
-	Object.setPrototypeOf(obj, Con)
+	Object.setPrototypeOf(obj, Con.prototype)
 	const result = Con.apply(obj, args)
 	return result instanceof Object ? result : obj
 }
@@ -257,7 +257,7 @@ Child.prototype = Object.create(Parent.prototype,{
 //new操作符
 function CreateObj(target, ...args){
 	const obj = {}
-	obj.__proto__ = target
+	obj.__proto__ = target.prototype
 	const result = target.call(obj, ...args)
 	return result instanceof Object?result:obj
 }
@@ -355,5 +355,21 @@ function xuanze(arr){
 		}
 	}
 	return arr
+}
+
+function kuaisu(arr){
+	if(arr.length <= 1) return arr
+	let left = []
+	let right = []
+	let current = arr.splice(0,1)
+	for(let i = 0; i< arr.length; i++){
+		if(arr[i] < current){
+			left.push(arr[i])
+		}
+		if(arr[i] > current){
+			right.push(arr[i])
+		}
+	}
+	return kuaisu(left).contact(current, kuaisu(right))
 }
 ```

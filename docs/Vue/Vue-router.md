@@ -8,3 +8,10 @@
 ## 路由配置
 - 动态路由 类似`path: '/user/:id'` 动态路径参数 以冒号开头
 - 懒加载 `import()`
+
+## 路由跳转
+- this.$router.push()
+- `<router-link to=""></router-link>`
+
+## 占位
+`<router-view></router-view>`

@@ -56,7 +56,9 @@ module.exports = {
 			'/Interview/':[
 				['', '面试整理'],
 				['someJs', '部分JS代码'],
-				['myPromise', '简单Promise']
+				['myPromise', '简单Promise'],
+				['5-21', '2020-5-21面试经历'],
+				['continue', '面试后重新学习']
 			]
 		}
 	}
