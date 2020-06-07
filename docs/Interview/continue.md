@@ -129,6 +129,7 @@ self.close() //worker线程关闭自己
 ## WebSocket
 WebSocket是一个持久化的协议，基于HTTP，目的是使服务端可以主动push
 ```
+//客户端
 const ws = new WebSocket('ws://localhost:8080') //使用的协议标识符是ws是在TCP协议之上的，如果加密则是wss（中间多一层TLS）
 ws.addEventListener('open', function(event){
 	ws.send('Hello Server')
@@ -136,6 +137,42 @@ ws.addEventListener('open', function(event){
 ws.addEventListener('message', function(event){
 	console.log(event.data)
 })
+//node服务端
+const WebSocketServer = require('ws').Server
+const wsServer = new WebSocketServer({port: 8080})
+wsServer.on('connection', (socket)=>{
+	socket.on('message', message=>{
+		console.log('接收到客户端消息:'+message)
+		socket.send('服务器回应:'+ someData)
+	})
+})
+```
+使用websocket协议没有跨域问题，但是可以通过设置Origin进行限制，同时请求头会有新的header
+```
+Upgrade: websocket //表示升级为websocket协议
+Connection: Upgrade //表示使用升级协议
+Sec-WebSocket-Version //表示websocket协议版本
+Sec-WebSocket-Key //浏览器随机生成与服务端的Accept相互匹配
+```
+响应头也有新的header
+```
+Connection: Upgrade
+Sec-WebSocket-Accept: 
+Upgrade: websocket
+```
+且状态码为101 表示切换协议
+Sec-WebSocket-Key和Sec-WebSocket-Accept作用
+- 避免服务端收到非法的websocket连接
+- 确保服务端理解websocket连接
+- 用浏览器里发起ajax请求，设置header时，Sec-WebSocket-Key以及其他相关的header是被禁止的
+
+Sec-WebSocket-Accept的获得
+```
+const crypto = require('crypto')
+const number = '258EAFA5-E914-47DA-95CA-C5AB0DC85B11'
+const webSocketKey = 'IHfMdf8a0aQXbwQO1pkGdA=='
+let webSocketAccept = crypto.createHash('sha1').update(webSocketKey+number).digest('base64')
+console.log(websocketAccept);//aWAY+V/uyz5ILZEoWuWdxjnlb7E=
 ```
 
 # 算法
