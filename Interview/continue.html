@@ -7,7 +7,7 @@
     <meta name="generator" content="VuePress 1.4.1">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <meta name="description" content="学习文档">
-    <link rel="preload" href="/mo/assets/css/0.styles.4ab656b6.css" as="style"><link rel="preload" href="/mo/assets/js/app.7648495a.js" as="script"><link rel="preload" href="/mo/assets/js/2.87c2ee94.js" as="script"><link rel="preload" href="/mo/assets/js/8.9796b551.js" as="script"><link rel="prefetch" href="/mo/assets/js/10.ae504f28.js"><link rel="prefetch" href="/mo/assets/js/11.dff27431.js"><link rel="prefetch" href="/mo/assets/js/12.d67c5bc8.js"><link rel="prefetch" href="/mo/assets/js/13.6eae3555.js"><link rel="prefetch" href="/mo/assets/js/14.5f72c62c.js"><link rel="prefetch" href="/mo/assets/js/15.09812628.js"><link rel="prefetch" href="/mo/assets/js/16.e3669b21.js"><link rel="prefetch" href="/mo/assets/js/17.14bb37c2.js"><link rel="prefetch" href="/mo/assets/js/18.fffe03c9.js"><link rel="prefetch" href="/mo/assets/js/19.8b9910c0.js"><link rel="prefetch" href="/mo/assets/js/20.8068ad60.js"><link rel="prefetch" href="/mo/assets/js/21.ee18c908.js"><link rel="prefetch" href="/mo/assets/js/3.d6e49270.js"><link rel="prefetch" href="/mo/assets/js/4.0c267c3a.js"><link rel="prefetch" href="/mo/assets/js/5.97703052.js"><link rel="prefetch" href="/mo/assets/js/6.ccd82442.js"><link rel="prefetch" href="/mo/assets/js/7.8d687047.js"><link rel="prefetch" href="/mo/assets/js/9.5f375408.js">
+    <link rel="preload" href="/mo/assets/css/0.styles.4ab656b6.css" as="style"><link rel="preload" href="/mo/assets/js/app.99637c96.js" as="script"><link rel="preload" href="/mo/assets/js/2.87c2ee94.js" as="script"><link rel="preload" href="/mo/assets/js/8.77266b0d.js" as="script"><link rel="prefetch" href="/mo/assets/js/10.ae504f28.js"><link rel="prefetch" href="/mo/assets/js/11.dff27431.js"><link rel="prefetch" href="/mo/assets/js/12.d67c5bc8.js"><link rel="prefetch" href="/mo/assets/js/13.6eae3555.js"><link rel="prefetch" href="/mo/assets/js/14.5f72c62c.js"><link rel="prefetch" href="/mo/assets/js/15.09812628.js"><link rel="prefetch" href="/mo/assets/js/16.e3669b21.js"><link rel="prefetch" href="/mo/assets/js/17.14bb37c2.js"><link rel="prefetch" href="/mo/assets/js/18.fffe03c9.js"><link rel="prefetch" href="/mo/assets/js/19.8b9910c0.js"><link rel="prefetch" href="/mo/assets/js/20.8068ad60.js"><link rel="prefetch" href="/mo/assets/js/21.ee18c908.js"><link rel="prefetch" href="/mo/assets/js/3.d6e49270.js"><link rel="prefetch" href="/mo/assets/js/4.0c267c3a.js"><link rel="prefetch" href="/mo/assets/js/5.97703052.js"><link rel="prefetch" href="/mo/assets/js/6.ccd82442.js"><link rel="prefetch" href="/mo/assets/js/7.8d687047.js"><link rel="prefetch" href="/mo/assets/js/9.5f375408.js">
     <link rel="stylesheet" href="/mo/assets/css/0.styles.4ab656b6.css">
   </head>
   <body>
@@ -90,18 +90,41 @@ worker.terminate() //主线程关闭worker
 //worker中
 self.postMessage('message from worker') //worker向主线程传递信息，self是worker中的全局对象
 self.close() //worker线程关闭自己
-</code></pre></div><p>限制:</p> <ul><li>同源限制</li> <li>无法使用document/window/alert/confirm</li> <li>无法加载本地资源</li></ul> <h2 id="websocket"><a href="#websocket" class="header-anchor">#</a> WebSocket</h2> <p>WebSocket是一个持久化的协议，基于HTTP，目的是使服务端可以主动push</p> <div class="language- extra-class"><pre class="language-text"><code>const ws = new WebSocket('ws://localhost:8080') //使用的协议标识符是ws是在TCP协议之上的，如果加密则是wss（中间多一层TLS）
+</code></pre></div><p>限制:</p> <ul><li>同源限制</li> <li>无法使用document/window/alert/confirm</li> <li>无法加载本地资源</li></ul> <h2 id="websocket"><a href="#websocket" class="header-anchor">#</a> WebSocket</h2> <p>WebSocket是一个持久化的协议，基于HTTP，目的是使服务端可以主动push</p> <div class="language- extra-class"><pre class="language-text"><code>//客户端
+const ws = new WebSocket('ws://localhost:8080') //使用的协议标识符是ws是在TCP协议之上的，如果加密则是wss（中间多一层TLS）
 ws.addEventListener('open', function(event){
 	ws.send('Hello Server')
 })
 ws.addEventListener('message', function(event){
 	console.log(event.data)
 })
+//node服务端
+const WebSocketServer = require('ws').Server
+const wsServer = new WebSocketServer({port: 8080})
+wsServer.on('connection', (socket)=&gt;{
+	socket.on('message', message=&gt;{
+		console.log('接收到客户端消息:'+message)
+		socket.send('服务器回应:'+ someData)
+	})
+})
+</code></pre></div><p>使用websocket协议没有跨域问题，但是可以通过设置Origin进行限制，同时请求头会有新的header</p> <div class="language- extra-class"><pre class="language-text"><code>Upgrade: websocket //表示升级为websocket协议
+Connection: Upgrade //表示使用升级协议
+Sec-WebSocket-Version //表示websocket协议版本
+Sec-WebSocket-Key //浏览器随机生成与服务端的Accept相互匹配
+</code></pre></div><p>响应头也有新的header</p> <div class="language- extra-class"><pre class="language-text"><code>Connection: Upgrade
+Sec-WebSocket-Accept: 
+Upgrade: websocket
+</code></pre></div><p>且状态码为101 表示切换协议
+Sec-WebSocket-Key和Sec-WebSocket-Accept作用</p> <ul><li>避免服务端收到非法的websocket连接</li> <li>确保服务端理解websocket连接</li> <li>用浏览器里发起ajax请求，设置header时，Sec-WebSocket-Key以及其他相关的header是被禁止的</li></ul> <p>Sec-WebSocket-Accept的获得</p> <div class="language- extra-class"><pre class="language-text"><code>const crypto = require('crypto')
+const number = '258EAFA5-E914-47DA-95CA-C5AB0DC85B11'
+const webSocketKey = 'IHfMdf8a0aQXbwQO1pkGdA=='
+let webSocketAccept = crypto.createHash('sha1').update(webSocketKey+number).digest('base64')
+console.log(websocketAccept);//aWAY+V/uyz5ILZEoWuWdxjnlb7E=
 </code></pre></div><h1 id="算法"><a href="#算法" class="header-anchor">#</a> 算法</h1> <p>五大算法</p> <ul><li>贪心算法</li> <li>分治算法</li> <li>动态规划</li> <li>回溯法</li> <li>分支限界法</li></ul></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
       ←
       <a href="/mo/Interview/5-21.html" class="prev">
         2020-5-21面试经历
       </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
-    <script src="/mo/assets/js/app.7648495a.js" defer></script><script src="/mo/assets/js/2.87c2ee94.js" defer></script><script src="/mo/assets/js/8.9796b551.js" defer></script>
+    <script src="/mo/assets/js/app.99637c96.js" defer></script><script src="/mo/assets/js/2.87c2ee94.js" defer></script><script src="/mo/assets/js/8.77266b0d.js" defer></script>
   </body>
 </html>
