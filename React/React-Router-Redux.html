@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>vue-router使用 | Ming</title>
+    <meta name="generator" content="VuePress 1.4.1">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <meta name="description" content="学习文档">
+    <link rel="preload" href="/mo/assets/css/0.styles.4ab656b6.css" as="style"><link rel="preload" href="/mo/assets/js/app.d0966985.js" as="script"><link rel="preload" href="/mo/assets/js/2.87c2ee94.js" as="script"><link rel="preload" href="/mo/assets/js/14.93c56ab4.js" as="script"><link rel="prefetch" href="/mo/assets/js/10.ae504f28.js"><link rel="prefetch" href="/mo/assets/js/11.dff27431.js"><link rel="prefetch" href="/mo/assets/js/12.d67c5bc8.js"><link rel="prefetch" href="/mo/assets/js/13.6eae3555.js"><link rel="prefetch" href="/mo/assets/js/15.cde8ed52.js"><link rel="prefetch" href="/mo/assets/js/16.7fb525f9.js"><link rel="prefetch" href="/mo/assets/js/17.f6fff392.js"><link rel="prefetch" href="/mo/assets/js/18.cd41e1bb.js"><link rel="prefetch" href="/mo/assets/js/19.5457e1df.js"><link rel="prefetch" href="/mo/assets/js/20.b939a6f8.js"><link rel="prefetch" href="/mo/assets/js/21.ec4935b7.js"><link rel="prefetch" href="/mo/assets/js/22.fce052f5.js"><link rel="prefetch" href="/mo/assets/js/3.cd5abaaa.js"><link rel="prefetch" href="/mo/assets/js/4.0a2b436f.js"><link rel="prefetch" href="/mo/assets/js/5.97703052.js"><link rel="prefetch" href="/mo/assets/js/6.f57c6928.js"><link rel="prefetch" href="/mo/assets/js/7.2d4216df.js"><link rel="prefetch" href="/mo/assets/js/8.77266b0d.js"><link rel="prefetch" href="/mo/assets/js/9.5f375408.js">
+    <link rel="stylesheet" href="/mo/assets/css/0.styles.4ab656b6.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/mo/" class="home-link router-link-active"><!----> <span class="site-name">Ming</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/mo/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/mo/Javascript/base.html" class="nav-link">
+  Javascript基础
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Vue" class="dropdown-title"><span class="title">Vue</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-base.html" class="nav-link">
+  Vue基础使用
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-advanced.html" class="nav-link">
+  Vue高级特性
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vuex.html" class="nav-link">
+  Vuex
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-router.html" class="nav-link">
+  Vue-router
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-principle.html" class="nav-link">
+  Vue原理
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-code.html" class="nav-link">
+  Vue源码解析
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="React" class="dropdown-title"><span class="title">React</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/mo/React/" class="nav-link router-link-active">
+  React基础
+</a></li><li class="dropdown-item"><!----> <a href="/mo/React/React-Router-Redux.html" class="nav-link router-link-exact-active router-link-active">
+  React Redux Router
+</a></li></ul></div></div><div class="nav-item"><a href="/mo/webpack/" class="nav-link">
+  webpack
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="面试" class="dropdown-title"><span class="title">面试</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/mo/Interview/" class="nav-link">
+  面试整理
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Interview/someJs.html" class="nav-link">
+  部分JS代码
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Interview/myPromise.html" class="nav-link">
+  简单Promise
+</a></li></ul></div></div><div class="nav-item"><a href="https://github.com/PointMountain/mo" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GayHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/mo/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/mo/Javascript/base.html" class="nav-link">
+  Javascript基础
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Vue" class="dropdown-title"><span class="title">Vue</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-base.html" class="nav-link">
+  Vue基础使用
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-advanced.html" class="nav-link">
+  Vue高级特性
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vuex.html" class="nav-link">
+  Vuex
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-router.html" class="nav-link">
+  Vue-router
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-principle.html" class="nav-link">
+  Vue原理
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-code.html" class="nav-link">
+  Vue源码解析
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="React" class="dropdown-title"><span class="title">React</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/mo/React/" class="nav-link router-link-active">
+  React基础
+</a></li><li class="dropdown-item"><!----> <a href="/mo/React/React-Router-Redux.html" class="nav-link router-link-exact-active router-link-active">
+  React Redux Router
+</a></li></ul></div></div><div class="nav-item"><a href="/mo/webpack/" class="nav-link">
+  webpack
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="面试" class="dropdown-title"><span class="title">面试</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/mo/Interview/" class="nav-link">
+  面试整理
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Interview/someJs.html" class="nav-link">
+  部分JS代码
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Interview/myPromise.html" class="nav-link">
+  简单Promise
+</a></li></ul></div></div><div class="nav-item"><a href="https://github.com/PointMountain/mo" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GayHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/mo/React/" class="sidebar-link">React基础</a></li><li><a href="/mo/React/React-Router-Redux.html" class="active sidebar-link">React Redux Router</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/mo/React/React-Router-Redux.html#react-redux" class="sidebar-link">react-redux</a></li><li class="sidebar-sub-header"><a href="/mo/React/React-Router-Redux.html#redux" class="sidebar-link">redux</a></li><li class="sidebar-sub-header"><a href="/mo/React/React-Router-Redux.html#在组件上" class="sidebar-link">在组件上</a></li><li class="sidebar-sub-header"><a href="/mo/React/React-Router-Redux.html#在redux中" class="sidebar-link">在redux中</a></li></ul></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="vue-router使用"><a href="#vue-router使用" class="header-anchor">#</a> vue-router使用</h1> <div class="language- extra-class"><pre class="language-text"><code>import { HashRouter as Router, Route, Link, Redirect, Switch, withRouter, Prompt } from 'react-router-dom' 
+</code></pre></div><p><code>Router</code>在最外层，将组建包裹起来，<code>Route</code>表示一个个页面，里面有path属性设置跳转路由，component属性设置组件，exact设置是否精准匹配
+<code>Link</code>表示链接，通过to属性写入跳转路径，<code>Redirect</code>表示重定向
+<code>Switch</code>包裹<code>Route</code>表示选择其中一项，<code>withRouter</code>高阶函数，将普通组件包裹起来，内部传入router相关属性
+<code>Prompt</code>包裹组件，通过设置when属性，可以阻止跳转
+<code>Route</code>中还有render和children两个参数接受一个函数，其中render是路由匹配成功才会执行，children是一定会执行，render优先级高于children</p> <h1 id="redux使用"><a href="#redux使用" class="header-anchor">#</a> redux使用</h1> <p>在react中使用redux还需要react-redux</p> <h2 id="react-redux"><a href="#react-redux" class="header-anchor">#</a> <code>react-redux</code></h2> <ul><li>在最外层提供一个<code>Provider</code>，通过store属性将store放到context上下文中
+<ul><li>在需要用store的组件内提供一个<code>connect</code>高阶函数，通过类似<div class="language- extra-class"><pre class="language-text"><code>	const mapStateToProps = state =&gt; state
+	connect(
+		mapStateToProps,
+		actions
+	)(ComponentName)
+</code></pre></div>将store中的state和dispatch传给组件的props，且为组件绑定store.subscribe使其每次都可以重新渲染内容</li></ul></li></ul> <h2 id="redux"><a href="#redux" class="header-anchor">#</a> redux</h2> <p>redux生成一个store，外部操作通过dispatch发布一个action，在store中有reducer负责接收上次的state状态和action，根据action中的type属性，对state进行修改，同时当state发生改变时，之前store.subscribe过的组件会受到通知，触发回调方法。</p> <ul><li>reducer 接收state，action根据action对state进行操作，返回新的state 如果有多个reducer 需要使用redux的<code>combineReducers</code>将多个reducer进行合并</li> <li>action 约定好的行为 普通action返回一个包含type属性的对象，也有异步action和promise action等</li> <li>store
+<ul><li>不使用中间件的话可以直接使用redux中的createStore<code>let store = createStore(reducer, initialState)</code> 生成store</li> <li>使用中间件的话就需要使用redux中的applyMiddleware<code>let store = applyMiddleware(thunk, promise, logger)(createStore)(reducers, initialState)</code></li></ul></li> <li>中间件
+中间件结构都是</li></ul> <div class="language- extra-class"><pre class="language-text"><code>function({dispatch, getState}){
+	return next =&gt; action =&gt;{
+		//一些操作
+		next(action)
+	}
+} 
+</code></pre></div><h1 id="router、redux一起使用"><a href="#router、redux一起使用" class="header-anchor">#</a> router、redux一起使用</h1> <p>使用<code>connected-react-router</code>将redux和router相连接
+首先使用<code>history</code>库中的<code>createBrowserHistory</code>方法创建一个history</p> <h2 id="在组件上"><a href="#在组件上" class="header-anchor">#</a> 在组件上</h2> <p>在<code>react-redux</code>的<code>Provider</code>组件内使用<code>connected-react-router</code>的<code>ConnectedRouter</code>并将其history属性赋值history，此时无需再使用react-router-dom中的Router组件包裹Route</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;ConnectedRouter history={history}&gt;
+	&lt;Route path='/' exact component={Home} /&gt;
+	&lt;Route path='/counter' exact component={Counter} /&gt;
+&lt;/ConnectedRouter&gt;
+</code></pre></div><h2 id="在redux中"><a href="#在redux中" class="header-anchor">#</a> 在redux中</h2> <p>在action如果需要使用router中history的push方法直接从<code>connected-react-router</code>引入push使用即可
+在reducer中需要使用<code>combineReducers</code>将<code>connected-react-router</code>中的reducer<code>connectRouter</code>放到总的reducer中</p> <div class="language- extra-class"><pre class="language-text"><code>let reducers = combineReducers({
+	router: connectRouter(history),
+	...otherReducers
+})
+</code></pre></div><p>在生成store的时候需要使用<code>applyMiddleware</code>将<code>connected-react-router</code>中的中间件<code>routerMiddleware</code>放到总的中间件中<code>applyMiddleware(routerMiddleware(history))</code></p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/mo/React/" class="prev router-link-active">
+        React基础
+      </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/mo/assets/js/app.d0966985.js" defer></script><script src="/mo/assets/js/2.87c2ee94.js" defer></script><script src="/mo/assets/js/14.93c56ab4.js" defer></script>
+  </body>
+</html>
