@@ -21,7 +21,8 @@ module.exports = {
 			},
 			{text: 'React',
 				items: [
-					{text: 'React基础',link: '/React/'}
+					{text: 'React基础',link: '/React/'},
+					{text: 'React Redux Router',link: '/React/React-Router-Redux'}
 				]
 			},
 			{text: 'webpack', link: '/webpack/'},
@@ -48,7 +49,8 @@ module.exports = {
 				['base', 'Javascript基础']
 			],
 			'/React/':[
-				['', 'React基础']
+				['', 'React基础'],
+				['React-Router-Redux', 'React Redux Router']
 			],
 			'/webpack/':[
 				['', 'webpack']

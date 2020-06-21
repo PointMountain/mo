@@ -169,7 +169,6 @@ Push Cache
 - Service Worker
 它是运行在浏览器背后的独立线程，可以用来实现缓存功能，但是传输协议必须是HTTPS，因为其中涉及到请求拦截
 实现缓存分三步，首先注册Service Worker，然后监听到install事件之后就缓存需要的文件，之后用户就会从缓存中去获取
-> 无论从Memory Cache获取还是从网络请求中获取数据，浏览器都会显示从Service Worker中获取
 
 - Memory Cache
 内存中的缓存 读取高效 但是持续性很短，会随着进程释放而释放，即关闭tab就会被清除
