@@ -36,7 +36,7 @@ function({dispatch, getState}){
 		//一些操作
 		next(action)
 	}
-} 
+}
 ```
 
 # router、redux一起使用
