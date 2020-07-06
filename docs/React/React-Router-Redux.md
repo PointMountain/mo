@@ -25,7 +25,7 @@ import { HashRouter as Router, Route, Link, Redirect, Switch, withRouter, Prompt
 redux生成一个store，外部操作通过dispatch发布一个action，在store中有reducer负责接收上次的state状态和action，根据action中的type属性，对state进行修改，同时当state发生改变时，之前store.subscribe过的组件会受到通知，触发回调方法。
 - reducer 接收state，action根据action对state进行操作，返回新的state 如果有多个reducer 需要使用redux的`combineReducers`将多个reducer进行合并
 - action 约定好的行为 普通action返回一个包含type属性的对象，也有异步action和promise action等
-- store 
+- store
   - 不使用中间件的话可以直接使用redux中的createStore`let store = createStore(reducer, initialState)` 生成store
   - 使用中间件的话就需要使用redux中的applyMiddleware`let store = applyMiddleware(thunk, promise, logger)(createStore)(reducers, initialState)`
 - 中间件
