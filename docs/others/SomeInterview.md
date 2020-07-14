@@ -11,7 +11,7 @@
 - App内
 `onLaunch`,`onShow`,`onHide`,`onError`
 - Page内
-`onLoad`,`onReady`,`onShow`,`onHide`,`onUnload`
+`onLoad`,`onShow`,`onReady`,`onHide`,`onUnload`
 
  **如果同时有app和page的生命周期，会先触发app的，然后触发page内的**
  后退之后不会触发onLoad，只会触发onShow
