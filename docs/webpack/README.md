@@ -1,7 +1,7 @@
 # webpack
 
 ## 概念
-- module 
+- module
   各个源码文件，webpack中一切皆模块
 - chunk
   多模块合并成的，如entry、import()、splitChunk生成的
