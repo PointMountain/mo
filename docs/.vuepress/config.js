@@ -26,11 +26,15 @@ module.exports = {
 				]
 			},
 			{text: 'webpack', link: '/webpack/'},
-			{text: '面试', 
+			{text: '杂记',
 				items: [
-					{text: '面试整理', link: '/Interview/'},
-					{text: '部分JS代码', link: '/Interview/someJs'},
-					{text: '简单Promise', link: '/Interview/myPromise'}
+					{text: '面试预习', link: '/others/'},
+					{text: '面试整理', link: '/others/SomeInterview'},
+					{text: '网络连接方式', link: '/others/Connect'},
+					{text: '前端监控', link: '/others/Monitor'},
+					{text: '性能优化', link: '/others/Performance'},
+					{text: '随手写代码', link: '/others/SomeJS'},
+					{text: 'Promise代码', link: '/others/myPromise'}
 				]
 			},
       {text: 'GayHub', link: 'https://github.com/PointMountain/mo'}
@@ -55,13 +59,15 @@ module.exports = {
 			'/webpack/':[
 				['', 'webpack']
 			],
-			'/Interview/':[
-				['', '面试整理'],
-				['someJs', '部分JS代码'],
+			'/others/':[
+				['', '面试预习'],
+				['SomeJS', '随手写代码'],
 				['myPromise', '简单Promise'],
-				['5-21', '2020-5-21面试经历'],
-				['continue', '面试后重新学习']
-			]
+				['SomeInterview', '面试整理'],
+				['Connect', '网络连接方式'],
+				['Monitor', '前端监控'],
+				['Performance', '性能优化']
+			],
 		}
 	}
 }

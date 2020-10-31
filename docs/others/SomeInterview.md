@@ -1,5 +1,3 @@
-# 面试经历
-
 ## 微信小程序登陆流程
 首先通过`wx.login`获取`code`，之后将`code`通过`wx.request`发送到第三方服务器，第三方服务器将`appid、appsecret、code`发送给微信官方api请求到`session_key, openid`，之后服务器可以通过`token`之类自定义登录态的将其与`session_key, openid`关联，且将`session_key, openid`保存到服务端，然后把自定义登录态返回给小程序，小程序将其保存起来，之后进行业务请求的时候携带用于查询`session_key, openid`是否符合条件。
 
@@ -13,7 +11,7 @@
 - App内
 `onLaunch`,`onShow`,`onHide`,`onError`
 - Page内
-`onLoad`,`onReady`,`onShow`,`onHide`,`onUnload`
+`onLoad`,`onShow`,`onReady`,`onHide`,`onUnload`
 
  **如果同时有app和page的生命周期，会先触发app的，然后触发page内的**
  后退之后不会触发onLoad，只会触发onShow
@@ -111,3 +109,151 @@ GET请求由于参数在链接上面，因此url长度会根据浏览器以及�
 - Google(chrome)：URL最大长度限制为8182个字符。
 - Apache(Server)：能接受的最大url长度为8192个字符
 - Microsoft Internet Information Server(IIS)：n能接受最大url的长度为16384个字符。
+
+## 模块化
+1. 解决命名冲突
+2. 提供复用性
+3. 提高代码的可维护性
+
+- CommonJS
+  - 通过`module.exports = xxx`或者`exports.xxx = xxx`将文件导出
+  - 通过`require()`引入</br>
+
+  module是node中的一个变量，基本实现：
+  ```
+   let module = {
+     id: 'xxx',
+     exports:{}
+   }
+
+   let exports = module.exports
+  ```
+- ES Module
+  ```
+  //引入
+  import xxx from 'xxx'
+  import {xxx} from 'xxx'
+  //导出
+  export function a(){}
+  export default function(){}
+  ```
+
+  ES Module 和 CommonJS区别
+  - CommonJS支持动态导入而ES Module通常是静态导入，但是也可以使用import()动态导入
+  - CommonJS是同步导入，ES Module是异步导入，因此可以用于浏览器，下载文件等
+  - CommonJS导出的只是拷贝值，即使导出的值发生变化，导入的值也不会改变，ES Module采用的是实时绑定的方式，导入导出指向同一个内存地址，因此会发生变化
+  - ES Module会被编译成require/exports来执行
+
+## webpack
+webpack会通过entry读取入口文件，然后根据入口文件获取入口文件所需要的依赖文件，最后导出output设置好的bundle文件，bundle文件是一个自执行函数：
+```
+;(function(modules){
+  function require(moduleId){
+    const module = {exports:{}}
+    modules[moduleId](module, module.exports, require)
+    return module.exports
+  }
+  require('./entry.js')
+})({
+  './entry.js': function(module, exports, require){
+    var _a = require('./a.js')
+    console.log(_a.default)
+  },
+  './a.js': function(module, exports, require){
+    var a = 1
+    exports.default = a
+  }
+})
+```
+结构就是这样通过执行函数，参数是一个对象，对象由`moduleId: function(module, exports, require){}`一个个这样的结构组成，可以根据依赖一个个进行引用</br>
+具体过程是通过读取入口文件，将入口文件转化为ast进行解析，遍历ast将所有依赖放入一个数组中，最后在打包的时候循环遍历依赖数组生成参数对象，并将其和函数拼接在一起，生成设置好的output文件。
+
+## vdom
+通过原生的JS对象去描述一个DOM节点，它比创建一个DOM的代价要小很多。
+```
+vnode{
+  tag,
+  data,
+  key,
+  children,
+  text,
+}
+```
+vdom好处
+1. 解决浏览器性能问题，可以先通过js模拟dom通过diff算法优化更新，最后再交由浏览器去绘制
+2. 把渲染过程抽象化了，从而使得组件的抽象能力也得到提升
+3. 因为node端是没有dom元素的，所以vdom可以更好的实现SSR，同构渲染
+4. 可以实现框架的跨平台
+
+## websocket优势劣势
+普通HTTP
+- HTTP是半双工协议 同一时刻只能单向流动
+- HTTP中服务器不能主动推送数据给客户端
+双向通信
+- 轮询
+  - 客户端和服务器之间一直进行连接，每隔一段时间发送一次
+- 长轮询
+  - 对轮询进行改进，客户端发送HTTP给服务器，如果没有新消息就一直等待，当有消息时，才会返回客户端，然后客户端重新发送HTTP给服务器继续等待
+- ifream流
+  - 通过在页面上嵌入一个隐藏的ifream，设置ifream的src属性为请求，就可以源源不断的往客户端推送数据
+- EventSource流(Server Sent Event)
+  - 客户端向服务端订阅一条流，之后服务端可以发送消息给客户端直到客户端或者服务端关闭该流
+  - 单向的只能从服务端向客户端发送流，且格式固定`Content-Type: text/event-stream`，内容格式也是确定好的
+- WebSocket
+  - 在客户端和服务端保持一个持久的连接，两边都可以在任何时间开始发送数据
+  - 属于应用层协议，基于TCP传输协议，复用HTTP的握手通道
+  - 全双工通信，实时性强
+  - 更好的二进制支持
+  - 较少的控制开销。连接创建后，信息交互时协议控制的数据包头部较小
+## mock数据
+- 使用mockJS
+- 在webpack的devServer配置before钩子，拦截请求返回mock数据
+
+## 移动端适配
+1. 解决移动端1px方案
+根据dpr在媒体查询中使用`transform: scale()`
+```
+/* 2倍屏 */
+@media only screen and (-webkit-min-device-pixel-ratio: 2.0) {
+    .border-bottom::after {
+        -webkit-transform: scaleY(0.5);
+        transform: scaleY(0.5);
+    }
+}
+
+/* 3倍屏 */
+@media only screen and (-webkit-min-device-pixel-ratio: 3.0) {
+    .border-bottom::after {
+        -webkit-transform: scaleY(0.33);
+        transform: scaleY(0.33);
+    }
+}
+```
+2. viewport
+移动端配置视口，加一个meta标签
+```
+<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; minimum-scale=1; user-scalable=no;">
+```
+3. rem适配
+通过设置根元素的font-size使得rem在不同设备上自适应大小
+```
+(function (){
+  //根据屏幕大小设置根元素
+  function refreshRem() {
+    var dom = document.documentElement
+    dom.style.fontSize = dom.clientWidth / 750 * 100 + 'px'
+  }
+  refreshRem()
+  window.addEventListener('resize', refreshRem, false)
+})()
+```
+本质上，**用户使用更大的屏幕，是想看到更多的内容，而不是更大的字**，所以通过缩放来解决问题的方案是个过度方案。
+4. vw vh布局
+window.innerWidth和window.innerHeight等分为100份，每份就是1vw 1vh，vmin是宽高中最小的数值，vmax是宽高中最大的数值，在webpack中可以使用`postcss-px-to-viewport`进行转化
+5. px为主 rem vw vh为辅 使用flex布局
+6. 移动端适配流程
+  - 在head中设置viewport width=device-width的meta
+  - 在css中使用px
+  - 在适当场景使用flex布局，配合vw进行自适应
+  - 在跨设备类型使用媒体查询
+  - 如果跨设备类型交互差异过大，考虑分开项目开发
