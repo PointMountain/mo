@@ -87,4 +87,20 @@ MyComponent.defaultProps = {
   sex: '未知',
   age: 20
 }
+
+// 函数组件props默认值设置的另一种方式
+function MyComponent(props) {
+  const {
+    name,
+    age = '20', // 通过解构赋默认值
+    sex
+  } = props
+  return (
+    <div>
+      {name}
+      {age}
+      {sex}
+    </div>
+  )
+}
 ```
