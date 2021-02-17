@@ -10,11 +10,25 @@
 7. `componentDidUpdate(prevProps, prevState, snapshot)`更新后调用
 8. `componentWillUnmount()`组件卸载前调用，用于清除事件监听，timer等
 
-- 卸载组件
-```js
-ReactDOM.unmountComponentAtNode(HTMLElement)
-```
+### 初始化阶段：由ReactDOM.render()触发---初次渲染
+1. `constructor()`
+2. `componentWillMount()`需要加`UNSAFE_`前缀 => `getDerivedStateFromProps()`
+3. `render()`
+4. `componentDidMount()` ====> 常用
 
+### 更新阶段：由组件内部this.setState()或父组件重新render触发
+1. `componentWillReceiveProps()` => 需要加`UNSAFE_`前缀=>`getDerivedStateFromProps()`
+2. `shouldComponentUpdate()` => 如果调用`this.forceUpdate()`强制更新则没有此步
+3. `componentWillUpdate()`需要加`UNSAFE_`前缀且与`getDerivedStateFromProps()`不兼容
+4. `render()`
+5. `getSnapshotBeforeUpdate()`
+6. `componentDidUpdate()`
+
+### 卸载组件：由`ReactDOM.unmountComponentAtNode(HTMLElement)`触发
+1. `componentWillUnmount` ====> 常用
+
+**重点：**
+`getDerivedStateFromProps`无法和三个`UNSAFE_`一起使用
 ## React事件处理
 1. 通过onXxx属性指定事件处理函数（注意大小写）
   - React使用的是自定义合成事件，而不是使用原生DOM事件 ----为了更好的兼容性
