@@ -1,12 +1,41 @@
-# vue-router使用
+# react-router-dom使用
+`react-router-dom`库是专为web人员专门设计的`react-router`库
+```js
+import { HashRouter/BrowserRouter, Route, Link, Redirect, Switch, withRouter, Prompt } from 'react-router-dom'
 ```
-import { HashRouter as Router, Route, Link, Redirect, Switch, withRouter, Prompt } from 'react-router-dom' 
+`Router`必须在最外层，将组件包裹起来
+```js
+<HashRouter>
+ <App/>
+</HashRouter>
 ```
-`Router`在最外层，将组建包裹起来，`Route`表示一个个页面，里面有path属性设置跳转路由，component属性设置组件，exact设置是否精准匹配
-`Link`表示链接，通过to属性写入跳转路径，`Redirect`表示重定向
+`Route`表示一个个页面，里面有path属性匹配跳转路由，component属性设置路由组件，exact设置是否精准匹配
+其中路由组件的props会传入route相关属性
+```js
+<Route path='/xxx' component={Demo}/>
+```
+`Link`表示链接，通过to属性写入跳转路径，实际在浏览器是也是a标签
+```js
+<Link to='/xxxx'>Demo</Link>
+```
+`Redirect`表示重定向
 `Switch`包裹`Route`表示选择其中一项，`withRouter`高阶函数，将普通组件包裹起来，内部传入router相关属性
 `Prompt`包裹组件，通过设置when属性，可以阻止跳转
 `Route`中还有render和children两个参数接受一个函数，其中render是路由匹配成功才会执行，children是一定会执行，render优先级高于children
+
+## 路由组件和一般组件
+1. 写法不同
+     - 一般组件`<Demo/>`
+     - 路由组件`<Route path='/xxx' component={Demo}/>`
+2. 存放位置不同
+     -  一般组件：放到components文件夹里
+     -  路由组件：放到pages文件夹里
+3. 接受的props不同
+     -  一般组件：写组件标签时传递了什么。就能收到什么
+     -  路由组件：接受三个固定的属性`history`、`location`和`match`
+        1. `history`:  `go(), goBack(), goForward(), push(), replace()`
+        2. `location`:  `pathname, search, state`
+        3. `match`:  `params, path, url`
 
 # redux使用
 在react中使用redux还需要react-redux
