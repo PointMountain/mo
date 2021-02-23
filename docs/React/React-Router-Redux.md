@@ -12,14 +12,45 @@ import { HashRouter/BrowserRouter, Route, Link, Redirect, Switch, withRouter, Pr
 `Route`表示一个个页面，里面有path属性匹配跳转路由，component属性设置路由组件，exact设置是否精准匹配
 其中路由组件的props会传入route相关属性
 ```js
-<Route path='/xxx' component={Demo}/>
+<Route path='/xxx' component={Demo} exact/>
 ```
 `Link`表示链接，通过to属性写入跳转路径，实际在浏览器是也是a标签
 ```js
 <Link to='/xxxx'>Demo</Link>
 ```
-`Redirect`表示重定向
-`Switch`包裹`Route`表示选择其中一项，`withRouter`高阶函数，将普通组件包裹起来，内部传入router相关属性
+`NavLink`实现路由链接的高亮，通过设置`activeClassName`设置高亮的类名，默认值会加一个`active`的class名
+```js
+<NavLink activeClassName='xxx' to='/xxx'>Demo</NavLink>
+```
+如果同时使用多个`NavLink`，且属性过多可以进行封装
+```js
+<MyNavLink to='/xxx' a={1} b={2} c={3}>Demo</MyNavLink>
+// React中可以通过this.props.children获取标签体内容
+class MyNavLink extends React.Component {
+  render() {
+    return (
+      <NavLink activeClassName='xxx' className='xxx' {...props}/>
+    )
+  }
+}
+```
+`Switch`包裹`Route`，路由在默认情况下会从上到下匹配全部`Route`，使用`Switch`之后会进行路由单一匹配，匹配到一个之后就停止，提高路由匹配效率
+```js
+<Switch>
+  <Route path='/xxx1' component={Demo1}/>
+  <Route path='/xxx2' component={Demo2}/>
+  <Route path='/xxx3' component={Demo3}/>
+</Switch>
+```
+`Redirect`表示重定向，用来兜底，一般放到所有Route后面，当所有路由都无法匹配时，跳转到Redirect指定的路由
+```js
+<Switch>
+  <Route path='/xxx1' component={Demo1}/>
+  <Route path='/xxx2' component={Demo2}/>
+  <Redirect to='/xxx2'/>
+</Switch>
+```
+`withRouter`高阶函数，将普通组件包裹起来，内部传入router相关属性
 `Prompt`包裹组件，通过设置when属性，可以阻止跳转
 `Route`中还有render和children两个参数接受一个函数，其中render是路由匹配成功才会执行，children是一定会执行，render优先级高于children
 
@@ -36,6 +67,17 @@ import { HashRouter/BrowserRouter, Route, Link, Redirect, Switch, withRouter, Pr
         1. `history`:  `go(), goBack(), goForward(), push(), replace()`
         2. `location`:  `pathname, search, state`
         3. `match`:  `params, path, url`
+
+
+## 解决多级路径刷新页面样式丢失问题
+1. `public/index.html`中引入样式时开头不写 `./` 写 `/`
+2. `public/index.html`中引入样式时开头不写 `./` 写 `%PUBLIC_URL%/` (React脚手架设置)
+3. 使用HashRouter
+
+## 路由的严格匹配和模糊匹配
+1. 默认使用的是模糊匹配 输入的路径必须包含要匹配的路径，且顺序要一致
+2. 开启严格匹配`<Route path='/xxx' component={Demo} exact={true}/>`
+3. 严格匹配不要随便开启，需要再开，有些时候开启会导致无法继续匹配二级路由
 
 # redux使用
 在react中使用redux还需要react-redux
