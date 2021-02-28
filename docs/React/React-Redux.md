@@ -1,20 +1,14 @@
-# redux使用
-在react中使用redux还需要react-redux
-## `react-redux`
-  - 在最外层提供一个`Provider`，通过store属性将store放到context上下文中
-	- 在需要用store的组件内提供一个`connect`高阶函数，通过类似
-		```js
-			const mapStateToProps = state => state
-			connect(
-				mapStateToProps,
-				actions
-			)(ComponentName)
-		```
-		将store中的state和dispatch传给组件的props，且为组件绑定store.subscribe使其每次都可以重新渲染内容
 # redux
 redux生成一个store，外部操作通过dispatch发布一个action，在store中有reducer负责接收上次的state状态和action，根据action中的type属性，对state进行修改，同时当state发生改变时，之前store.subscribe过的组件会受到通知，触发回调方法。
-- reducer 接收state，action根据action对state进行操作，返回新的state 如果有多个reducer 需要使用redux的`combineReducers`将多个reducer进行合并
+```js
+store.getState() // 获取state
+store.dispatch(action) // 触发action进行state操作
+store.subscribe(callback) // 监听state发生变化，可以调用callback，可以在回调中重新渲染组件
+```
+- reducer是一个纯函数，接收state，action。根据action对state进行操作，返回新的state。如果有多个reducer，需要使用redux的`combineReducers`将多个reducer进行合并
 - action 约定好的行为 普通action返回一个包含type属性的对象，也有异步action和promise action等
+  - 同步action返回值是一个对象
+  - 异步action返回值是一个函数，异步action中一般都会调用同步action，且需要使用`redux-thunk`中间件
 - store
   - 不使用中间件的话可以直接使用redux中的createStore`let store = createStore(reducer, initialState)` 生成store
   - 使用中间件的话就需要使用redux中的applyMiddleware`let store = applyMiddleware(thunk, promise, logger)(createStore)(reducers, initialState)`
@@ -28,8 +22,40 @@ function({dispatch, getState}){
 	}
 }
 ```
+## `react-redux`库
+  - 在react中使用redux可以使用`react-redux`简化操作
+  - 在最外层提供一个`Provider`，通过store属性将store放到context上下文中
+	- 在需要用store的组件内提供一个`connect`高阶函数，通过类似
+		```js
+			const mapStateToProps = (state) => {
+				return {
+					state: state
+				}
+			}
+			const mapDispatchToProps = (dispatch) => {
+				return {
+					fun1: payload => dispatch(action(payload))
+				}
+			}
+			/*
+			  mapDispatchToProps还可以返回一个对象，对象内直接返回action
+				const mapDispatchToProps = {
+					fun1: action
+				}
+			*/
+			connect(
+				mapStateToProps,
+				mapDispatchToProps
+			)(ComponentName)
 
-# router、redux一起使用
+			// 之后在ComponentName组件中可以拿到action和state
+			this.props.state
+			this.props.fun1
+		```
+		将store中的state和dispatch传给组件的props，且为组件绑定store.subscribe使其每次都可以重新渲染内容
+
+
+## router、redux一起使用
 使用`connected-react-router`将redux和router相连接
 首先使用`history`库中的`createBrowserHistory`方法创建一个history
 ## 在组件上
