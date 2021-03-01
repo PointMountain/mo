@@ -54,6 +54,26 @@ function({dispatch, getState}){
 		```
 		将store中的state和dispatch传给组件的props，且为组件绑定store.subscribe使其每次都可以重新渲染内容
 
+## 纯函数
+1. 纯函数是一类特别的函数：只要是同样的输入（实参），必定得到同样的输出（返回）
+2. 必须遵守一些约束
+	1. 不得改写参数数据
+	2. 不会产生任何副作用，例如网络请求，输入和输出设备
+	3. 不能调用不纯的方法，类似Date.now()、Math.random()等
+
+redux中的reducer函数必须是一个纯函数，因为redux内部会对reducer返回值进行浅比较，如果返回的还是同一个对象，redux会认为内容没有进行修改，不会触发页面内容更新。
+
+## redux开发工具
+1. `redux-devtools-extension`库
+2. 在store文件中进行配置
+```js
+  import { composeWithDevTools } from 'redux-devtools-extension'
+
+  // 无中间件
+  const store = createStore(rootReducer, composeWithDevTools())
+  // 有中间件
+  const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
+```
 
 ## router、redux一起使用
 使用`connected-react-router`将redux和router相连接
