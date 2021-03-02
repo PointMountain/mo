@@ -26,7 +26,8 @@ module.exports = {
 					{text: 'React Props',link: '/React/React-Props'},
 					{text: 'React Refs',link: '/React/React-Refs'},
 					{text: 'React Router', link: '/React/React-Router'},
-					{text: 'React Redux Router',link: '/React/React-Redux'}
+					{text: 'React Redux Router',link: '/React/React-Redux'},
+					{text: 'React Extension', link: '/React/React-Extension'}
 				]
 			},
 			{text: 'webpack', link: '/webpack/'},
@@ -62,7 +63,8 @@ module.exports = {
 				['React-Props', 'React Props'],
 				['React-Refs', 'React Refs'],
 				['React-Router', 'React Router'],
-				['React-Redux', 'React Redux']
+				['React-Redux', 'React Redux'],
+				['React-Extension', 'React Extension']
 			],
 			'/webpack/':[
 				['', 'webpack']
