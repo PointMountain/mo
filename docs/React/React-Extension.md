@@ -101,3 +101,133 @@ export default function App() {
   )
 }
 ```
+### Effect Hook
+1. Effect Hook可以再函数组件中执行副作用操作（用于模拟组件中的生命周期）
+2. React中的副作用操作有发送ajax请求、设置订阅/启动定时器、手动更改真实DOM等操作
+3. 使用方法：
+    ```js
+    React.useEffect(() => {
+      // 在此可以执行任何带副作用的操作
+      return () => { // 组件卸载前触发
+        // 在此做一些收尾工作，比如清除定时器，取消订阅等
+      }
+    }, [stateValue]) // stateValue是可选数组参数，如果不写则监听所有状态变化执行回调函数，如果使用[]空数组，则只有首次render时执行回调，如果指定了某个状态，则会只监听指定状态变化执行回调
+
+    import React from 'react'
+    import ReactDOM from 'react-dom'
+    export default function App() {
+      const [count, setCount] = React.useState(0)
+      React.useEffect(() => {
+        let timer = setInterval(() => {
+          setCount(count => count + 1)
+        }, 1000)
+        return () => {
+          clearInterval(timer)
+        }
+      }, [])
+      const unmount = () => {
+        ReactDOM.unmountComponentAtNode(document.getElementById('root'))
+      }
+      return (
+        <div>
+          <span>{count}</span>
+          <button onClick={unmount}>卸载组件</button>
+        </div>
+      )
+    }
+    ```
+4. 可以把Effect Hook看作`componentDidMount`、`componentDidUpdate`、`componentWillUnmount`三个函数的集合
+### Ref Hook
+1. Ref Hook可以再函数组件中存储/查找组件内的标签或任意其它数据
+2. `const refContainer = React.useRef()`
+3. 用来保存标签对象，功能与`React.createRef()`一样
+```js
+import React from 'react'
+export default function App() {
+  const refContainer = React.useRef()
+  const show = () => {
+    alert(refContainer.current.value)
+  }
+  return (
+    <div>
+      <input ref={refContainer}/>
+      <button onClick={show}>展示内容</button>
+    </div>
+  )
+}
+```
+
+## Fragment
+作用是可以不用必须有一个真实的DOM根标签
+```js
+import React, { Fragment } from 'react'
+function Demo1() {
+  return (
+    <Fragment key={1}>
+      <div>1</div>
+      <div>2</div>
+    </Fragment>
+  )
+} // 渲染出来之后没有最外层的标签
+function Demo2() {
+  return (
+    <>
+      <div>1</div>
+      <div>2</div>
+    </>
+  )
+} // <></>效果与Fragment一样，但是如果是列表组件需要key属性的话只能用Fragment，<></>不能设置key，另外Fragment属性只能设置key和children
+```
+
+## Context
+Context是一种组件通信方式，常用于祖先组件与后代组件间通信
+1. 创建Context容器`const XxxContext = React.createContext()`
+2. 渲染子组件时，外面包裹`XxxContext.Provider`，通过`value`属性给后代组件传递数据
+```js
+<XxxContext.Provider value={value}>
+  <子组件 />
+</XxxContext.Provider>
+```
+3. 后代组件读取数据
+```js
+// 仅用于类组件
+static contextType = XxxContext // 声明接受的context
+this.context // 读取context中的value数据
+
+// 类组件和函数组件都可使用
+<XxxContext.Consumer>
+  {
+    value => {
+      // 返回所需内容
+    }
+  }
+</XxxContext.Consumer>
+
+import React from "react";
+const DemoContext = React.createContext();
+export default function App() {
+  return (
+    <DemoContext.Provider value={{ name: "ming", age: 18 }}>
+      <Demo1 />
+      <Demo2 />
+    </DemoContext.Provider>
+  )
+}
+class Demo1 extends React.Component {
+  static contextType = DemoContext;
+  render() {
+    return (
+      <>
+        {this.context.name},{this.context.age}
+      </>
+    )
+  }
+}
+function Demo2() {
+  return (
+    <DemoContext.Consumer>
+      {(value) => `${value.name}, ${value.age}`}
+    </DemoContext.Consumer>
+  )
+}
+```
