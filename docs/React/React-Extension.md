@@ -231,3 +231,38 @@ function Demo2() {
   )
 }
 ```
+
+## 组件优化
+Components中的两个问题
+>1. 只要执行setState，即使不改变状态数据，组件也会重新render() ===> 效率低
+>2. 只要当前组件重新render()，就会自动重新render子组件，即使子组件没有用到父组件的任何数据 ===> 效率低
+原因是因为Component中的`shouldComponentUpdate`总是返回true
+解决方法:
+1. 重写`shouldComponentUpdate`方法，比较新旧state或props数据，如果有变化才返回true，如果没有返回false
+2. 直接使用`React.PureComponent`，`PureComponent`重写了`shouldComponentUpdate`方法，只有state或props数据有变化才返回true，但是只是进行state和props数据的浅比较，如果只是数据对象内部变了，返回false；因此不能直接修改原始state，而是要用新的数据
+```js
+// 使用新的数据返回true
+this.setState({ a: 1, ...this.state })
+// 直接修改state返回false
+this.state.a = 1
+this.setState(this.state)
+```
+
+## render props
+React中向组件内部动态传入带内容的结构
+1. 使用children props：通过组件标签传入结构
+```js
+<A>
+  <B>xxxxxx</B>
+</A>
+// 组件B中获取
+this.props.children // 如果B组件需要A组件内的数据，做不到
+```
+2. 使用render props：通过组件标签属性传入结构，而且可以携带数据，使用render函数属性 类似Vue中的slot插槽
+```js
+<A render={(data) => <C data={data}></C>}/>
+// A组件内部调用render函数
+this.props.render(想要传给C组件的props)
+// C组件 直接读取A组件传入的数据
+this.props.data
+```
