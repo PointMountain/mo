@@ -266,3 +266,46 @@ this.props.render(想要传给C组件的props)
 // C组件 直接读取A组件传入的数据
 this.props.data
 ```
+
+## 错误边界Error boundary
+错误边界是用来捕获后代错误，渲染出备用页面的操作
+只能捕获**后代组件生命周期**产生的错误，不能捕获自己组建产生的错误和其他组件再合成事件、定时器中产生的错误
+通过`getDerivedStateFromError`配合`componentDidCatch`
+```js
+class App extends React.Component {
+  state = {
+    hasError: ''
+  }
+  // 生命周期函数，一旦后台组件报错，就会触发，使用类似getDerivedStateFromProps，返回的对象会为state中对应内容赋值
+  static getDerivedStateFromError(error) {
+    return {
+      hasError: error
+    }
+  }
+  componentDidCatch(error, info) {
+    // catch错误 可以统计页面的错误，进行埋点等操作
+  }
+  render() {
+    return (
+      <div>
+        {this.state.hasError ? <h1>发生错误</h1> : <Child />}
+      </div>
+    )
+  }
+}
+```
+
+## 组件通信方式
+组件间的关系
+- 父子组件
+- 兄弟组件（非嵌套组件）
+- 祖孙组件（跨级组件）
+通信方式
+1. props =》父子组件
+   1. children props
+   2. render props
+2. 消息订阅-发布 =》兄弟组件、祖孙组件
+   1. pubs-sub、event等
+3. 集中式管理 =》组件比较复杂时 兄弟组件、祖孙组件
+   1. redux
+4. context =》祖孙组件 开发很少使用，一般用于封装插件
