@@ -31,6 +31,7 @@ module.exports = {
 				]
 			},
 			{text: 'webpack', link: '/webpack/'},
+			{text: 'Typescript', link: '/Typescript/'},
 			{text: '杂记',
 				items: [
 					{text: '面试预习', link: '/others/'},
@@ -68,6 +69,9 @@ module.exports = {
 			],
 			'/webpack/':[
 				['', 'webpack']
+			],
+			'/Typescript/': [
+				['', 'Typescript基础']
 			],
 			'/others/':[
 				['', '面试预习'],
