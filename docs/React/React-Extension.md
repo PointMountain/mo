@@ -138,13 +138,14 @@ export default function App() {
     ```
 4. 可以把Effect Hook看作`componentDidMount`、`componentDidUpdate`、`componentWillUnmount`三个函数的集合
 ### Ref Hook
-1. Ref Hook可以再函数组件中存储/查找组件内的标签或任意其它数据
+1. Ref Hook可以在函数组件中存储/查找组件内的标签或任意其它数据
 2. `const refContainer = React.useRef()`
 3. 用来保存标签对象，功能与`React.createRef()`一样
 ```js
 import React from 'react'
+// useRef用来存贮dom元素
 export default function App() {
-  const refContainer = React.useRef()
+  const refContainer = React.useRef(null)
   const show = () => {
     alert(refContainer.current.value)
   }
@@ -152,6 +153,23 @@ export default function App() {
     <div>
       <input ref={refContainer}/>
       <button onClick={show}>展示内容</button>
+    </div>
+  )
+}
+// useRef用来存贮普通对象
+import React, { useRef, useState } from 'react'
+let preRef = null // 缓存上一次useRef创建的对象
+export default function App() {
+  const status = useRef({a : 1})
+  const [data, setData] = useState(0)
+  console.log(preRef === status) // 从第二次之后返回true，因为useRef 会在每次渲染时返回同一个ref对象
+  preRef = status
+  return (
+    <div>
+      { status.current.a }
+      { data }
+      {/* 当ref对象内容发生变化时，useRef并不会进行通知你。变更 .current 属性不会引发组件重新渲染，如果需要重新渲染，需要借助其他的方法 */}
+      <button onClick={() => {setData(1); status.current.a = 2} }>更改内容</button>
     </div>
   )
 }
@@ -181,7 +199,7 @@ function Demo2() {
 
 ## Context
 Context是一种组件通信方式，常用于祖先组件与后代组件间通信
-1. 创建Context容器`const XxxContext = React.createContext()`
+1. 创建Context容器`const XxxContext = React.createContext(defaultValue)`只有当组件所处的树中没有匹配到 Provider 时，其 defaultValue 参数才会生效。
 2. 渲染子组件时，外面包裹`XxxContext.Provider`，通过`value`属性给后代组件传递数据
 ```js
 <XxxContext.Provider value={value}>
@@ -210,6 +228,7 @@ export default function App() {
     <DemoContext.Provider value={{ name: "ming", age: 18 }}>
       <Demo1 />
       <Demo2 />
+      <Demo3 />
     </DemoContext.Provider>
   )
 }
@@ -228,6 +247,16 @@ function Demo2() {
     <DemoContext.Consumer>
       {(value) => `${value.name}, ${value.age}`}
     </DemoContext.Consumer>
+  )
+}
+// 使用useContext Hook
+// React.useContext(context)接收一个 context 对象（React.createContext 的返回值）并返回该 context 的当前值。
+function Demo3() {
+  const value = React.useContext(DemoContext)
+  return (
+    <>
+      {value.name}, {value.age}
+    </>
   )
 }
 ```
