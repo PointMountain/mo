@@ -1,12 +1,17 @@
 ## JS的数据类型
 原始类型
-Number Boolean String Symbol undefined null
+number boolean string symbol undefined null bigint
 引用类型
-Object Array Function
-- typeof 只能判断原始类型和Function
+Object Function
+- typeof 只能判断非null的原始类型和Function
 - instanceof 原理是判断是否有同一个原型链
 - Object.prototype.toString.call() 通过对象内置的toString方法
 
+isXXX API
+```js
+Array.isArray([]) // 判断是否是数组
+isNaN(',') // 判断是否是非数字
+```
 
 ## for 循环和 forEach循环的区别在于？
 for是原生的 forEach是array中的一个方法
@@ -23,6 +28,12 @@ function flat(arr){
 	})
 	return result
 }
+```
+
+## 类型转换
+类型转换分为两种情况，分别为强制转换以及饮食转换
+```
+[] == ![] => [] == false => [] == 0 => '' == 0 => 0 == 0
 ```
 
 ## this指向
@@ -45,10 +56,6 @@ function flat(arr){
 	}
 	fn2()
 	```
-
-```
-[] == ![] => [] == false => [] == 0 => '' == 0 => 0 == 0
-```
 
 ## 闭包
 函数A内有一个函数B，函数B可以访问的函数A中的变量，函数B就是闭包
