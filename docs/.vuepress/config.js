@@ -27,7 +27,8 @@ module.exports = {
 					{text: 'React Refs',link: '/React/React-Refs'},
 					{text: 'React Router', link: '/React/React-Router'},
 					{text: 'React Redux Router',link: '/React/React-Redux'},
-					{text: 'React Extension', link: '/React/React-Extension'}
+					{text: 'React Extension', link: '/React/React-Extension'},
+					{text: 'React脚手架配置代理',link: '/React/React-cli-proxy'}
 				]
 			},
 			{text: 'webpack', link: '/webpack/'},
@@ -65,7 +66,8 @@ module.exports = {
 				['React-Refs', 'React Refs'],
 				['React-Router', 'React Router'],
 				['React-Redux', 'React Redux'],
-				['React-Extension', 'React Extension']
+				['React-Extension', 'React Extension'],
+				['React-cli-proxy', 'React脚手架配置代理']
 			],
 			'/webpack/':[
 				['', 'webpack']

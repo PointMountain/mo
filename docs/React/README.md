@@ -34,3 +34,27 @@
   - React使用的是自定义合成事件，而不是使用原生DOM事件 ----为了更好的兼容性
   - React中的事件是通过事件委托方式处理的（委托给组件最外层的元素）----为了高效
 2. 通过event.target得到发生事件的DOM元素对象 ----不要过度使用Refs
+
+## React样式模块化
+1. 使用less、sass等嵌套
+2. 给css文件加一个module前缀
+    ```js
+    // index.css => index.module.css
+    import index from 'index.module.css'
+    function Demo() {
+      return (
+        <h1 className={index.title}>Hello, React</h1>
+      )
+    }
+    ```
+3. 用`styled-components`
+
+## 功能界面组件化编码流程
+1. 拆分组件：拆分界面，抽取组件
+2. 实现静态组件：使用组件实现静态页面效果
+3. 实现动态组件
+      1. 动态显示初始化数据
+          - 数据类型
+          - 数据名称
+          - 保存在哪个组件
+      2. 交互（从绑定事件监听开始）
