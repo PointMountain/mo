@@ -4,8 +4,31 @@ number boolean string symbol undefined null bigint
 引用类型
 Object Function
 - typeof 只能判断非null的原始类型和Function
-- instanceof 原理是判断是否有同一个原型链
+- instanceof 内部通过原型链的方式来判断是否为构建函数的实例
+  ```js
+  // 手写instanceof
+  function myInstanceof(left, right) {
+    let pro = left.__proto__
+    while(pro) {
+      if (pro === right.prototype) {
+        return true
+      }
+      pro = pro.__proto__
+    }
+    return false
+  }
+  // 一般不能用来判断基本类型，例如1 instanceof Number ==> false，但是可以通过hack的方式判断基本类型
+  class checkNumber {
+    static [Symbol.hasInstance](number) {
+      return typeof number === 'number'
+    }
+  }
+  1 instanceof checkNumber ==> true
+  ```
 - Object.prototype.toString.call() 通过对象内置的toString方法
+
+> - 原始类型储存在栈中，引用类型储存在堆中，但是引用类型的对象地址也储存在栈中。
+> - bigint可以解决大数相加算法题。
 
 isXXX API
 ```js
@@ -14,52 +37,92 @@ isNaN(',') // 判断是否是非数字
 ```
 
 ## for 循环和 forEach循环的区别在于？
-for是原生的 forEach是array中的一个方法
-```
+for是原生的 forEach是Array中的一个方法
+```js
 function flat(arr){
-	const result = []
-
-	arr.forEach(i => {
-		if(Array.isArray(i)){
-			result.push(...flat(i))
-		}else{
-			result.push(i)
-		}
-	})
-	return result
+  const result = []
+  arr.forEach(i => {
+    if(Array.isArray(i)){
+      result.push(...flat(i))
+    }else{
+      result.push(i)
+    }
+  })
+  return result
 }
 ```
 
 ## 类型转换
-类型转换分为两种情况，分别为强制转换以及饮食转换
+类型转换分为两种情况，分别为强制转换以及隐式转换
 ```
 [] == ![] => [] == false => [] == 0 => '' == 0 => 0 == 0
 ```
+转布尔值的规则
+- undefined, null, false, NaN, '', 0, -0 都转为false
+- 其他所有值都转为true，包括所有对象，负数
 
 ## this指向
-- new出来的就是绑定到新的对象上
-  `let son = new Parent()`此时this就是绑定到son上的无法更改
+- 普通函数
+  1. 函数被谁调用，那么this就是谁，如果没有对象调用，那么this就是window，严格模式下是undefined
+  2. 利用 call，apply，bind 改变 this，这个优先级仅次于 new
+      ```javascript
+      // 多bind链式绑定this只会根据第一个bind的内容进行绑定
+      let a = {}
+      let fn = function(){
+        console.log(this)
+      }
+      fn.bind().bind(a)()
+      //等价于
+      let fn2 = function fn1(){
+        return function(){
+          return fn.apply()
+        }.apply(a)
+      }
+      fn2()
+      ```
+  3. new出来的就是绑定到新的对象上
+    `let son = new Parent()`此时this就是绑定到son上的无法更改，优先级最高
 - 箭头函数本身没有this，只取决于离他最近的普通函数的this，无法通过bind更改
-- 对象调用的普通函数，this是对象
-- 另外多bind链式绑定this只会根据第一个bind的内容进行绑定
-  ```javascript
-	let a = {}
-	let fn = function(){
-		console.log(this)
-	}
-	fn.bind().bind(a)()
-	//等价于
-  let fn2 = function fn1(){
-		return function(){
-			return fn.apply()
-		}.apply(a)
-	}
-	fn2()
-	```
 
 ## 闭包
-函数A内有一个函数B，函数B可以访问的函数A中的变量，函数B就是闭包
+定义：假如一个函数能访问外部的变量，那么这个函数它就是一个闭包，而不是一定要返回一个函数
+- 由于闭包中引用的外部变量，所以JavaScript引擎判断这是一个闭包，因此会在堆空间创建一个"closure(闭包名)"的对象(在`[[Scopes]]`中)，用来保存引用的外部变量值，这是一个内部对象，JavaScript是无法访问的
+- 闭包也存在垃圾回收机制，只是因为引用一直存在所以不会被回收垃圾（"closure(闭包名)"对象对外部变量的引用）
 
+## new操作符
+`new`操作符可以帮助我们构建出一个实例，并且绑定上`this`，内部执行步骤可大概分为以下几步：
+1. 新生成一个对象
+2. 对象连接到构造函数的原型上，并绑定this
+3. 执行构造函数的代码
+4. 返回新对象
+但是第四步存在特殊情况，如果构造函数返回一个对象，那么内部构建出来的对象会被返回的对象所覆盖，所以一般构造函数不要返回对象，如果返回原始类型则不会有影响
+```js
+function myNew(F) {
+  let obj = {}
+  obj.__proto__ = F.prototype
+  let result = F.call(obj)
+  return result instanceof Object ? result : obj
+}
+// 如果构造函数返回对象
+function Test(name) {
+  this.name = name
+  console.log(this) // Test { name: 'ming' }
+  return { age: 26 }
+}
+const t = new Test('ming')
+console.log(t) // { age: 26 }
+console.log(t.name) // 'undefined'
+```
+
+## 作用域
+作用域可以理解为变量的可访问性，总共分为三种类型，分别为
+- 全局作用域
+- 函数作用域
+- 块级作用域，ES6中的let、const就可以产生该作用域
+
+词法作用域就是指作用域是由代码中函数声明的位置来决定的，所以词法作用域是静态的作用域，通过它就能够预测代码在执行过程中如何查找标识符。
+词法作用域是代码编译阶段就决定好的，和函数是怎么调用的没有关系。
+作用域链是由词法作用域构成的。根据作用域链查找内容，会先查找自己内部的词法环境，再查找变量环境，找不到会去outer指向的执行上下文的词法环境查找，依次类推。`[[Scopes]]`就是作用域链。
 ## 浅拷贝 拷贝第一层所有的属性到新的对象中，如果属性值是对象，还是拷贝的地址
 ```
 Object.assign
@@ -67,8 +130,8 @@ Array.prototype.concat
 ...运算符
 ```
 
-## 深拷贝 
-```
+## 深拷贝
+```js
 //最简单的方法 但有很多问题
 JSON.parse(JSON.stringify(object))
 //会忽略undefined 会忽略symbol 不能序列化函数，不能解决循环引用问题
@@ -80,10 +143,10 @@ JSON.parse(JSON.stringify(object))
 构造函数的prototype指回原型
 `obj.__proto__ === obj.__proto__.constructor.prototype`
 eg:
-```
+```js
 let son = new Parent()
-son的构造函数就是Parent
-所以 son.__proto__ === Parent.prototype
+// son的构造函数就是Parent
+// 所以 son.__proto__ === Parent.prototype
 ```
 
 ## var let const
@@ -97,13 +160,14 @@ let const不会发生变量提升 但是会存在一个暂时性死区
 - 提高代码可重用性
 - 提高代码的可维护性
 
-## 线程 进程
+## 线程 进程 协程
 进程由多个线程组成，一个线程描述了执行一段指令所需的时间
 进程描述了CPU在运行指令及加载和保存上下文所需的时间
 
 类比 一个浏览器的tab页就是一个进程，里面包含了js引擎线程，渲染线程，http请求线程等
 
 单线程的好处：节省内存，节省上下文切换时间，没有锁的问题
+协程是比线程还小的单位，在async/await中就用到了协程，当运行到async在的await后，函数协程切换到主协程。协程还有另一个名称就是Fiber，React中的Fiber算法就是依赖协程机制。
 
 ## 执行栈
 存储函数调用的栈结构 先进后出
@@ -122,7 +186,7 @@ let const不会发生变量提升 但是会存在一个暂时性死区
   - timers 执行setTimeout setInterval回调
   - I/O 执行上一轮少数未执行的I/O回调
   - idle prepare
-  - poll 
+  - poll
     - 回到timer执行回调 执行I/O回调
     - 如果没有timer的话 如果poll不为空 会遍历执行回调队列同步执行直至队列为空或者达到系统限制；如果poll为空 如果有setImmediate会跳到check执行，如果没有的话会一直等待新的回调 然后执行（有超时设置）
   - check 执行setImmediate
