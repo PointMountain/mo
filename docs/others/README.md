@@ -97,10 +97,10 @@ function flat(arr){
 4. 返回新对象
 但是第四步存在特殊情况，如果构造函数返回一个对象，那么内部构建出来的对象会被返回的对象所覆盖，所以一般构造函数不要返回对象，如果返回原始类型则不会有影响
 ```js
-function myNew(F) {
+function myNew(F, ...args) {
   let obj = {}
   obj.__proto__ = F.prototype
-  let result = F.call(obj)
+  let result = F.call(obj, ...args)
   return result instanceof Object ? result : obj
 }
 // 如果构造函数返回对象
@@ -123,31 +123,99 @@ console.log(t.name) // 'undefined'
 词法作用域就是指作用域是由代码中函数声明的位置来决定的，所以词法作用域是静态的作用域，通过它就能够预测代码在执行过程中如何查找标识符。
 词法作用域是代码编译阶段就决定好的，和函数是怎么调用的没有关系。
 作用域链是由词法作用域构成的。根据作用域链查找内容，会先查找自己内部的词法环境，再查找变量环境，找不到会去outer指向的执行上下文的词法环境查找，依次类推。`[[Scopes]]`就是作用域链。
-## 浅拷贝 拷贝第一层所有的属性到新的对象中，如果属性值是对象，还是拷贝的地址
-```
-Object.assign
-Array.prototype.concat
-...运算符
-```
-
-## 深拷贝
-```js
-//最简单的方法 但有很多问题
-JSON.parse(JSON.stringify(object))
-//会忽略undefined 会忽略symbol 不能序列化函数，不能解决循环引用问题
-
-```
 
 ## 原型
-原型的constructor指向构造函数
-构造函数的prototype指回原型
-`obj.__proto__ === obj.__proto__.constructor.prototype`
-eg:
+![](./images/proto.png)
+- 所有对象都有一个属性`__proto__`指向一个对象，也就是原型
+- 每个对象的原型都可以通过`constructor`找到构造函数，构造函数也可以通过`prototype`找到原型
+- 所有函数都可以通过`__proto__`找到`Function`对象
+- 所有对象都可以通过`__proto__`找到`Object`对象
+- 对象直接通过`__proto__`连接起来，这样称之为原型链。当前对象上不存在的属性可以通过原型链一层层往上查找，直到顶层的`Object`对象，在往上就是`null`了
+
+## 继承
+即使是ES6中的`class`也不是其他语言中的类，本质上就是一个函数。
 ```js
-let son = new Parent()
-// son的构造函数就是Parent
-// 所以 son.__proto__ === Parent.prototype
+class Person {}
+Person instanceof Function // true
 ```
+ES5和ES6继承的区别：
+1. ES6继承的子类需要调用`super()`才能拿到子类，ES5通过apply绑定的方式
+2. 类声明不会提升，与`let、const`一致
+```js
+// ES5继承
+function Super() {}
+Super.prototype.getName = function() {
+  return 1
+}
+
+function Sub() {}
+Sub.prototype = Object.create(Super.prototype, {
+  constructor: {
+    value: Sub,
+    enumerable: false,
+    writable: true,
+    configurable: true
+  }
+})
+```
+
+## 深浅拷贝
+### 浅拷贝
+两个对象第一层的引用不相同就是浅拷贝的含义
+可以通过`assign`、扩展运算符、`concat`等方式来实现
+```js
+let a = {
+  age: 18
+}
+let b = Object.assign({}, a)
+let c = { ...a }
+a.age = 20
+console.log(b.age) // 18
+console.log(c.age) // 18
+```
+### 深拷贝
+两个对象内部所有的引用都不相同就是深拷贝的含义。
+- 最简单的方法`JSON.parse(JSON.stringify(object))`
+  该方法存在许多问题，首先是只支持JSON支持的类型，JSON是门通用的语言，并不支持JS中所有类型仅对`object, array, string, number, 'true', 'false', 'null'`支持，同时还会存在不能处理循环引用的问题，例如对Vue实例使用该方法就会报错
+- 如果想解决`JSON.parse(JSON.stringify(object))`所产生的问题，可以通过递归的方式来实现代码
+  ```js
+  // 通过WeakMap解决循环引用问题
+  let map = new WeakMap()
+  function deepClone(obj) {
+    if (obj instanceof Object) {
+      if (map.has(obj)) {
+        return map.get(obj)
+      }
+      let newObj
+      if (obj instanceof Array) {
+        newObj = []
+      } else if (obj instanceof Function) {
+        newObj = function () {
+          return obj.apply(this, arguments)
+        }
+      } else if (obj instanceof RegExp) {
+        newObj = new RegExp(obj.source, obj.flags)
+      } else if (obj instanceof Date) {
+        newObj = new Date(obj)
+      } else {
+        newObj = {}
+      }
+      // Object.getOwnPropertyDescriptors() 方法用来获取一个对象的所有自身属性的描述符
+      let desc = Object.getOwnPropertyDescriptors(obj)
+      let clone = Object.create(Object.getPrototypeOf(obj), desc)
+      map.set(obj, clone)
+      for (let key in obj) {
+        if (obj.hasOwnProperty(key)) {
+          newObj[key] = deepClone(obj[key])
+        }
+      }
+      return newObj
+    }
+    return obj
+  }
+  ```
+  当然通过递归进行深克隆会存在爆栈的问题，因为执行栈的大小是有限制的，到一定数量栈就会爆掉。解决爆栈的问题，可以通过遍历的方式来改写递归。通过层序遍历（BFS）来解决，也可以通过加入定时器的方法来把当前任务拆分为其他很多小任务。
+  > 为什么使用定时器可以解决栈移除问题？ function foo() { setTimeout(foo, 0) } foo() 像setTimeout、setInterval、Promise 这样的全局函数不是JavaScript的一部分，而是Web API部分。 当遇到Web API时，会将其回调函数(foo)交给WebAPIs处理，此时调用栈中foo函数执行完毕，出栈，栈为空；回调函数会被发送到任务队列中，等待event loop事件循环将其捞出，重新放入到堆栈中。参考：https://juejin.im/post/5d2d146bf265da1b9163c5c9#heading-15
 
 ## var let const
 var会在解析的时候导致变量提升
