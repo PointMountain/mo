@@ -217,6 +217,10 @@ console.log(c.age) // 18
   当然通过递归进行深克隆会存在爆栈的问题，因为执行栈的大小是有限制的，到一定数量栈就会爆掉。解决爆栈的问题，可以通过遍历的方式来改写递归。通过层序遍历（BFS）来解决，也可以通过加入定时器的方法来把当前任务拆分为其他很多小任务。
   > 为什么使用定时器可以解决栈移除问题？ function foo() { setTimeout(foo, 0) } foo() 像setTimeout、setInterval、Promise 这样的全局函数不是JavaScript的一部分，而是Web API部分。 当遇到Web API时，会将其回调函数(foo)交给WebAPIs处理，此时调用栈中foo函数执行完毕，出栈，栈为空；回调函数会被发送到任务队列中，等待event loop事件循环将其捞出，重新放入到堆栈中。参考：https://juejin.im/post/5d2d146bf265da1b9163c5c9#heading-15
 
+
+## Promise 预留位置
+> 注意几个API的使用，以及可能会考如何写并发、控制并发数、all这些API手写
+
 ## var let const
 var会在解析的时候导致变量提升
 var a = 1语法解析的时候会在最上面先声明var a
