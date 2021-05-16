@@ -218,8 +218,96 @@ console.log(c.age) // 18
   > 为什么使用定时器可以解决栈移除问题？ function foo() { setTimeout(foo, 0) } foo() 像setTimeout、setInterval、Promise 这样的全局函数不是JavaScript的一部分，而是Web API部分。 当遇到Web API时，会将其回调函数(foo)交给WebAPIs处理，此时调用栈中foo函数执行完毕，出栈，栈为空；回调函数会被发送到任务队列中，等待event loop事件循环将其捞出，重新放入到堆栈中。参考：https://juejin.im/post/5d2d146bf265da1b9163c5c9#heading-15
 
 
-## Promise 预留位置
-> 注意几个API的使用，以及可能会考如何写并发、控制并发数、all这些API手写
+## Promise
+- Promise中只有涉及到状态变更后才需要被执行的回调才算是微任务，比如说`then`、`catch`、`finally`，其它所有的代码执行都是同步执行。
+- `Promise.then`虽然是同步任务，但是将回调放入队列的时机取决于前面Promise状态，如果Promise状态为pending，那么成功或失败的回调会分别被加入至`[[PromiseFulfillReactions]]` 和 `[[PromiseRejectReactions]]` 中，如果Promise状态为非pending状态，回调就会成为Promise Jobs，也就是微任务，放入微任务队列中。因此得出结论：**链式调用中，只有前一个`then`的回调执行完毕后，跟着的`then`中的回调才会被加入至微任务队列。**
+- **同一个Promise的每个链式调用的开端会首先一次进入微任务队列。**
+
+高阶例子：
+```js
+Promise.resolve()
+  .then(() => {
+    console.log("then1");
+    Promise.resolve()
+      .then(() => {
+        console.log("then1-1");
+        return Promise.resolve();
+      })
+      .then(() => {
+        console.log("then1-2");
+      });
+  })
+  .then(() => {
+    console.log("then2");
+  })
+  .then(() => {
+    console.log("then3");
+  })
+  .then(() => {
+    console.log("then4");
+  });
+/*
+实际顺序：
+then1
+then1-1
+then2
+then3
+then4
+then1-2
+*/
+```
+上面`then1-2`之所以最后出现的原因，是因为：
+1. 根据Promise A+ 规范，如果`resolve`了一个`Promise`，需要为其加上一个`then`并`resolve`，因此想当于多入队一次微任务。
+   ```js
+   if (x instanceof MyPromise) {
+      if (x.currentState === PENDING) {
+      } else {
+        x.then(resolve, reject);
+      }
+      return;
+    }
+   ```
+2. 根据ECMA - 262规范，当`Promise resolve`了一个Promise时，会产生一个`NewPromiseResolveThenableJob`，这是属于Promise Jobs中的一种，也是微任务，并且该Jobs还会调用一次`then`函数来`resolve Promise`，因此又生成了一次微任务。
+
+根据以上两点得出结论，Promise中如果resolve了一个Promise，会落后两个微任务队列，因此上面例子中`then1-2`才最后出现。
+
+关于Promise相关的两个题目
+- [消息队列](https://github.com/KieSun/fucking-frontend/issues/5)
+- [Promise all 错误处理](https://github.com/KieSun/fucking-frontend/issues/6)
+
+## async、await
+ES7引入了async/await，提供了再不阻塞主线程的情况下使用同步代码实现异步访问资源的能力，并且使得代码逻辑更加清晰。async/await使用了同步代码的方式实现了异步处理逻辑，支持使用try catch来捕获异常。async/await使用了生成器（Generator）和Promise两种技术。
+### 生成器VS协程
+生成器函数是一个带星号函数，而且是可以暂停执行和恢复执行的。
+生成器函数之所以能暂停和恢复，是通过协程来实现的。协程是一种比线程更加轻量级的存在。协程可以看作是跑在线程上的任务，一个线程上可以存在多个协程，但是线程上同时只能执行一个协程，当要在A协程执行时启动B协程，A协程就会将主线程的控制权交给B协程，这样A协程暂停执行，B协程恢复执行，此时A协程被称为B协程的父协程。因为协程不是被操作系统内核所管理，而是由程序所控制，因此不会像线程切换那样消耗资源。
+```js
+// 生成器例子
+function *foo(x) {
+  let y = 2 * (yield (x + 1)) // 通过yield关键字暂停it协程的执行，并返回主要信息给父协程
+  let z = yield (y / 3)
+  return (x + y + z) // 在协程执行期间，如果遇到return，那么JavaScript引擎会结束当前协程，并将return后面的内容返回给父协程
+}
+let it = foo(5) // 创建一个协程it
+console.log(it.next())   // => {value: 6, done: false} 调用it.next才会让it协程开始执行
+console.log(it.next(12)) // => {value: 8, done: false}
+console.log(it.next(13)) // => {value: 42, done: true}
+// 当在it协程中调用了yield方法时，JavaScript引擎会保存it协程当前的执行栈信息，并恢复父协程的调用栈信息。同样，在父协程执行it.next是，JavaScript引擎会保存父协程的调用栈信息，并恢复it协程的调用栈信息。
+
+// 执行生成器的代码 co
+function co(it) {
+  return new Promise((resolve, reject) => {
+    function next(data) {
+      let { value, done } = it.next(data)
+      if (!done) {
+        Promise.resolve(value).then(data => next(data), reject)
+      } else {
+        resolve(value)
+      }
+    }
+    next()
+  })
+}
+```
 
 ## var let const
 var会在解析的时候导致变量提升
