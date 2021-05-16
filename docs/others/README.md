@@ -308,6 +308,8 @@ function co(it) {
   })
 }
 ```
+## 事件循环
+> Event Loop
 
 ## var let const
 var会在解析的时候导致变量提升
