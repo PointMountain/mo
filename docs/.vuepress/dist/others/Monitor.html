@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>为什么要做前端监控 | Ming</title>
+    <meta name="generator" content="VuePress 1.4.1">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <meta name="description" content="学习文档">
+    <link rel="preload" href="/mo/assets/css/0.styles.4ab656b6.css" as="style"><link rel="preload" href="/mo/assets/js/app.167fb324.js" as="script"><link rel="preload" href="/mo/assets/js/2.bce10bab.js" as="script"><link rel="preload" href="/mo/assets/js/25.41280249.js" as="script"><link rel="prefetch" href="/mo/assets/js/10.910a1e29.js"><link rel="prefetch" href="/mo/assets/js/11.8dd6cb06.js"><link rel="prefetch" href="/mo/assets/js/12.5d9ddf7e.js"><link rel="prefetch" href="/mo/assets/js/13.d079aa0a.js"><link rel="prefetch" href="/mo/assets/js/14.4db04ec1.js"><link rel="prefetch" href="/mo/assets/js/15.2d51aec3.js"><link rel="prefetch" href="/mo/assets/js/16.2b82adc4.js"><link rel="prefetch" href="/mo/assets/js/17.730440af.js"><link rel="prefetch" href="/mo/assets/js/18.d83a8e57.js"><link rel="prefetch" href="/mo/assets/js/19.82e78673.js"><link rel="prefetch" href="/mo/assets/js/20.1a66716b.js"><link rel="prefetch" href="/mo/assets/js/21.3321f71d.js"><link rel="prefetch" href="/mo/assets/js/22.0dbdc034.js"><link rel="prefetch" href="/mo/assets/js/23.8bb12fd2.js"><link rel="prefetch" href="/mo/assets/js/24.725d612f.js"><link rel="prefetch" href="/mo/assets/js/26.20bc5137.js"><link rel="prefetch" href="/mo/assets/js/27.f130d890.js"><link rel="prefetch" href="/mo/assets/js/28.57a34196.js"><link rel="prefetch" href="/mo/assets/js/29.f0fceff9.js"><link rel="prefetch" href="/mo/assets/js/3.d14f2aaa.js"><link rel="prefetch" href="/mo/assets/js/30.927ee9c2.js"><link rel="prefetch" href="/mo/assets/js/31.6a50e031.js"><link rel="prefetch" href="/mo/assets/js/4.04332c88.js"><link rel="prefetch" href="/mo/assets/js/5.aa9f16ac.js"><link rel="prefetch" href="/mo/assets/js/6.463d63ae.js"><link rel="prefetch" href="/mo/assets/js/7.5f1ca3c8.js"><link rel="prefetch" href="/mo/assets/js/8.4aed42f2.js"><link rel="prefetch" href="/mo/assets/js/9.7cbc3085.js">
+    <link rel="stylesheet" href="/mo/assets/css/0.styles.4ab656b6.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/mo/" class="home-link router-link-active"><!----> <span class="site-name">Ming</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/mo/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/mo/Javascript/base.html" class="nav-link">
+  Javascript基础
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Vue" class="dropdown-title"><span class="title">Vue</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-base.html" class="nav-link">
+  Vue基础使用
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-advanced.html" class="nav-link">
+  Vue高级特性
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vuex.html" class="nav-link">
+  Vuex
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-router.html" class="nav-link">
+  Vue-router
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-principle.html" class="nav-link">
+  Vue原理
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-code.html" class="nav-link">
+  Vue源码解析
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="React" class="dropdown-title"><span class="title">React</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/mo/React/React-State.html" class="nav-link">
+  React State
+</a></li><li class="dropdown-item"><!----> <a href="/mo/React/React-Props.html" class="nav-link">
+  React Props
+</a></li><li class="dropdown-item"><!----> <a href="/mo/React/React-Refs.html" class="nav-link">
+  React Refs
+</a></li><li class="dropdown-item"><!----> <a href="/mo/React/React-Router.html" class="nav-link">
+  React Router
+</a></li><li class="dropdown-item"><!----> <a href="/mo/React/React-Redux.html" class="nav-link">
+  React Redux Router
+</a></li><li class="dropdown-item"><!----> <a href="/mo/React/React-Extension.html" class="nav-link">
+  React Extension
+</a></li><li class="dropdown-item"><!----> <a href="/mo/React/React-cli-proxy.html" class="nav-link">
+  React脚手架配置代理
+</a></li></ul></div></div><div class="nav-item"><a href="/mo/webpack/" class="nav-link">
+  webpack
+</a></div><div class="nav-item"><a href="/mo/Typescript/" class="nav-link">
+  Typescript
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="杂记" class="dropdown-title"><span class="title">杂记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/mo/others/" class="nav-link router-link-active">
+  面试预习
+</a></li><li class="dropdown-item"><!----> <a href="/mo/others/SomeInterview.html" class="nav-link">
+  面试整理
+</a></li><li class="dropdown-item"><!----> <a href="/mo/others/Connect.html" class="nav-link">
+  网络连接方式
+</a></li><li class="dropdown-item"><!----> <a href="/mo/others/Monitor.html" class="nav-link router-link-exact-active router-link-active">
+  前端监控
+</a></li><li class="dropdown-item"><!----> <a href="/mo/others/Performance.html" class="nav-link">
+  性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/mo/others/SomeJS.html" class="nav-link">
+  随手写代码
+</a></li><li class="dropdown-item"><!----> <a href="/mo/others/myPromise.html" class="nav-link">
+  Promise代码
+</a></li></ul></div></div><div class="nav-item"><a href="https://github.com/PointMountain/mo" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GayHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/mo/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/mo/Javascript/base.html" class="nav-link">
+  Javascript基础
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Vue" class="dropdown-title"><span class="title">Vue</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-base.html" class="nav-link">
+  Vue基础使用
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-advanced.html" class="nav-link">
+  Vue高级特性
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vuex.html" class="nav-link">
+  Vuex
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-router.html" class="nav-link">
+  Vue-router
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-principle.html" class="nav-link">
+  Vue原理
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-code.html" class="nav-link">
+  Vue源码解析
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="React" class="dropdown-title"><span class="title">React</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/mo/React/React-State.html" class="nav-link">
+  React State
+</a></li><li class="dropdown-item"><!----> <a href="/mo/React/React-Props.html" class="nav-link">
+  React Props
+</a></li><li class="dropdown-item"><!----> <a href="/mo/React/React-Refs.html" class="nav-link">
+  React Refs
+</a></li><li class="dropdown-item"><!----> <a href="/mo/React/React-Router.html" class="nav-link">
+  React Router
+</a></li><li class="dropdown-item"><!----> <a href="/mo/React/React-Redux.html" class="nav-link">
+  React Redux Router
+</a></li><li class="dropdown-item"><!----> <a href="/mo/React/React-Extension.html" class="nav-link">
+  React Extension
+</a></li><li class="dropdown-item"><!----> <a href="/mo/React/React-cli-proxy.html" class="nav-link">
+  React脚手架配置代理
+</a></li></ul></div></div><div class="nav-item"><a href="/mo/webpack/" class="nav-link">
+  webpack
+</a></div><div class="nav-item"><a href="/mo/Typescript/" class="nav-link">
+  Typescript
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="杂记" class="dropdown-title"><span class="title">杂记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/mo/others/" class="nav-link router-link-active">
+  面试预习
+</a></li><li class="dropdown-item"><!----> <a href="/mo/others/SomeInterview.html" class="nav-link">
+  面试整理
+</a></li><li class="dropdown-item"><!----> <a href="/mo/others/Connect.html" class="nav-link">
+  网络连接方式
+</a></li><li class="dropdown-item"><!----> <a href="/mo/others/Monitor.html" class="nav-link router-link-exact-active router-link-active">
+  前端监控
+</a></li><li class="dropdown-item"><!----> <a href="/mo/others/Performance.html" class="nav-link">
+  性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/mo/others/SomeJS.html" class="nav-link">
+  随手写代码
+</a></li><li class="dropdown-item"><!----> <a href="/mo/others/myPromise.html" class="nav-link">
+  Promise代码
+</a></li></ul></div></div><div class="nav-item"><a href="https://github.com/PointMountain/mo" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GayHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/mo/others/" class="sidebar-link">面试预习</a></li><li><a href="/mo/others/SomeJS.html" class="sidebar-link">随手写代码</a></li><li><a href="/mo/others/myPromise.html" class="sidebar-link">简单Promise</a></li><li><a href="/mo/others/SomeInterview.html" class="sidebar-link">面试整理</a></li><li><a href="/mo/others/Connect.html" class="sidebar-link">网络连接方式</a></li><li><a href="/mo/others/Monitor.html" class="active sidebar-link">前端监控</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/mo/others/Monitor.html#为什么要做前端监控" class="sidebar-link">为什么要做前端监控</a></li><li class="sidebar-sub-header"><a href="/mo/others/Monitor.html#前端监控目标" class="sidebar-link">前端监控目标</a></li><li class="sidebar-sub-header"><a href="/mo/others/Monitor.html#前端监控流程" class="sidebar-link">前端监控流程</a></li><li class="sidebar-sub-header"><a href="/mo/others/Monitor.html#常见的埋点方案" class="sidebar-link">常见的埋点方案</a></li><li class="sidebar-sub-header"><a href="/mo/others/Monitor.html#监控方式" class="sidebar-link">监控方式</a></li></ul></li><li><a href="/mo/others/Performance.html" class="sidebar-link">性能优化</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="为什么要做前端监控"><a href="#为什么要做前端监控" class="header-anchor">#</a> 为什么要做前端监控</h2> <ul><li>更快发现问题和解决问题</li> <li>做产品的决策依据</li> <li>提升前端工程师的技术深度和广度</li> <li>为业务扩展提供了更多可能性</li></ul> <h2 id="前端监控目标"><a href="#前端监控目标" class="header-anchor">#</a> 前端监控目标</h2> <ul><li>稳定性
+<ul><li>JS错误</li> <li>资源异常</li> <li>接口错误</li> <li>白屏</li></ul></li> <li>用户体验
+<ul><li>加载时间</li> <li>首字节时间</li> <li>首次绘制</li> <li>首次内容绘制</li> <li>首次有意义绘制</li> <li>首次输入延迟</li></ul></li> <li>业务
+<ul><li>PV</li> <li>UV</li> <li>页面的停留时间</li></ul></li></ul> <h2 id="前端监控流程"><a href="#前端监控流程" class="header-anchor">#</a> 前端监控流程</h2> <p>埋点 -&gt; 数据采集 -&gt; 数据建模存储 -&gt; 数据传输（实时、批量）-&gt; 数据统计（分析、挖掘）-&gt; 数据可视化/报告和报警 =》改进埋点</p> <h2 id="常见的埋点方案"><a href="#常见的埋点方案" class="header-anchor">#</a> 常见的埋点方案</h2> <ul><li>代码埋点</li> <li>可视化埋点-&gt;本质就是系统用来代替手工插入埋点代码</li> <li>无痕埋点-&gt;所有事件都被记录下来</li></ul> <h2 id="监控方式"><a href="#监控方式" class="header-anchor">#</a> 监控方式</h2> <ol><li>当JavaScript代码错误或者引入资源错误的时候通过<code>window.addEventListener('error', (event)=&gt;{})</code>进行监听，然后根据<code>event.target.src || event.target.href</code>是否有值判断是js错误还是资源错误，如果有值，则是资源错误</li> <li>当Promise发送错误，比如未catch之类需要通过<code>window.addEventListener('unhandledrejection',(event)=&gt;{})</code>进行监听，然后进行数据收集</li> <li>接口错误的监控前端需要重写<code>XMLHttpRequest.prototype.open</code>和<code>XMLHttpRequest.prototype.send</code>，并监听<code>load, error, abort</code>事件从而获取请求的数据以及错误信息</li> <li>白屏错误的监控可以通过在可视范围内选取多个点，通过<code>document.elementsFromPoint(pointX, pointY)</code>拿到点所在的dom元素，之后根据dom属性进行判断是否白屏，如果超过规定数量的点都是白屏点，则认为页面发送白屏</li></ol> <div class="language- extra-class"><pre class="language-text"><code>//可以通过屏幕横竖画十字的点进行判断
+for (let i = 1; i &lt; 9; i++) {
+	//elementsFromPoint() 方法可以获取到当前视口内指定坐标处，由里到外排列的所有元素。
+	let xElements = document.elementsFromPoint(
+		window.innerWidth * i / 10,window.innerHeight / 2)  //x轴从左到右9个点
+	let yElements = document.elementsFromPoint(
+		window.innerWidth / 2, window.innerHeight * i / 10)  //y轴从上到下9个点
+	isWrapper(xElements[0]) //判断最内部元素是否是白屏点
+	isWrapper(yElements[0])	//判断最内部元素是否是白屏点
+}
+</code></pre></div><p>需要注意的是白屏监听要在页面加载完之后因此需要判断<code>document.readyState === 'complete'</code>否则需要<code>window.addEventListener('load', listener)</code>
+5. 用户体验指标中需要获取浏览器渲染的各个阶段时间，需要用<code>performance.timing</code>中的各个时间属性，之后再计算出自己想要的时间，发送给服务器，需要注意的是因为这些时间是需要在加载完之后才可以获取的因此需要监听	<code>load</code>才可以
+6. 还有页面元素属性 <code>FMP LCP</code>等需要<code>PerformanceObserve</code>进行创建
+eg:</p> <div class="language- extra-class"><pre class="language-text"><code>new PerformanceObserve((entryList, observe)=&gt;{
+	let perfEntries = entryList.getEntries()
+	LCP = perfEntries[0]
+	observe.disconnect() //不再观察了
+}).observe({entryType: ['largest-contentful-paint']})
+</code></pre></div><blockquote><p>观察FMP 即页面中有意义的元素，是需要单独为dom元素设置属性<code>elementtiming</code>，才会被识别</p></blockquote></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/mo/others/Connect.html" class="prev">
+        网络连接方式
+      </a></span> <span class="next"><a href="/mo/others/Performance.html">
+        性能优化
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/mo/assets/js/app.167fb324.js" defer></script><script src="/mo/assets/js/2.bce10bab.js" defer></script><script src="/mo/assets/js/25.41280249.js" defer></script>
+  </body>
+</html>

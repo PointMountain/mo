@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>react脚手架配置代理总结 | Ming</title>
+    <meta name="generator" content="VuePress 1.4.1">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <meta name="description" content="学习文档">
+    <link rel="preload" href="/mo/assets/css/0.styles.4ab656b6.css" as="style"><link rel="preload" href="/mo/assets/js/app.167fb324.js" as="script"><link rel="preload" href="/mo/assets/js/2.bce10bab.js" as="script"><link rel="preload" href="/mo/assets/js/16.2b82adc4.js" as="script"><link rel="prefetch" href="/mo/assets/js/10.910a1e29.js"><link rel="prefetch" href="/mo/assets/js/11.8dd6cb06.js"><link rel="prefetch" href="/mo/assets/js/12.5d9ddf7e.js"><link rel="prefetch" href="/mo/assets/js/13.d079aa0a.js"><link rel="prefetch" href="/mo/assets/js/14.4db04ec1.js"><link rel="prefetch" href="/mo/assets/js/15.2d51aec3.js"><link rel="prefetch" href="/mo/assets/js/17.730440af.js"><link rel="prefetch" href="/mo/assets/js/18.d83a8e57.js"><link rel="prefetch" href="/mo/assets/js/19.82e78673.js"><link rel="prefetch" href="/mo/assets/js/20.1a66716b.js"><link rel="prefetch" href="/mo/assets/js/21.3321f71d.js"><link rel="prefetch" href="/mo/assets/js/22.0dbdc034.js"><link rel="prefetch" href="/mo/assets/js/23.8bb12fd2.js"><link rel="prefetch" href="/mo/assets/js/24.725d612f.js"><link rel="prefetch" href="/mo/assets/js/25.41280249.js"><link rel="prefetch" href="/mo/assets/js/26.20bc5137.js"><link rel="prefetch" href="/mo/assets/js/27.f130d890.js"><link rel="prefetch" href="/mo/assets/js/28.57a34196.js"><link rel="prefetch" href="/mo/assets/js/29.f0fceff9.js"><link rel="prefetch" href="/mo/assets/js/3.d14f2aaa.js"><link rel="prefetch" href="/mo/assets/js/30.927ee9c2.js"><link rel="prefetch" href="/mo/assets/js/31.6a50e031.js"><link rel="prefetch" href="/mo/assets/js/4.04332c88.js"><link rel="prefetch" href="/mo/assets/js/5.aa9f16ac.js"><link rel="prefetch" href="/mo/assets/js/6.463d63ae.js"><link rel="prefetch" href="/mo/assets/js/7.5f1ca3c8.js"><link rel="prefetch" href="/mo/assets/js/8.4aed42f2.js"><link rel="prefetch" href="/mo/assets/js/9.7cbc3085.js">
+    <link rel="stylesheet" href="/mo/assets/css/0.styles.4ab656b6.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/mo/" class="home-link router-link-active"><!----> <span class="site-name">Ming</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/mo/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/mo/Javascript/base.html" class="nav-link">
+  Javascript基础
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Vue" class="dropdown-title"><span class="title">Vue</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-base.html" class="nav-link">
+  Vue基础使用
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-advanced.html" class="nav-link">
+  Vue高级特性
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vuex.html" class="nav-link">
+  Vuex
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-router.html" class="nav-link">
+  Vue-router
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-principle.html" class="nav-link">
+  Vue原理
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-code.html" class="nav-link">
+  Vue源码解析
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="React" class="dropdown-title"><span class="title">React</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/mo/React/React-State.html" class="nav-link">
+  React State
+</a></li><li class="dropdown-item"><!----> <a href="/mo/React/React-Props.html" class="nav-link">
+  React Props
+</a></li><li class="dropdown-item"><!----> <a href="/mo/React/React-Refs.html" class="nav-link">
+  React Refs
+</a></li><li class="dropdown-item"><!----> <a href="/mo/React/React-Router.html" class="nav-link">
+  React Router
+</a></li><li class="dropdown-item"><!----> <a href="/mo/React/React-Redux.html" class="nav-link">
+  React Redux Router
+</a></li><li class="dropdown-item"><!----> <a href="/mo/React/React-Extension.html" class="nav-link">
+  React Extension
+</a></li><li class="dropdown-item"><!----> <a href="/mo/React/React-cli-proxy.html" class="nav-link router-link-exact-active router-link-active">
+  React脚手架配置代理
+</a></li></ul></div></div><div class="nav-item"><a href="/mo/webpack/" class="nav-link">
+  webpack
+</a></div><div class="nav-item"><a href="/mo/Typescript/" class="nav-link">
+  Typescript
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="杂记" class="dropdown-title"><span class="title">杂记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/mo/others/" class="nav-link">
+  面试预习
+</a></li><li class="dropdown-item"><!----> <a href="/mo/others/SomeInterview.html" class="nav-link">
+  面试整理
+</a></li><li class="dropdown-item"><!----> <a href="/mo/others/Connect.html" class="nav-link">
+  网络连接方式
+</a></li><li class="dropdown-item"><!----> <a href="/mo/others/Monitor.html" class="nav-link">
+  前端监控
+</a></li><li class="dropdown-item"><!----> <a href="/mo/others/Performance.html" class="nav-link">
+  性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/mo/others/SomeJS.html" class="nav-link">
+  随手写代码
+</a></li><li class="dropdown-item"><!----> <a href="/mo/others/myPromise.html" class="nav-link">
+  Promise代码
+</a></li></ul></div></div><div class="nav-item"><a href="https://github.com/PointMountain/mo" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GayHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/mo/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/mo/Javascript/base.html" class="nav-link">
+  Javascript基础
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Vue" class="dropdown-title"><span class="title">Vue</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-base.html" class="nav-link">
+  Vue基础使用
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-advanced.html" class="nav-link">
+  Vue高级特性
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vuex.html" class="nav-link">
+  Vuex
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-router.html" class="nav-link">
+  Vue-router
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-principle.html" class="nav-link">
+  Vue原理
+</a></li><li class="dropdown-item"><!----> <a href="/mo/Vue/Vue-code.html" class="nav-link">
+  Vue源码解析
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="React" class="dropdown-title"><span class="title">React</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/mo/React/React-State.html" class="nav-link">
+  React State
+</a></li><li class="dropdown-item"><!----> <a href="/mo/React/React-Props.html" class="nav-link">
+  React Props
+</a></li><li class="dropdown-item"><!----> <a href="/mo/React/React-Refs.html" class="nav-link">
+  React Refs
+</a></li><li class="dropdown-item"><!----> <a href="/mo/React/React-Router.html" class="nav-link">
+  React Router
+</a></li><li class="dropdown-item"><!----> <a href="/mo/React/React-Redux.html" class="nav-link">
+  React Redux Router
+</a></li><li class="dropdown-item"><!----> <a href="/mo/React/React-Extension.html" class="nav-link">
+  React Extension
+</a></li><li class="dropdown-item"><!----> <a href="/mo/React/React-cli-proxy.html" class="nav-link router-link-exact-active router-link-active">
+  React脚手架配置代理
+</a></li></ul></div></div><div class="nav-item"><a href="/mo/webpack/" class="nav-link">
+  webpack
+</a></div><div class="nav-item"><a href="/mo/Typescript/" class="nav-link">
+  Typescript
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="杂记" class="dropdown-title"><span class="title">杂记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/mo/others/" class="nav-link">
+  面试预习
+</a></li><li class="dropdown-item"><!----> <a href="/mo/others/SomeInterview.html" class="nav-link">
+  面试整理
+</a></li><li class="dropdown-item"><!----> <a href="/mo/others/Connect.html" class="nav-link">
+  网络连接方式
+</a></li><li class="dropdown-item"><!----> <a href="/mo/others/Monitor.html" class="nav-link">
+  前端监控
+</a></li><li class="dropdown-item"><!----> <a href="/mo/others/Performance.html" class="nav-link">
+  性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/mo/others/SomeJS.html" class="nav-link">
+  随手写代码
+</a></li><li class="dropdown-item"><!----> <a href="/mo/others/myPromise.html" class="nav-link">
+  Promise代码
+</a></li></ul></div></div><div class="nav-item"><a href="https://github.com/PointMountain/mo" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GayHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/mo/React/" class="sidebar-link">React基础</a></li><li><a href="/mo/React/React-State.html" class="sidebar-link">React State</a></li><li><a href="/mo/React/React-Props.html" class="sidebar-link">React Props</a></li><li><a href="/mo/React/React-Refs.html" class="sidebar-link">React Refs</a></li><li><a href="/mo/React/React-Router.html" class="sidebar-link">React Router</a></li><li><a href="/mo/React/React-Redux.html" class="sidebar-link">React Redux</a></li><li><a href="/mo/React/React-Extension.html" class="sidebar-link">React Extension</a></li><li><a href="/mo/React/React-cli-proxy.html" class="active sidebar-link">React脚手架配置代理</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/mo/React/React-cli-proxy.html#方法一" class="sidebar-link">方法一</a></li><li class="sidebar-sub-header"><a href="/mo/React/React-cli-proxy.html#方法二" class="sidebar-link">方法二</a></li></ul></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="react脚手架配置代理总结"><a href="#react脚手架配置代理总结" class="header-anchor">#</a> react脚手架配置代理总结</h1> <h2 id="方法一"><a href="#方法一" class="header-anchor">#</a> 方法一</h2> <blockquote><p>在package.json中追加如下配置</p></blockquote> <div class="language-json extra-class"><pre class="language-json"><code><span class="token property">&quot;proxy&quot;</span><span class="token operator">:</span><span class="token string">&quot;http://localhost:5000&quot;</span>
+</code></pre></div><p>说明：</p> <ol><li>优点：配置简单，前端请求资源时可以不加任何前缀。</li> <li>缺点：不能配置多个代理。</li> <li>工作方式：上述方式配置代理，当请求了3000不存在的资源时，那么该请求会转发给5000 （优先匹配前端资源）</li></ol> <h2 id="方法二"><a href="#方法二" class="header-anchor">#</a> 方法二</h2> <ol><li><p>第一步：创建代理配置文件</p> <div class="language- extra-class"><pre class="language-text"><code>在src下创建配置文件：src/setupProxy.js
+</code></pre></div></li> <li><p>编写setupProxy.js配置具体代理规则：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> proxy <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'http-proxy-middleware'</span><span class="token punctuation">)</span>
+
+module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">app</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>
+    <span class="token function">proxy</span><span class="token punctuation">(</span><span class="token string">'/api1'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>  <span class="token comment">//api1是需要转发的请求(所有带有/api1前缀的请求都会转发给5000)</span>
+      target<span class="token operator">:</span> <span class="token string">'http://localhost:5000'</span><span class="token punctuation">,</span> <span class="token comment">//配置转发目标地址(能返回数据的服务器地址)</span>
+      changeOrigin<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">//控制服务器接收到的请求头中host字段的值</span>
+      <span class="token comment">/*
+      	changeOrigin设置为true时，服务器收到的请求头中的host为：localhost:5000
+      	changeOrigin设置为false时，服务器收到的请求头中的host为：localhost:3000
+      	changeOrigin默认值为false，但我们一般将changeOrigin值设为true
+      */</span>
+      pathRewrite<span class="token operator">:</span> <span class="token punctuation">{</span><span class="token string">'^/api1'</span><span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">}</span> <span class="token comment">//去除请求前缀，保证交给后台服务器的是正常请求地址(必须配置)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">proxy</span><span class="token punctuation">(</span><span class="token string">'/api2'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> 
+      target<span class="token operator">:</span> <span class="token string">'http://localhost:5001'</span><span class="token punctuation">,</span>
+      changeOrigin<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      pathRewrite<span class="token operator">:</span> <span class="token punctuation">{</span><span class="token string">'^/api2'</span><span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li></ol> <p>说明：</p> <ol><li>优点：可以配置多个代理，可以灵活的控制请求是否走代理。</li> <li>缺点：配置繁琐，前端请求资源时必须加前缀。</li></ol></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/mo/React/React-Extension.html" class="prev">
+        React Extension
+      </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/mo/assets/js/app.167fb324.js" defer></script><script src="/mo/assets/js/2.bce10bab.js" defer></script><script src="/mo/assets/js/16.2b82adc4.js" defer></script>
+  </body>
+</html>
