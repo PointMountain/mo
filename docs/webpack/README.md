@@ -98,7 +98,7 @@
 - 使用Production`mode: production`
   - 自动开启代码压缩
   - Vue React等会自动删掉调试代码（如开发环境的warning）
-  - 自动启用Tree-Shaking（必须用ES6 Module才可以实现，Commonjs不行）
+  - 自动启用Tree-Shaking（必须用ES6 Module才可以实现，~~Commonjs不行~~，Webpack5支持了，但是效果不好）
     - ES6 Module静态引入，编译时引入
     - Commonjs动态引入，执行时引入
     - 只有ES6 Module才能静态分析，实现Tree-Shaking
