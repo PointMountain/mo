@@ -325,6 +325,16 @@ Event Loop执行顺序：
 5. 执行下一个宏任务
     > 如果要在页面渲染以后最快知道，需要用宏任务而不是微任务，因为页面渲染实在微任务队列清空之后才会执行的，渲染完之后就会去执行下一个宏任务。
 
+- Node中
+  - timers 执行setTimeout setInterval回调
+  - I/O 执行上一轮少数未执行的I/O回调
+  - idle prepare
+  - poll
+    - 回到timer执行回调 执行I/O回调
+    - 如果没有timer的话 如果poll不为空 会遍历执行回调队列同步执行直至队列为空或者达到系统限制；如果poll为空 如果有setImmediate会跳到check执行，如果没有的话会一直等待新的回调 然后执行（有超时设置）
+  - check 执行setImmediate
+  - close callbacks  执行close事件的callback
+
 **[Event Loop详细解释](https://github.com/aooy/blog/issues/5)**
 
 ## var let const
@@ -395,25 +405,6 @@ CommonJS和ESM之间的区别
 ## 执行栈
 存储函数调用的栈结构 先进后出
 爆栈 -> 执行栈存放是有限制的，存放过多就会导致爆栈一般出现在递归中
-
-## Event Loop
-宏任务 script、setTimeout、setImmediate、setInterval、I/O、UI rendering
-微任务 promise、process.nextTick、MutationObserve
-
-- 浏览器中
-当遇到异步函数时，会将函数挂起然后放到不同的task队列中
-浏览器中的Event Loop先执行同步函数，当执行栈为空时，就会从task中拿出异步代码执行，
-首先会将挂起的微任务队列中的微任务执行完，然后继续从宏任务队列中拿一个宏任务 执行完后再从微任务队列中执行微任务，依次执行
-
-- Node中
-  - timers 执行setTimeout setInterval回调
-  - I/O 执行上一轮少数未执行的I/O回调
-  - idle prepare
-  - poll
-    - 回到timer执行回调 执行I/O回调
-    - 如果没有timer的话 如果poll不为空 会遍历执行回调队列同步执行直至队列为空或者达到系统限制；如果poll为空 如果有setImmediate会跳到check执行，如果没有的话会一直等待新的回调 然后执行（有超时设置）
-  - check 执行setImmediate
-  - close callbacks  执行close事件的callback
 
 
 ## 事件触发三个阶段
