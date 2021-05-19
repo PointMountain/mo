@@ -35,7 +35,7 @@ module.exports = {
 			{text: 'Typescript', link: '/Typescript/'},
 			{text: '杂记',
 				items: [
-					{text: '面试预习', link: '/others/'},
+					{text: '面试学习', link: '/others/'},
 					{text: '面试整理', link: '/others/SomeInterview'},
 					{text: '网络连接方式', link: '/others/Connect'},
 					{text: '前端监控', link: '/others/Monitor'},
