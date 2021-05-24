@@ -35,7 +35,8 @@ module.exports = {
 			{text: 'Typescript', link: '/Typescript/'},
 			{text: '杂记',
 				items: [
-					{text: '面试学习', link: '/others/'},
+					{text: '基础学习', link: '/others/'},
+					{text: '网络学习', link: '/others/Network'},
 					{text: '面试整理', link: '/others/SomeInterview'},
 					{text: '网络连接方式', link: '/others/Connect'},
 					{text: '前端监控', link: '/others/Monitor'},
@@ -76,7 +77,8 @@ module.exports = {
 				['', 'Typescript基础']
 			],
 			'/others/':[
-				['', '面试预习'],
+				['', '基础学习'],
+				['Network', '网络学习'],
 				['SomeJS', '随手写代码'],
 				['myPromise', '简单Promise'],
 				['SomeInterview', '面试整理'],
