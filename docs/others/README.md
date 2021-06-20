@@ -697,7 +697,7 @@ HTTP 2.0中有**帧**（frame）和**流**（stream）这两个概念。
 
 ### 二进制传输
 HTTP 2.0所有加强性能的核心点在于此。在之前的HTTP版本中都是通过文本的方式传输数据，在HTTP/2中引入新的编码机制，所有传输的数据被分割，采用二进制格式编码为二进制帧。HTTP2 协议共存在十个二进制帧，分别为`DATA帧`，`HEADERS帧`，`PRIORITY帧`，`RST_STREAM帧`，`SETTINGS帧`，`PUSH_PROMISE帧`，`PING帧`，`GOAWAY帧`，`WINDOW_UPDATE帧`,`CONTINUATION帧`。常见的帧有`DATA帧`，它主要存储HTTP/2数据报文，`HEADERS帧`里面包含了Header块片段，也包含了流的优先级权重，可以和`PRIORITY帧`一起设置流的优先级权重。
-![](./images/二进制帧.png)
+![](./images/two.png)
 
 ### Header压缩
 在HTTP/1中 使用文本的形式传输Header，如果header中存在cookie的情况下，可能每次都需要重复传输很多字节
