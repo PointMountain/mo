@@ -84,7 +84,7 @@ module.exports = {
 				text: 'webpack',
 				items: [{
 						text: '基础学习',
-						link: '/webpack/'
+						link: '/webpack/Base'
 					},
 					{
 						text: '原理学习',
@@ -100,7 +100,7 @@ module.exports = {
 				text: '杂记',
 				items: [{
 						text: '基础学习',
-						link: '/others/'
+						link: '/others/Base'
 					},
 					{
 						text: '网络学习',
@@ -161,14 +161,14 @@ module.exports = {
 				['React-cli-proxy', 'React脚手架配置代理']
 			],
 			'/webpack/': [
-				['', 'webpack'],
+				['Base', 'webpack'],
 				['Principle', '原理']
 			],
 			'/Typescript/': [
 				['', 'Typescript基础']
 			],
 			'/others/': [
-				['', '基础学习'],
+				['Base', '基础学习'],
 				['Network', '网络学习'],
 				['SomeJS', '随手写代码'],
 				['myPromise', '简单Promise'],

@@ -24,8 +24,25 @@
         other: path.join(basePath, 'other.js')
       }
       output:{
-        filename: '[name].[hash].js' //因为多模块所以第一    部分用入口内部的name命名区分
+        filename: '[name].bundle.js' //因为多模块所以第一部分用入口内部的name命名区分
       }
+      // ...
+      plugins: [
+        new HtmlWebpackPlugin({
+          title: 'Multi Entry',
+          template: './src/index.html',
+          scriptLoading: 'blocking',
+          filename: 'index.html',
+          chunks: ['index'] // 指定使用index.bundle.js
+        }),
+        new HtmlWebpackPlugin({
+          title: 'Multi Entry',
+          template: './src/other.html',
+          scriptLoading: 'blocking',
+          filename: 'other.html',
+          chunks: ['other'] // 指定使用other.bundle.js
+        })
+      ]
     ```
 - 抽离CSS文件
   `MiniCssExtractPlugin`
