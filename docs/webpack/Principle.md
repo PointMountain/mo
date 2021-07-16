@@ -182,3 +182,42 @@ module.exports = {
   ]
 }
 ```
+## 优化Webpack的构建速度和打包结果
+1. 配置不同环境的文件，通过`webpack-merge`库，合并不同的配置文件
+2. 生产模式下的优化插件
+    1. `webpack.DefinePlugin`
+    2. `mini-css-extract-plugin`抽离css文件之后通过link引入，在loader和plugin中都需要处理下
+        ```js
+          module: {
+            rules: [
+              {
+                test: /\.css$/,
+                use: [
+                  // 'style-loader', // 将样式通过 style 标签注入
+                  MiniCssExtractPlugin.loader,
+                  'css-loader'
+                ]
+              }
+            ]
+          },
+          plugins: [
+            new MiniCssExtractPlugin()
+          ]
+        ```
+      3. `optimize-css-assets-webpack-plugin`是webpack5以下的CSS压缩插件，webpack5及以上版本用`css-minimizer-webpack-plugin`，作为插件可以直接放到plugin中使用，但是这样会让压缩插件在任何时间都会使用，因此webpack建议在minimizer中使用，通过minimize特效统一管理。
+          ```js
+          optimization: {
+            minimize: true, // 配置是否开启压缩特效的 生产环境默认是true 开发环境默认是false
+            minimizer: [
+              new CssMinimizerPlugin()
+            ]
+          }
+          ```
+      不过在minimizer中只配置一个CSS压缩插件，会覆盖掉webpack的默认压缩，导致JS代码不会压缩，需要再引入一个JS压缩插件`terser-webpack-plugin`，同样在minimizer中引入。
+      ```js
+      // webpack4以上可以使用'...'展开默认的压缩配置，无需再担心覆盖问题
+      minimizer: [
+        new CssMinimizerPlugin(),
+        '...'
+      ]
+      ```
