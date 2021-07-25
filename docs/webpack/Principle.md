@@ -1,7 +1,79 @@
-## 手写babel
-
+## 手写loader
+loader 只是一个导出为函数的 JavaScript 模块。loader runner 会调用这个函数，然后把上一个 loader 产生的结果或者资源文件(resource file)传入进去。
+```js
+// 导出的函数不能为箭头函数，因为loader编写过程中会经常使用到this访问选项和其他方法
+/**
+callback方法内部传参
+this.callback(
+  err: Error | null,
+  content: string | Buffer,
+  sourceMap?: SourceMap,
+  meta?: any
+)
+*/
+module.exports = function(content, sourceMap, meta) {
+  // 1. 同步loader直接return返回
+  return someSyncOperation(content)
+  // 2. 同步loader通过this.callback返回
+  this.callback(null, someSyncOperation(content), sourceMap, meta)
+  return // 当调用 callback() 时总是返回 undefined
+  // 3. 异步loader通过使用this.async()获取callback函数
+  let callback = this.async()
+  someAsyncOperation(content, function(err, result) {
+    if (err) return callback(err)
+    callback(null, result, sourceMap, meta)
+  })
+}
+```
 ## 手写plugin
-
+Webpack 工作流程中最核心的两个模块：Compiler 和 Compilation 都扩展自 Tapable 类，用于实现工作流程中的生命周期划分，以便在不同的生命周期节点上注册和调用插件。其中所暴露出来的生命周期节点称为Hook（俗称钩子）。
+Compiler 和 Compilation 是Plugin 和 Webpack 之间的桥梁
+- Compiler 对象包含了 Webpack 环境所有的的配置信息，包含 options，loaders，plugins 这些信息，这个对象在 Webpack 启动时候被实例化，它是全局唯一的，可以简单地把它理解为 Webpack 实例；
+- Compilation 对象包含了当前的模块资源、编译生成资源、变化的文件等。当 Webpack 以开发模式运行时，每当检测到一个文件变化，一次新的 Compilation 将被创建。Compilation 对象也提供了很多事件回调供插件做扩展。通过 Compilation 也能读取到 Compiler 对象。
+plugin有两种 一种是返回一个执行函数 一种是返回一个带有apply方法的对象
+```js
+// 返回一个执行函数
+module.exports = function() {
+  return () => {
+    // some operation
+  }
+}
+// 返回一个包含 apply 方法的 JavaScript 对象
+module.exports = class TestPlugin {
+  apply(compiler) {
+    // 通过在compiler实例上的hooks找到make钩子，然后通过tap方法注册同步事件
+    compiler.hooks.make.tap('TestPlugin', () => {
+      console.log('tap make')
+    })
+    // 通过在compiler实例上的hooks找到make钩子，然后通过tapAsync方法注册异步事件
+    // 需要通过使用回调中的callback告知Webpack异步逻辑执行完毕
+    compiler.hooks.make.tapAsync('TestPlugin', (data, callback) => {
+      setTimeout(() => {
+        console.log('tapAsync make')
+        callback()
+      })
+    })
+    // 通过在compiler实例上的hooks找到make钩子，然后通过tapPromise方法注册异步事件
+    // 结果需要返回promise
+    compiler.hooks.make.tapPromise('TestPlugin', () => {
+      return new Promise((resolve, reject) => {
+        console.log('tapPromise make')
+      })
+    })
+    // 回调也可以用async/await
+    compiler.hooks.make.tapPromise('TestPlugin', async () => {
+      await new Promise(resolve => setTimeout(resolve, 1000))
+      console.log('tapPromise make')
+    })
+    compiler.hooks.compilation.tap('TestPlugin', compilation => {
+      // compilation实例上也有钩子可以注册事件
+      compilation.hooks.buildModule.tap('CalculateTimePlugin', (module) => {
+        console.log('Compilation Hook buildModule')
+      })
+    })
+  }
+}
+```
 ## 工作原理剖析
 1. Webpack CLI启动打包流程
 2. 载入Webpack核心模块，创建Compiler对象
@@ -78,6 +150,52 @@ evel模式下每个模块都被包裹在一个evel函数中，函数末尾都会
   3. 虽然启动打包会比较慢，但是如果使用了`webpack-dev-server`，其是在监视模式下重新打包，它重新打包的速度非常快
 - 生产环境中
   一般使用`none`模式，防止暴露源代码到生产环境，如果实在想定位，可以使用`nosources-source-map`，这样出现错误可以定位到源代码位置，也不至于暴露源代码
+
+Webpack内部会对SourceMap内容判断来选择使用什么插件
+```js
+webpack/lib/WebpackOptionsApply.js:232
+
+if (options.devtool.includes("source-map")) {
+  const hidden = options.devtool.includes("hidden");
+  const inline = options.devtool.includes("inline");
+  const evalWrapped = options.devtool.includes("eval");
+  const cheap = options.devtool.includes("cheap");
+  const moduleMaps = options.devtool.includes("module");
+  const noSources = options.devtool.includes("nosources");
+
+  const Plugin = evalWrapped
+    ? require("./EvalSourceMapDevToolPlugin")
+    : require("./SourceMapDevToolPlugin");
+  new Plugin({
+    filename: inline ? null : options.output.sourceMapFilename,
+    moduleFilenameTemplate: options.output.devtoolModuleFilenameTemplate,
+    fallbackModuleFilenameTemplate:
+    options.output.devtoolFallbackModuleFilenameTemplate,
+    append: hidden ? false : undefined,
+    module: moduleMaps ? true : cheap ? false : true,
+    columns: cheap ? false : true,
+    noSources: noSources,
+    namespace: options.output.devtoolNamespace
+  }).apply(compiler);
+} else if (options.devtool.includes("eval")) {
+  const EvalDevToolModulePlugin = require("./EvalDevToolModulePlugin");
+  new EvalDevToolModulePlugin({
+    moduleFilenameTemplate: options.output.devtoolModuleFilenameTemplate,
+    namespace: options.output.devtoolNamespace
+  }).apply(compiler);
+}
+```
+因此我们其实可以主动使用这些插件配置设置sourcemap
+```js
+devtool: false,
+plugins: [
+  new webpack.EvalSourceMapDevToolPlugin({
+    exclude: /node_modules/,
+    module: true,
+    columns: false
+  })
+]
+```
 
 ## Webpack高级特性
 ### Code Spliting
