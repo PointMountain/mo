@@ -383,7 +383,7 @@ CommonJS和ESM之间的区别
 
 > 小拓展
 > Webpack中有Tree-Shaking机制，但对CommonJS效果不佳，对ESM效果很好，因为ESM会进行静态分析，知道哪些代码是不要的，但是CMD不行
-> 在Webpack4里面对ESM效果也不佳，因为4中只是单纯判断到底有没有import进来使用，没用就干掉没被引入的文件，但是这一步lint工作就可以在开发阶段实现了。Webpack5中实现了import了一个文件中的函数，把其他没用到的代码全部不干掉。
+> 在Webpack4里面对ESM效果也不佳，因为4中只是单纯判断到底有没有import进来使用，没有使用就干掉，但是这一步lint工作就可以在开发阶段实现了。Webpack5中实现了import了一个文件中的函数，把其他没用到的代码全部不干掉。
 > ![](./images/treeshaking.png)
 
 ## 垃圾回收机制
