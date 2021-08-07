@@ -382,8 +382,24 @@ CommonJS和ESM之间的区别
 - 前者导出时都是值拷贝，就算导出的值变了，导入的值也不会改变，所以如果想更新值，必然需要重新导入一次。后者采用实时绑定的方式，导入导出的值都指向同一个内存地址，所以导入值会跟随导出值变化。
 
 > 小拓展
-> Webpack中有Tree-Shaking机制，但对CommonJS效果不佳，对ESM效果很好，因为ESM会进行静态分析，知道哪些代码是不要的，但是CMD不行
-> 在Webpack4里面对ESM效果也不佳，因为4中只是单纯判断到底有没有import进来使用，没有使用就干掉，但是这一步lint工作就可以在开发阶段实现了。Webpack5中实现了import了一个文件中的函数，把其他没用到的代码全部不干掉。
+> Webpack中有Tree-Shaking机制，但对CommonJS效果不佳，对ESM效果很好，因为ESM会进行静态分析，知道哪些代码是不要的，但是CommonJS不行
+> 在Webpack4里面对引入全部default模块的ESM效果也不好，因为4中只是单纯判断到底有没有import进来使用，没有使用就干掉，但是这一步lint工作就可以在开发阶段实现了。Webpack5中实现了import了一个文件然后使用其中的函数，把其他没用到的代码全部不干掉。
+> ```js
+>   // a.js
+>   function log() { console.log('this is log') }
+>   function error() { console.error('this is log') }
+>   export default { log, error }
+>   // index.js
+>   import Module from 'a.js'
+>   Module.log()
+>   // webpack 4 中压缩过后的文件 将整个模块内容都打包进去了
+>   ({
+>     function log() { console.log('this is log') },
+>     function error() { console.error('this is log') }
+>   }).log()
+>   // webpack 5 中压缩过后的文件 将模块内其他的内容清掉了
+>   console.log('this is log')
+> ```
 > ![](./images/treeshaking.png)
 
 ## 垃圾回收机制

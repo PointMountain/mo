@@ -118,7 +118,7 @@
   - 自动启用Tree-Shaking（必须用ES6 Module才可以实现，~~Commonjs不行~~，Webpack5支持了，但是效果不好）
     - ES6 Module静态引入，编译时引入
     - Commonjs动态引入，执行时引入
-    - 只有ES6 Module才能静态分析，实现Tree-Shaking
+    - ES6 Module可以更好的静态分析，实现Tree-Shaking
 - Scope Hosting
   - 代码体积更小
   - 创建函数作用域更少
