@@ -51,11 +51,11 @@ for (let i = 1; i < 9; i++) {
 5. 用户体验指标中需要获取浏览器渲染的各个阶段时间，需要用`performance.timing`中的各个时间属性，之后再计算出自己想要的时间，发送给服务器，需要注意的是因为这些时间是需要在加载完之后才可以获取的因此需要监听	`load`才可以
 6. 还有页面元素属性 `FMP LCP`等需要`PerformanceObserve`进行创建
 eg:
-```
-new PerformanceObserve((entryList, observe)=>{
+```js
+new PerformanceObserver((entryList, observe)=>{
 	let perfEntries = entryList.getEntries()
 	LCP = perfEntries[0]
 	observe.disconnect() //不再观察了
-}).observe({entryType: ['largest-contentful-paint']})
+}).observe({entryTypes: ['largest-contentful-paint']})
 ```
 > 观察FMP 即页面中有意义的元素，是需要单独为dom元素设置属性`elementtiming`，才会被识别

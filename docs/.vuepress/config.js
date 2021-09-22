@@ -15,10 +15,6 @@ module.exports = {
 				link: '/'
 			},
 			{
-				text: 'Javascript基础',
-				link: '/Javascript/base'
-			},
-			{
 				text: 'Vue',
 				items: [{
 						text: 'Vue基础使用',
@@ -97,6 +93,18 @@ module.exports = {
 				link: '/Typescript/'
 			},
 			{
+				text: '面试整理',
+				items: [{
+						text: '2020面试',
+						link: '/Interview/2020'
+					},
+					{
+						text: '2021面试',
+						link: '/Interview/2021'
+					}
+				]
+			},
+			{
 				text: '杂记',
 				items: [{
 						text: '基础学习',
@@ -105,10 +113,6 @@ module.exports = {
 					{
 						text: '网络学习',
 						link: '/others/Network'
-					},
-					{
-						text: '面试整理',
-						link: '/others/SomeInterview'
 					},
 					{
 						text: '网络连接方式',
@@ -147,9 +151,6 @@ module.exports = {
 				['Vue-principle', 'Vue原理'],
 				['Vue-code', 'Vue源码解析'],
 			],
-			'/Javascript/': [
-				['base', 'Javascript基础']
-			],
 			'/React/': [
 				['', 'React基础'],
 				['React-State', 'React State'],
@@ -167,12 +168,15 @@ module.exports = {
 			'/Typescript/': [
 				['', 'Typescript基础']
 			],
+			'/Interview/': [
+				['2020', '2020面试整理'],
+				['2021', '2021面试整理']
+			],
 			'/others/': [
 				['Base', '基础学习'],
 				['Network', '网络学习'],
 				['SomeJS', '随手写代码'],
 				['myPromise', '简单Promise'],
-				['SomeInterview', '面试整理'],
 				['Connect', '网络连接方式'],
 				['Monitor', '前端监控'],
 				['Performance', '性能优化']
